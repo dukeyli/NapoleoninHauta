@@ -22,4 +22,4 @@ ja muihin voi laittaa mitä tahansa kortteja.
 - Aseta kortti jemmaan
 - Aseta kortti pinoon
 
-![luokkakaavio](/NapoleoninHauta/Dokumentointi/Luokkakaavio.png)
+![luokkakaavio](Dokumentointi/Luokkakaavio.png)
