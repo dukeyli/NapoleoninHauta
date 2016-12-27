@@ -21,3 +21,5 @@ ja muihin voi laittaa mitä tahansa kortteja.
 - Nosta kortti
 - Aseta kortti jemmaan
 - Aseta kortti pinoon
+
+![luokkakaavio](/Joululabra/Luokkakaavio.png)
