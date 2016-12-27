@@ -22,4 +22,4 @@ ja muihin voi laittaa mitä tahansa kortteja.
 - Aseta kortti jemmaan
 - Aseta kortti pinoon
 
-![luokkakaavio](Dokumentointi/Luokkakaavio.png)
+![luokkakaavio](Luokkakaavio.png)
