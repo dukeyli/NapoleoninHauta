@@ -8,5 +8,5 @@ kortit 6, 5, 4, 3, 2 ja ässä ja neljässä muussa pinossa on kortit 7-13.
 
 #### Dokumentaatio
 
-- [aiheen kuvaus](Dokumentaatio/Aiheenmäärittely.md)
-- [tuntikirjanpito](Dokumentaatio/Tuntikirjanpito.md)
+- [aiheen kuvaus](Dokumentointi/Aiheenmaarittely.md)
+- [tuntikirjanpito](Dokumentointi/Tuntikirjanpito.md)
