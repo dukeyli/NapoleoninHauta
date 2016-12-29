@@ -1,13 +1,13 @@
-package napoleoninhauta.pasianssi.pakka;
+package fi.duke.pakka;
 
 import java.util.ArrayList;
 import java.util.Collections;
 
-public class Pakanluoja {
+public class PakanLuoja {
 
     private ArrayList<Kortti> kortit;
 
-    public Pakanluoja() {
+    public PakanLuoja() {
         this.kortit = new ArrayList();
     }
 

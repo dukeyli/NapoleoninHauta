@@ -6,3 +6,5 @@ Päivä | Tunnit | Kuvaus
 26.12.2016 | 3h | Ohjelman tekemistä
 27.12.2016 | 3h | Toisen viikon deadlinetehtäviä ja ongelmien ratkaisua
 28.12.2016 | 2h | Testejä, testejä
+29.12.2016 | 2h | Testejentekoa ja yleistä parantelua
+

@@ -1,7 +1,7 @@
-package napoleoninhauta.pasianssi.pelialusta;
+package fi.duke.pelialusta;
 
 import java.util.ArrayList;
-import napoleoninhauta.pasianssi.pakka.Kortti;
+import fi.duke.pakka.Kortti;
 
 public abstract class Pino {
 

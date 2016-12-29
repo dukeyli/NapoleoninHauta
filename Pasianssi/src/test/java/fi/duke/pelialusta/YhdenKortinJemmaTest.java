@@ -1,7 +1,8 @@
-package napoleoninhauta.pasianssi.pelialusta;
+package fi.duke.pelialusta;
 
-import napoleoninhauta.pasianssi.pakka.Kortti;
-import napoleoninhauta.pasianssi.pakka.Maa;
+import fi.duke.pelialusta.YhdenKortinJemma;
+import fi.duke.pakka.Kortti;
+import fi.duke.pakka.Maa;
 import org.junit.After;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;

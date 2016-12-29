@@ -1,5 +1,7 @@
-package napoleoninhauta.pasianssi.pakka;
+package fi.duke.pakka;
 
+import fi.duke.pakka.Kortti;
+import fi.duke.pakka.Maa;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;

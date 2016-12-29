@@ -1,6 +1,6 @@
-package napoleoninhauta.pasianssi.pelialusta;
+package fi.duke.pelialusta;
 
-import napoleoninhauta.pasianssi.pakka.Kortti;
+import fi.duke.pakka.Kortti;
 
 public class Kulmapino extends Pino {
 

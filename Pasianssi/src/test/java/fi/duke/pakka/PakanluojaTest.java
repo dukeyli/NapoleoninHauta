@@ -1,5 +1,7 @@
-package napoleoninhauta.pasianssi.pakka;
+package fi.duke.pakka;
 
+import fi.duke.pakka.Kortti;
+import fi.duke.pakka.PakanLuoja;
 import java.util.ArrayList;
 import org.junit.After;
 import static org.junit.Assert.assertEquals;
@@ -9,11 +11,11 @@ import org.junit.Test;
 
 public class PakanluojaTest {
 
-    private Pakanluoja luoja;
+    private PakanLuoja luoja;
 
     @Before
     public void setUp() {
-        this.luoja = new Pakanluoja();
+        this.luoja = new PakanLuoja();
     }
 
     @Test

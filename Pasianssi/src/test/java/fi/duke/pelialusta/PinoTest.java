@@ -1,8 +1,9 @@
-package napoleoninhauta.pasianssi.pelialusta;
+package fi.duke.pelialusta;
 
+import fi.duke.pelialusta.Pelipino;
 import java.util.ArrayList;
-import napoleoninhauta.pasianssi.pakka.Kortti;
-import napoleoninhauta.pasianssi.pakka.Maa;
+import fi.duke.pakka.Kortti;
+import fi.duke.pakka.Maa;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;

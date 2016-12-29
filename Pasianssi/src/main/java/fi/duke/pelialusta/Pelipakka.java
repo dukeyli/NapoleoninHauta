@@ -1,13 +1,13 @@
-package napoleoninhauta.pasianssi.pelialusta;
+package fi.duke.pelialusta;
 
 import java.util.ArrayList;
-import napoleoninhauta.pasianssi.pakka.Kortti;
+import fi.duke.pakka.Kortti;
 
-public class Pakka {
+public class Pelipakka {
 
     private ArrayList<Kortti> kortit;
 
-    public Pakka(ArrayList<Kortti> kortit) {
+    public Pelipakka(ArrayList<Kortti> kortit) {
         this.kortit = kortit;
     }
 

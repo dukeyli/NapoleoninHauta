@@ -1,4 +1,4 @@
-package napoleoninhauta.pasianssi.pakka;
+package fi.duke.pakka;
 
 import java.util.Objects;
 

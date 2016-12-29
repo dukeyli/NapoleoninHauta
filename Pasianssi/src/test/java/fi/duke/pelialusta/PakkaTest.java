@@ -1,10 +1,11 @@
 
-package napoleoninhauta.pasianssi.pelialusta;
+package fi.duke.pelialusta;
 
+import fi.duke.pelialusta.Pelipakka;
 import java.util.ArrayList;
-import napoleoninhauta.pasianssi.pakka.Kortti;
-import napoleoninhauta.pasianssi.pakka.Maa;
-import napoleoninhauta.pasianssi.pakka.Pakanluoja;
+import fi.duke.pakka.Kortti;
+import fi.duke.pakka.Maa;
+import fi.duke.pakka.PakanLuoja;
 import org.junit.After;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
@@ -13,13 +14,13 @@ import org.junit.Test;
 
 public class PakkaTest {
     
-    private Pakka pakka;
-    private Pakanluoja luoja;
+    private Pelipakka pakka;
+    private PakanLuoja luoja;
     
     @Before
     public void setUp() {
-        this.luoja = new Pakanluoja();
-        this.pakka = new Pakka(luoja.alustaPakka());
+        this.luoja = new PakanLuoja();
+        this.pakka = new Pelipakka(luoja.alustaPakka());
     }
     
     @Test
@@ -42,7 +43,7 @@ public class PakkaTest {
     public void nostaKorttiPalauttaaPaalimmaisenKortin() {
         ArrayList<Kortti> lista = new ArrayList();
         lista.add(new Kortti(1, Maa.HERTTA));
-        Pakka yhdenKortinPakka = new Pakka(lista);
+        Pelipakka yhdenKortinPakka = new Pelipakka(lista);
         assertEquals(new Kortti(1, Maa.HERTTA), yhdenKortinPakka.nostaKortti());
     }
     
@@ -50,7 +51,7 @@ public class PakkaTest {
     public void nostaKorttiTyhjentaaPakanKunSiitaNostetaanViimeinenKortti() {
         ArrayList<Kortti> lista = new ArrayList();
         lista.add(new Kortti(1, Maa.HERTTA));
-        Pakka yhdenKortinPakka = new Pakka(lista);
+        Pelipakka yhdenKortinPakka = new Pelipakka(lista);
         yhdenKortinPakka.nostaKortti();
         assertTrue(yhdenKortinPakka.palautaMaara()==0);
     }
