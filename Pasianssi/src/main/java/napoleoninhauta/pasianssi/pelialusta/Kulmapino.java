@@ -1,16 +1,15 @@
-
 package napoleoninhauta.pasianssi.pelialusta;
 
 import napoleoninhauta.pasianssi.pakka.Kortti;
 
 public class Kulmapino extends Pino {
-    
+
     private int arvo;
 
     public Kulmapino() {
         this.arvo = 7;
     }
-    
+
     public int palautaArvo() {
         return this.arvo;
     }
@@ -22,7 +21,4 @@ public class Kulmapino extends Pino {
             arvo++;
         }
     }
-    
-    
-    
 }

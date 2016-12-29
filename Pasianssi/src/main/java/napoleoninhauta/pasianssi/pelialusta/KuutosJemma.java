@@ -22,5 +22,4 @@ public class KuutosJemma extends Pino {
         }
         return null;
     }
-
 }
