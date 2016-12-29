@@ -12,23 +12,22 @@ public class Kortti {
         this.maa = maa;
     }
 
-    @Override
     public String toString() {
-        return maa + " " + arvo;
+        return "Maa: " + maa + ", arvo: " + arvo;
     }
 
-    public Maa getMaa() {
+    public Maa palautaMaa() {
         return maa;
     }
 
-    public int getArvo() {
+    public int palautaArvo() {
         return arvo;
     }
 
     @Override
     public boolean equals(Object o) {
         Kortti kortti = (Kortti) o;
-        if (kortti.getArvo() == this.arvo && kortti.getMaa().equals(this.maa)) {
+        if (kortti.palautaArvo() == this.arvo && kortti.palautaMaa().equals(this.maa)) {
             return true;
         }
         return false;

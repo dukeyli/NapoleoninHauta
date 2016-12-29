@@ -9,7 +9,7 @@ public class KuutosJemma extends Pino {
 
     @Override
     public void asetaKortti(Kortti kortti) {
-        if (kortti.getArvo() == 6 && !super.palautaKortit().contains(kortti)) {
+        if (kortti.palautaArvo() == 6 && !super.palautaKortit().contains(kortti)) {
             super.palautaKortit().add(0, kortti);
         }
     }

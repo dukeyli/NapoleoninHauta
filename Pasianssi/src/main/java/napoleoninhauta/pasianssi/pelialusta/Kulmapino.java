@@ -16,7 +16,7 @@ public class Kulmapino extends Pino {
 
     @Override
     public void asetaKortti(Kortti kortti) {
-        if (kortti.getArvo() == arvo && !super.palautaKortit().contains(kortti)) {
+        if (kortti.palautaArvo() == arvo && !super.palautaKortit().contains(kortti)) {
             super.palautaKortit().add(0, kortti);
             arvo++;
         }
