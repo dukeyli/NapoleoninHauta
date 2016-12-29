@@ -7,23 +7,15 @@ import org.junit.Before;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
-public class JemmaTest {
+public class KuutosJemmaTest {
 
-    private Jemma jemma;
+    private KuutosJemma jemma;
     private Kortti testikortti;
-
-    public JemmaTest() {
-    }
 
     @Before
     public void setUp() {
-        jemma = new Jemma();
+        jemma = new KuutosJemma();
         testikortti = new Kortti(6, Maa.RISTI);
-    }
-
-    @Test
-    public void jemmaLuodaanJaPalautaMaaraToimii() {
-        assertEquals(0, jemma.palautaMaara());
     }
 
     @Test
@@ -44,18 +36,6 @@ public class JemmaTest {
         jemma.asetaKortti(new Kortti(1, Maa.PATA));
         jemma.asetaKortti(new Kortti(8, Maa.HERTTA));
         assertEquals(0, jemma.palautaMaara());
-    }
-
-    @Test
-    public void palautaYlinPalauttaaNullJosJemmaOnTyhja() {
-        assertEquals(null, jemma.palautaYlin());
-    }
-
-    @Test
-    public void palautaYlinPalauttaaViimeiseksiLaitetunKortin() {
-        jemma.asetaKortti(new Kortti(6, Maa.PATA));
-        jemma.asetaKortti(testikortti);
-        assertEquals(testikortti, jemma.palautaYlin());
     }
 
     @Test

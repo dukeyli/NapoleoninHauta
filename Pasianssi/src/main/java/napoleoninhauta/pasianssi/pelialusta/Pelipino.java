@@ -13,7 +13,9 @@ public class Pelipino extends Pino {
 
     @Override
     public void asetaKortti(Kortti kortti) {
-        super.palautaKortit().add(0, kortti);
+        if (!super.palautaKortit().contains(kortti)) {
+            super.palautaKortit().add(0, kortti);
+        }
     }
 
     public Kortti otaKortti() {

@@ -2,14 +2,14 @@ package napoleoninhauta.pasianssi.pelialusta;
 
 import napoleoninhauta.pasianssi.pakka.Kortti;
 
-public class Jemma extends Pino {
+public class KuutosJemma extends Pino {
 
-    public Jemma() {
+    public KuutosJemma() {
     }
 
     @Override
     public void asetaKortti(Kortti kortti) {
-        if (kortti.getArvo() == 6) {
+        if (kortti.getArvo() == 6 && !super.palautaKortit().contains(kortti)) {
             super.palautaKortit().add(0, kortti);
         }
     }

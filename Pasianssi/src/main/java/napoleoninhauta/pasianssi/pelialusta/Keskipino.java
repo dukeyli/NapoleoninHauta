@@ -9,10 +9,14 @@ public class Keskipino extends Pino {
     public Keskipino() {
         this.arvo = 6;
     }
+    
+    public int palautaArvo() {
+        return this.arvo;
+    }
 
     @Override
     public void asetaKortti(Kortti kortti) {
-        if (kortti.getArvo() == arvo) {
+        if (kortti.getArvo() == arvo && !super.palautaKortit().contains(kortti)) {
             super.palautaKortit().add(0, kortti);
             arvo--;
         }

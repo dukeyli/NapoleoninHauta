@@ -3,7 +3,7 @@ package napoleoninhauta.pasianssi;
 
 import napoleoninhauta.pasianssi.pakka.Kortti;
 import napoleoninhauta.pasianssi.pakka.Pakanluoja;
-import napoleoninhauta.pasianssi.pelialusta.Jemma;
+import napoleoninhauta.pasianssi.pelialusta.KuutosJemma;
 import napoleoninhauta.pasianssi.pelialusta.Keskipino;
 import napoleoninhauta.pasianssi.pelialusta.Kulmapino;
 import napoleoninhauta.pasianssi.pelialusta.Pakka;
@@ -14,8 +14,7 @@ public class Main {
     public static void main(String[] args) {
 
         Pakanluoja kortit = new Pakanluoja();
-        kortit.alustaPakka();
-        Pakka pakka = new Pakka(kortit.palautaPakka());
+        Pakka pakka = new Pakka(kortit.alustaPakka());
 
         System.out.println(pakka.palautaMaara());
         System.out.println(pakka.nostaKortti());
@@ -23,7 +22,7 @@ public class Main {
 
         Keskipino keskipino = new Keskipino();
         Kulmapino kulmapino = new Kulmapino();
-        Jemma jemma = new Jemma();
+        KuutosJemma jemma = new KuutosJemma();
         Pelipino pelipino = new Pelipino();
 
         int i = 1;
