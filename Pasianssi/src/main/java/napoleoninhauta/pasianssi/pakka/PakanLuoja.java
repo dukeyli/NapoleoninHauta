@@ -1,3 +1,6 @@
+/**
+ * Luokan tehtävänä on luoda perinteinen 52:n kortin korttipakka.
+ */
 package napoleoninhauta.pasianssi.pakka;
 
 import java.util.ArrayList;

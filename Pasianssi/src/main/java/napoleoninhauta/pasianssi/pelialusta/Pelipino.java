@@ -1,3 +1,7 @@
+/**
+ * Pinon perivä luokka, joka määrittelee pinon, johon voidaan laittaa ja josta voidaan 
+ * ottaa kortteja.
+ */
 package napoleoninhauta.pasianssi.pelialusta;
 
 import napoleoninhauta.pasianssi.pakka.Kortti;

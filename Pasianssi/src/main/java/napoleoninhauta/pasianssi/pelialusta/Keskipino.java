@@ -1,3 +1,8 @@
+/**
+ * Pinon perivä luokka, joka määrittelee pinon, johon voidaan laittaa kortteja joiden 
+ * arvo on välillä 1-6. Pinoon voi laittaa vain yhden arvoista korttia kerrallaan, ensin 
+ * kuutosia, sitten viitosia jne.
+ */
 package napoleoninhauta.pasianssi.pelialusta;
 
 import napoleoninhauta.pasianssi.pakka.Kortti;

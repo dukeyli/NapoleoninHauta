@@ -1,3 +1,7 @@
+/**
+ * Luokka määrittelee pinon, johon voi liittyä tasan yksi kortti kerrallaan. 
+ * Paikkaan voi laittaa kortin ja paikasta voi ottaa kortin pois, jolloin paikka vapautuu.
+ */
 package napoleoninhauta.pasianssi.pelialusta;
 
 import napoleoninhauta.pasianssi.pakka.Kortti;

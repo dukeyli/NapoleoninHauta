@@ -1,3 +1,7 @@
+/**
+ * Luokka, joka määrittelee korttipakan, josta kortteja aletaan nostaa pelissä. 
+ * Pelipaksta voi vain nostaa kortin.
+ */
 package napoleoninhauta.pasianssi.pelialusta;
 
 import java.util.ArrayList;

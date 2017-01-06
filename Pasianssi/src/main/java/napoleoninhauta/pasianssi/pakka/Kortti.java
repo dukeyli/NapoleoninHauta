@@ -1,3 +1,6 @@
+/**
+ * Luokka määrittelee pelikortin, johon liittyy lukuarvo ja maa.
+ */
 package napoleoninhauta.pasianssi.pakka;
 
 import java.util.Objects;

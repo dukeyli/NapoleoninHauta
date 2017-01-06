@@ -7,4 +7,5 @@ Päivä | Tunnit | Kuvaus
 27.12.2016 | 3h | Toisen viikon deadlinetehtäviä ja ongelmien ratkaisua
 28.12.2016 | 2h | Testejä, testejä
 29.12.2016 | 2h | Testejentekoa ja yleistä parantelua
-
+06.01.2017 | 3h | JavaDoc-työskentelyä ja käyttöliittymän aloitus
+07.01.2017 | 2h | Käyttöliittymän tekoa

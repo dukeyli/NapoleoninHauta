@@ -1,3 +1,8 @@
+/**
+ * Abstrakti luokka, joka määrittelee pino-olion, johon voi liittyä kortti tai kortteja.
+ * Pinolla on ylimmän kortin palauttava metodi sekä pinossa olevien korttien määrän 
+ * palauttava metodi.
+ */
 package napoleoninhauta.pasianssi.pelialusta;
 
 import java.util.ArrayList;
