@@ -32,25 +32,25 @@ public class Kulmapinot {
     public Kulmapino palautalounas() {
         return lounas;
     }
-    
+
     public boolean laitaKorttiSopivaanPinoon(Kortti kortti) {
-        if (luode.palautaArvo()==kortti.palautaArvo()) {
+        if (luode.palautaArvo() == kortti.palautaArvo()) {
             luode.asetaKortti(kortti);
             return true;
         }
-        if (koillinen.palautaArvo()==kortti.palautaArvo()) {
+        if (koillinen.palautaArvo() == kortti.palautaArvo()) {
             koillinen.asetaKortti(kortti);
             return true;
         }
-        if (kaakko.palautaArvo()==kortti.palautaArvo()) {
+        if (kaakko.palautaArvo() == kortti.palautaArvo()) {
             kaakko.asetaKortti(kortti);
             return true;
         }
-        if (lounas.palautaArvo()==kortti.palautaArvo()) {
+        if (lounas.palautaArvo() == kortti.palautaArvo()) {
             lounas.asetaKortti(kortti);
             return true;
         }
         return false;
     }
-    
+
 }

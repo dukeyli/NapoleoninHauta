@@ -42,7 +42,7 @@ public class Jemmat {
         }
         return true;
     }
-    
+
     public boolean laitaTyhjaanJemmaan(Kortti kortti) {
         if (lansi.palautaKortti().equals("tyhja")) {
             lansi.asetaKortti(kortti);

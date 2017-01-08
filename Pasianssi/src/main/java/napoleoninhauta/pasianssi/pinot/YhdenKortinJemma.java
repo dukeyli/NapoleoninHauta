@@ -16,7 +16,7 @@ public class YhdenKortinJemma {
 
     /**
      * Metodi laittaa parametrina annetun kortin jemmaan, jos jemmassa ei ole
-     * ennestään korttia
+     * ennestään korttia.
      *
      * @param kortti pinosta, pakasta tai jemmasta otettava kortti.
      *
