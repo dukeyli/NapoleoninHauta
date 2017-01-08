@@ -64,7 +64,7 @@ public class KuutosJemmaTest {
         jemma.asetaKortti(new Kortti(6, Maa.HERTTA));
         jemma.asetaKortti(testikortti);
         jemma.otaKortti();
-        assertEquals(new Kortti(6, Maa.HERTTA), jemma.palautaYlin());
+        assertEquals("HERTTA 6", jemma.palautaYlin());
     }
 
     @Test

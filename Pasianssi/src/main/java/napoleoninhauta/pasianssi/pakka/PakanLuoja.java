@@ -14,6 +14,14 @@ public class PakanLuoja {
         this.kortit = new ArrayList();
     }
 
+    /**
+     * Metodi palauttaa uuden sekoitetun pelipakan. Ensiksi metodi tyhjentää
+     * listan mahdollisista vanhoista korteista. Sen jälkeen metodi käyttää
+     * yksityisiä metodeja lisäämän listalle jokaisen neljän maan kortit 1-13.
+     * Lopuksi metodi sekoittaa pakan.
+     *
+     * @return valmis sekoitettu pakka
+     */
     public ArrayList<Kortti> alustaPakka() {
         kortit.clear();
         lisaaKortit();

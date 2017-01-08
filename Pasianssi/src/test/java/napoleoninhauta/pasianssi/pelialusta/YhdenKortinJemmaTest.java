@@ -22,7 +22,7 @@ public class YhdenKortinJemmaTest {
 
     @Test
     public void jemmaLuodaanJaPaikkaOnTyhja() {
-        assertEquals(null, jemma.palautaKortti());
+        assertEquals("tyhja", jemma.palautaKortti());
     }
 
     @Test
@@ -32,16 +32,16 @@ public class YhdenKortinJemmaTest {
     }
 
     @Test
-    public void palautaKorttiPalauttaaJemmanKortin() {
+    public void palautaKorttiPalauttaaJemmanKortinStringEsityksen() {
         jemma.asetaKortti(testikortti);
-        assertEquals(testikortti, jemma.palautaKortti());
+        assertEquals(testikortti.toString(), jemma.palautaKortti());
     }
 
     @Test
     public void jemmaanEiVoiLaittaaKorttiaJosJemmassaOnKortti() {
         jemma.asetaKortti(testikortti);
         jemma.asetaKortti(new Kortti(6, Maa.RUUTU));
-        assertEquals(testikortti, jemma.palautaKortti());
+        assertEquals(testikortti.toString(), jemma.palautaKortti());
     }
 
     @Test
@@ -59,7 +59,7 @@ public class YhdenKortinJemmaTest {
     public void otaKorttiTyhjentaaJemman() {
         jemma.asetaKortti(testikortti);
         jemma.otaKortti();
-        assertEquals(null, jemma.palautaKortti());
+        assertEquals("tyhja", jemma.palautaKortti());
     }
 
     @After

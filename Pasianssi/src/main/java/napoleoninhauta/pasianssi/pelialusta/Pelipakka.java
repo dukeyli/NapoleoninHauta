@@ -1,5 +1,5 @@
 /**
- * Luokka, joka määrittelee korttipakan, josta kortteja aletaan nostaa pelissä. 
+ * Luokka, joka määrittelee korttipakan, josta kortteja aletaan nostaa pelissä.
  * Pelipaksta voi vain nostaa kortin.
  */
 package napoleoninhauta.pasianssi.pelialusta;
@@ -15,10 +15,21 @@ public class Pelipakka {
         this.kortit = kortit;
     }
 
+    /**
+     * Metodi palauttaa pakassa olevien korttien lukumäärän.
+     *
+     * @return pakan koko
+     */
     public int palautaMaara() {
         return this.kortit.size();
     }
 
+    /**
+     * Metodi palauttaa pakan päälimmäisen kortin ja poistaa sen pakasta. Jos
+     * pakassa ei ole kortteja, metodi vain palauttaa null.
+     *
+     * @return päällimäinen kortti tai null
+     */
     public Kortti nostaKortti() {
         if (!kortit.isEmpty()) {
             Kortti eka = kortit.get(0);

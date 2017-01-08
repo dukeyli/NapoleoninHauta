@@ -32,8 +32,8 @@ public class KorttiTest {
 
     @Test
     public void toStringToimii() {
-        assertEquals("Maa: PATA, arvo: 3", kortti2.toString());
-        assertEquals("Maa: RISTI, arvo: 2", kortti1.toString());
+        assertEquals("PATA 3", kortti2.toString());
+        assertEquals("RISTI 2", kortti1.toString());
     }
     
     @Test

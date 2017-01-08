@@ -56,21 +56,21 @@ public class PinoTest {
     }
 
     @Test
-    public void palautaYlinPalauttaaNullJosJemmaOnTyhja() {
-        assertEquals(null, pinonPerivaPelipino.palautaYlin());
+    public void palautaYlinPalauttaaTyhjaJosJemmaOnTyhja() {
+        assertEquals("tyhja", pinonPerivaPelipino.palautaYlin());
     }
 
     @Test
-    public void palautaYlinPalauttaaKortinJosPinossaOnKortteja() {
+    public void palautaYlinPalauttaaKortinStringEsityksenJosPinossaOnKortteja() {
         pinonPerivaPelipino.asetaKortti(new Kortti(6, Maa.PATA));
-        assertTrue(pinonPerivaPelipino.palautaYlin().getClass() == Kortti.class);
+        assertEquals("PATA 6", pinonPerivaPelipino.palautaYlin());
     }
 
     @Test
     public void palautaYlinPalauttaaPinonPaalimmaisenKortin() {
         pinonPerivaPelipino.asetaKortti(new Kortti(6, Maa.PATA));
         pinonPerivaPelipino.asetaKortti(testikortti);
-        assertEquals(testikortti, pinonPerivaPelipino.palautaYlin());
+        assertEquals(testikortti.toString(), pinonPerivaPelipino.palautaYlin());
     }
 
     @After

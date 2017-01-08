@@ -37,7 +37,7 @@ public class PelipinoTest {
     public void asetaKorttiLaittaaKortinPinonPaalimmaiseksi() {
         pelipino.asetaKortti(testikortti);
         pelipino.asetaKortti(new Kortti(8, Maa.RUUTU));
-        assertEquals(new Kortti(8, Maa.RUUTU), pelipino.palautaYlin());
+        assertEquals("RUUTU 8", pelipino.palautaYlin());
     }
 
     @Test
@@ -65,7 +65,7 @@ public class PelipinoTest {
         pelipino.asetaKortti(new Kortti(6, Maa.HERTTA));
         pelipino.asetaKortti(testikortti);
         pelipino.otaKortti();
-        assertEquals(new Kortti(6, Maa.HERTTA), pelipino.palautaYlin());
+        assertEquals("HERTTA 6", pelipino.palautaYlin());
     }
 
     @Test
