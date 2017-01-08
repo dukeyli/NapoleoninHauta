@@ -3,7 +3,7 @@
  * Paikkaan voi laittaa kortin ja paikasta voi ottaa kortin pois, jolloin
  * paikka vapautuu.
  */
-package napoleoninhauta.pasianssi.pelialusta;
+package napoleoninhauta.pasianssi.pinot;
 
 import napoleoninhauta.pasianssi.pakka.Kortti;
 

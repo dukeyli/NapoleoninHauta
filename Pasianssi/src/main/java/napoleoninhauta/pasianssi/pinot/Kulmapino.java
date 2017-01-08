@@ -3,7 +3,7 @@
  * arvo on välillä 7-13. Pinoon voi laittaa vain yhden arvoista korttia kerrallaan, ensin
  * seiskaa, sitten kasia jne.
  */
-package napoleoninhauta.pasianssi.pelialusta;
+package napoleoninhauta.pasianssi.pinot;
 
 import napoleoninhauta.pasianssi.pakka.Kortti;
 

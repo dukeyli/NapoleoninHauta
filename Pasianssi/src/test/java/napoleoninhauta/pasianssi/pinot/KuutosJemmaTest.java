@@ -1,6 +1,6 @@
-package napoleoninhauta.pasianssi.pelialusta;
+package napoleoninhauta.pasianssi.pinot;
 
-import napoleoninhauta.pasianssi.pelialusta.KuutosJemma;
+import napoleoninhauta.pasianssi.pinot.KuutosJemma;
 import napoleoninhauta.pasianssi.pakka.Kortti;
 import napoleoninhauta.pasianssi.pakka.Maa;
 import org.junit.After;

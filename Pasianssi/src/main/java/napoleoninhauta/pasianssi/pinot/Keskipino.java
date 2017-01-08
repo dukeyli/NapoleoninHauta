@@ -3,7 +3,7 @@
  * arvo on välillä 1-6. Pinoon voi laittaa vain yhden arvoista korttia kerrallaan, ensin
  * kuutosia, sitten viitosia jne.
  */
-package napoleoninhauta.pasianssi.pelialusta;
+package napoleoninhauta.pasianssi.pinot;
 
 import napoleoninhauta.pasianssi.pakka.Kortti;
 
@@ -22,6 +22,18 @@ public class Keskipino extends Pino {
      */
     public int palautaArvo() {
         return this.arvo;
+    }
+
+    /**
+     * Metodi kertoo onko peli avattu, eli ensimmäinen kuutonen laitettu.
+     *
+     * @return boolean true/false
+     */
+    public boolean onkoPeliAvattu() {
+        if (super.palautaMaara() == 0) {
+            return false;
+        }
+        return true;
     }
 
     /**

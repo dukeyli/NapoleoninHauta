@@ -1,26 +1,26 @@
 /**
  * Pinon perivä luokka, joka määrittelee pinon, johon voidaan laittaa ja josta voidaan
- * ottaa kortteja, joiden arvo on kuusi.
+ * ottaa kortteja.
  */
-package napoleoninhauta.pasianssi.pelialusta;
+package napoleoninhauta.pasianssi.pinot;
 
 import napoleoninhauta.pasianssi.pakka.Kortti;
 
-public class KuutosJemma extends Pino {
+public class Pelipino extends Pino {
 
-    public KuutosJemma() {
+    public Pelipino() {
     }
 
     /**
-     * Metodi laittaa parametrina annetun kortin pinoon päälimmäiseksi, jos
-     * kortti on kuutonen ja pinossa ei ole jo kyseistä korttia.
+     * Metodi laittaa parametrina annetun kortin pinoon päällimmäiseksi, jos
+     * pinossa ei ole jo kyseistä korttia.
      *
      * @param kortti pinosta, pakasta tai jemmasta otettava kortti.
      *
      */
     @Override
     public void asetaKortti(Kortti kortti) {
-        if (kortti.palautaArvo() == 6 && !super.palautaKortit().contains(kortti)) {
+        if (!super.palautaKortit().contains(kortti)) {
             super.palautaKortit().add(0, kortti);
         }
     }

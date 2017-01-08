@@ -7,12 +7,15 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.WindowConstants;
+import napoleoninhauta.pasianssi.pelialusta.Pelialusta;
 
 public class Kayttoliittyma implements Runnable {
 
     private JFrame frame;
+    private Pelialusta pelialusta;
 
     public Kayttoliittyma() {
+        this.pelialusta = new Pelialusta();
     }
 
     @Override
@@ -32,26 +35,27 @@ public class Kayttoliittyma implements Runnable {
         GridLayout layout = new GridLayout(3, 4);
         container.setLayout(layout);
 
-        JButton nostaKortti = new JButton("Pelipakka");
+        JButton pelipakka = new JButton("pelipakka");
         JButton pelipino = new JButton("pelipino");
-        JButton kuutosjemma = new JButton("Kuutosjemma");
+        JButton kuutosjemma = new JButton("kuutosjemma");
+        JLabel keskipino = new JLabel("keskipino");
         JButton pohjoisjemma = new JButton("pohjoisjemma");
         JButton lansijemma = new JButton("lansijemma");
         JButton itajemma = new JButton("itajemma");
         JButton etelajemma = new JButton("etelajemma");
-        JLabel keskipino = new JLabel("Keskipino");
         JLabel koillinen = new JLabel("koillinen");
         JLabel kaakko = new JLabel("kaakko");
         JLabel lounas = new JLabel("lounas");
         JLabel luode = new JLabel("luode");
 
-        PelipakanKuuntelija nostaja = new PelipakanKuuntelija();
-        nostaKortti.addActionListener(nostaja);
+        PelipakanKuuntelija peliPaK = new PelipakanKuuntelija(pelialusta, pelipino);
+        pelipakka.addActionListener(peliPaK);
 
-        PelipinonKuuntelija pelinkuuntelija = new PelipinonKuuntelija();
-        pelipino.addActionListener(pelinkuuntelija);
+        PelipinonKuuntelija peliPiK = new PelipinonKuuntelija(pelialusta, pelipino,
+                keskipino, lansijemma, pohjoisjemma, etelajemma, itajemma);
+        pelipino.addActionListener(peliPiK);
 
-        container.add(nostaKortti);
+        container.add(pelipakka);
         container.add(luode);
         container.add(pohjoisjemma);
         container.add(koillinen);

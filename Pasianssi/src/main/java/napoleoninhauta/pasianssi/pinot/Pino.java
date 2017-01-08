@@ -3,7 +3,7 @@
  * Pinolla on ylimmän kortin palauttava metodi sekä pinossa olevien korttien määrän
  * palauttava metodi.
  */
-package napoleoninhauta.pasianssi.pelialusta;
+package napoleoninhauta.pasianssi.pinot;
 
 import java.util.ArrayList;
 import napoleoninhauta.pasianssi.pakka.Kortti;

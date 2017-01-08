@@ -1,7 +1,7 @@
 
-package napoleoninhauta.pasianssi.pelialusta;
+package napoleoninhauta.pasianssi.pinot;
 
-import napoleoninhauta.pasianssi.pelialusta.Pelipakka;
+import napoleoninhauta.pasianssi.pinot.Pelipakka;
 import java.util.ArrayList;
 import napoleoninhauta.pasianssi.pakka.Kortti;
 import napoleoninhauta.pasianssi.pakka.Maa;
