@@ -2,51 +2,41 @@ package napoleoninhauta.pasianssi.peli;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import javax.swing.JButton;
-import javax.swing.JLabel;
 import napoleoninhauta.pasianssi.pakka.Kortti;
 import napoleoninhauta.pasianssi.pelialusta.Pelialusta;
 
 public class PelipinonKuuntelija implements ActionListener {
 
     private Pelialusta alusta;
-    private JButton pelipino;
-    private JLabel keskipino;
-    private JButton lansijemma;
-    private JButton itajemma;
-    private JButton pohjoisjemma;
-    private JButton etelajemma;
+    private Paivittaja paivittaja;
 
-    public PelipinonKuuntelija(Pelialusta alusta, JButton pino, JLabel keskip,
-            JButton i, JButton e,
-            JButton l, JButton p) {
+    public PelipinonKuuntelija(Pelialusta alusta, Paivittaja paivittaja) {
         this.alusta = alusta;
-        this.pelipino = pino;
-        this.keskipino = keskip;
-        this.lansijemma = l;
-        this.itajemma = i;
-        this.pohjoisjemma = p;
-        this.etelajemma = e;
+        this.paivittaja = paivittaja;
     }
 
     @Override
     public void actionPerformed(ActionEvent e) {
         if (!alusta.palautaMuut().palautaPelipino().palautaYlin().equals("tyhja")) {
             Kortti kortti = alusta.palautaMuut().palautaPelipino().otaKortti();
-            suorita(kortti);
-        }
-        paivita();
-    }
-
-    public void suorita(Kortti kortti) {
-        if (alusta.palautaMuut().palautaKeskipino().onkoPeliAvattu() == false) {
-            alusta.palautaMuut().palautaKeskipino().asetaKortti(kortti);
-        } else {
-            boolean eiMennyt = suoritaMuutTapaukset(kortti);
-            if (eiMennyt == true) {
+            boolean meniko = suorita(kortti);
+            if (meniko == false) {
                 alusta.palautaMuut().palautaPelipino().asetaKortti(kortti);
             }
+            paivittaja.paivita();
         }
+    }
+
+    public boolean suorita(Kortti kortti) {
+        if (alusta.palautaMuut().palautaKeskipino().onkoPeliAvattu() == false) {
+            if (kortti.palautaArvo() == 6) {
+                alusta.palautaMuut().palautaKeskipino().asetaKortti(kortti);
+                return true;
+            }
+        } else if (suoritaMuutTapaukset(kortti) == false) {
+            return true;
+        }
+        return false;
     }
 
     public boolean suoritaMuutTapaukset(Kortti kortti) {
@@ -89,15 +79,6 @@ public class PelipinonKuuntelija implements ActionListener {
             return true;
         }
         return false;
-    }
-
-    public void paivita() {
-        pelipino.setText(alusta.palautaMuut().palautaPelipino().palautaYlin());
-        keskipino.setText(alusta.palautaMuut().palautaKeskipino().palautaYlin());
-        lansijemma.setText(alusta.palautaJemmat().palautaLansi().palautaKortti());
-        pohjoisjemma.setText(alusta.palautaJemmat().palautaPohjoinen().palautaKortti());
-        itajemma.setText(alusta.palautaJemmat().palautaIta().palautaKortti());
-        etelajemma.setText(alusta.palautaJemmat().palautaEtela().palautaKortti());
     }
 
 }

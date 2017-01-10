@@ -56,4 +56,16 @@ public class YhdenKortinJemma {
         return this.paikka.toString();
     }
 
+    /**
+     * Metodi palauttaa jemman kortin arvon, jos jemmassa on kortti.
+     *
+     * @return kortin arvo kokonaislukuna tai nolla
+     */
+    public int palautaKortinArvo() {
+        if (paikka == null) {
+            return 0;
+        }
+        return paikka.palautaArvo();
+    }
+
 }

@@ -1,5 +1,6 @@
 package napoleoninhauta.pasianssi.pelialusta;
 
+import java.util.ArrayList;
 import napoleoninhauta.pasianssi.pakka.Kortti;
 import napoleoninhauta.pasianssi.pinot.Kulmapino;
 
@@ -29,7 +30,7 @@ public class Kulmapinot {
         return kaakko;
     }
 
-    public Kulmapino palautalounas() {
+    public Kulmapino palautaLounas() {
         return lounas;
     }
 
@@ -51,6 +52,15 @@ public class Kulmapinot {
             return true;
         }
         return false;
+    }
+
+    public ArrayList<Integer> palautaArvot() {
+        ArrayList<Integer> lista = new ArrayList();
+        lista.add(luode.palautaArvo());
+        lista.add(koillinen.palautaArvo());
+        lista.add(kaakko.palautaArvo());
+        lista.add(lounas.palautaArvo());
+        return lista;
     }
 
 }

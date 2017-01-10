@@ -35,39 +35,55 @@ public class Kayttoliittyma implements Runnable {
         GridLayout layout = new GridLayout(3, 4);
         container.setLayout(layout);
 
-        JButton pelipakka = new JButton("pelipakka");
-        JButton pelipino = new JButton("pelipino");
-        JButton kuutosjemma = new JButton("kuutosjemma");
-        JLabel keskipino = new JLabel("keskipino");
-        JButton pohjoisjemma = new JButton("pohjoisjemma");
-        JButton lansijemma = new JButton("lansijemma");
-        JButton itajemma = new JButton("itajemma");
-        JButton etelajemma = new JButton("etelajemma");
-        JLabel koillinen = new JLabel("koillinen");
-        JLabel kaakko = new JLabel("kaakko");
-        JLabel lounas = new JLabel("lounas");
-        JLabel luode = new JLabel("luode");
+        JButton ppakka = new JButton("pelipakka");
+        JButton ppino = new JButton("tyhja");
+        JButton kjemma = new JButton("tyhja");
+        JLabel kpino = new JLabel("tyhja");
+        JButton pjemma = new JButton("tyhja");
+        JButton ljemma = new JButton("tyhja");
+        JButton ijemma = new JButton("tyhja");
+        JButton ejemma = new JButton("tyhja");
+        JLabel koillinen = new JLabel("tyhja");
+        JLabel kaakko = new JLabel("tyhja");
+        JLabel lounas = new JLabel("tyhja");
+        JLabel luode = new JLabel("tyhja");
 
-        PelipakanKuuntelija peliPaK = new PelipakanKuuntelija(pelialusta, pelipino);
-        pelipakka.addActionListener(peliPaK);
+        Paivittaja paivittaja = new Paivittaja(pelialusta, ppino, kjemma, ljemma,
+                pjemma, ijemma, ejemma, luode, koillinen, kaakko, lounas, kpino);
 
-        PelipinonKuuntelija peliPiK = new PelipinonKuuntelija(pelialusta, pelipino,
-                keskipino, lansijemma, pohjoisjemma, etelajemma, itajemma);
-        pelipino.addActionListener(peliPiK);
+        PelipakanKuuntelija peliPaK = new PelipakanKuuntelija(pelialusta, ppino);
+        ppakka.addActionListener(peliPaK);
 
-        container.add(pelipakka);
+        PelipinonKuuntelija peliPiK = new PelipinonKuuntelija(pelialusta, paivittaja);
+        ppino.addActionListener(peliPiK);
+
+        LansijemmanKuuntelija ljemmanK = new LansijemmanKuuntelija(pelialusta, paivittaja);
+        ljemma.addActionListener(ljemmanK);
+
+        PohjoisjemmanKuuntelija pjemmanK = new PohjoisjemmanKuuntelija(pelialusta, paivittaja);
+        pjemma.addActionListener(pjemmanK);
+
+        ItajemmanKuuntelija ijemmanK = new ItajemmanKuuntelija(pelialusta, paivittaja);
+        ijemma.addActionListener(ijemmanK);
+
+        EtelajemmanKuuntelija ejemmanK = new EtelajemmanKuuntelija(pelialusta, paivittaja);
+        ejemma.addActionListener(ejemmanK);
+
+        KuutosjemmanKuuntelija kjemmaK = new KuutosjemmanKuuntelija(pelialusta, paivittaja);
+        kjemma.addActionListener(kjemmaK);
+
+        container.add(ppakka);
         container.add(luode);
-        container.add(pohjoisjemma);
+        container.add(pjemma);
         container.add(koillinen);
-        container.add(pelipino);
-        container.add(lansijemma);
-        container.add(keskipino);
-        container.add(itajemma);
-        container.add(kuutosjemma);
+        container.add(ppino);
+        container.add(ljemma);
+        container.add(kpino);
+        container.add(ijemma);
+        container.add(kjemma);
         container.add(lounas);
-        container.add(etelajemma);
+        container.add(ejemma);
         container.add(kaakko);
-
     }
 
     public JFrame getFrame() {
