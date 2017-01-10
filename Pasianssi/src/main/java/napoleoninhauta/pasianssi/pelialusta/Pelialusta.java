@@ -31,4 +31,55 @@ public class Pelialusta {
         muut.palautaPelipino().asetaKortti(kortti);
     }
 
+    public boolean suoritaPelipino(Kortti kortti) {
+        if (muut.palautaKeskipino().onkoPeliAvattu() == false) {
+            if (kortti.palautaArvo() == 6) {
+                muut.palautaKeskipino().asetaKortti(kortti);
+                return true;
+            }
+        } else if (suoritaPelipinonMuutTapaukset(kortti) == false) {
+            return true;
+        }
+        return false;
+    }
+
+    private boolean suoritaPelipinonMuutTapaukset(Kortti kortti) {
+        boolean jatkuuko = true;
+        jatkuuko = laitaKeskipinoonTaiKuutosjemmaanPelipinosta(kortti);
+        if (jatkuuko == false) {
+            return false;
+        }
+        jatkuuko = laitaKulmapinoonPelipinosta(kortti);
+        if (jatkuuko == false) {
+            return false;
+        }
+        return laitaJemmaanPelipinosta(kortti);
+    }
+
+    private boolean laitaKeskipinoonTaiKuutosjemmaanPelipinosta(Kortti kortti) {
+        if (kortti.palautaArvo() == muut.palautaKeskipino().palautaArvo()) {
+            muut.palautaKeskipino().asetaKortti(kortti);
+            return false;
+        }
+        if (kortti.palautaArvo() == 6) {
+            muut.palautaKuutosJemma().asetaKortti(kortti);
+            return false;
+        }
+        return true;
+    }
+
+    private boolean laitaKulmapinoonPelipinosta(Kortti kortti) {
+        if (kulmapinot.laitaKorttiSopivaanPinoon(kortti) == true) {
+            return false;
+        }
+        return true;
+    }
+
+    private boolean laitaJemmaanPelipinosta(Kortti kortti) {
+        if (jemmat.laitaTyhjaanJemmaan(kortti) == false) {
+            return true;
+        }
+        return false;
+    }
+
 }

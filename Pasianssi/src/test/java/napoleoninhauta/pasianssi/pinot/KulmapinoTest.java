@@ -54,7 +54,7 @@ public class KulmapinoTest {
     public void asetaKorttiLaittaaKortinPinonPaalimmaiseksi() {
         kulmapino.asetaKortti(testikortti);
         kulmapino.asetaKortti(new Kortti(8, Maa.RUUTU));
-        assertEquals("RUUTU 8", kulmapino.palautaYlin());
+        assertEquals("RUUTU_8", kulmapino.palautaYlin());
     }
 
     @Test

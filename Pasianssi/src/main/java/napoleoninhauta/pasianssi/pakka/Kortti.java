@@ -16,7 +16,7 @@ public class Kortti {
     }
 
     public String toString() {
-        return maa + " " + arvo;
+        return maa + "_" + arvo;
     }
 
     public Maa palautaMaa() {

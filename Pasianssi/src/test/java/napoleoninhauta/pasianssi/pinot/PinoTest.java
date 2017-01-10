@@ -63,7 +63,7 @@ public class PinoTest {
     @Test
     public void palautaYlinPalauttaaKortinStringEsityksenJosPinossaOnKortteja() {
         pinonPerivaPelipino.asetaKortti(new Kortti(6, Maa.PATA));
-        assertEquals("PATA 6", pinonPerivaPelipino.palautaYlin());
+        assertEquals("PATA_6", pinonPerivaPelipino.palautaYlin());
     }
 
     @Test

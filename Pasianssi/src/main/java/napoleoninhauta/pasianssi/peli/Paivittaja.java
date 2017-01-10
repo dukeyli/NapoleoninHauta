@@ -1,5 +1,7 @@
 package napoleoninhauta.pasianssi.peli;
 
+import java.awt.Image;
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import napoleoninhauta.pasianssi.pelialusta.Pelialusta;
@@ -53,23 +55,31 @@ public class Paivittaja {
     }
 
     private void paivitaJemmat() {
-        lansi.setText(alusta.palautaJemmat().palautaLansi().palautaKortti());
-        pohjoinen.setText(alusta.palautaJemmat().palautaPohjoinen().palautaKortti());
-        ita.setText(alusta.palautaJemmat().palautaIta().palautaKortti());
-        etela.setText(alusta.palautaJemmat().palautaEtela().palautaKortti());
+        paivitaNappi(lansi, alusta.palautaJemmat().palautaLansi().palautaKortti());
+        paivitaNappi(pohjoinen, alusta.palautaJemmat().palautaPohjoinen().palautaKortti());
+        paivitaNappi(ita, alusta.palautaJemmat().palautaIta().palautaKortti());
+        paivitaNappi(etela, alusta.palautaJemmat().palautaEtela().palautaKortti());
     }
 
     private void paivitaKulmapinot() {
-        luode.setText(alusta.palautaKulmapinot().palautaLuode().palautaYlin());
-        koillinen.setText(alusta.palautaKulmapinot().palautaKoillinen().palautaYlin());
-        kaakko.setText(alusta.palautaKulmapinot().palautaKaakko().palautaYlin());
-        lounas.setText(alusta.palautaKulmapinot().palautaLounas().palautaYlin());
+        paivitaTeksti(luode, alusta.palautaKulmapinot().palautaLuode().palautaYlin());
+        paivitaTeksti(koillinen, alusta.palautaKulmapinot().palautaKoillinen().palautaYlin());
+        paivitaTeksti(kaakko, alusta.palautaKulmapinot().palautaKaakko().palautaYlin());
+        paivitaTeksti(lounas, alusta.palautaKulmapinot().palautaLounas().palautaYlin());
     }
 
     private void paivitaMuut() {
-        pelipino.setText(alusta.palautaMuut().palautaPelipino().palautaYlin());
-        keskipino.setText(alusta.palautaMuut().palautaKeskipino().palautaYlin());
-        kuutosjemma.setText(alusta.palautaMuut().palautaKuutosJemma().palautaYlin());
+        paivitaNappi(pelipino, alusta.palautaMuut().palautaPelipino().palautaYlin());
+        paivitaTeksti(keskipino, alusta.palautaMuut().palautaKeskipino().palautaYlin());
+        paivitaNappi(kuutosjemma, alusta.palautaMuut().palautaKuutosJemma().palautaYlin());
+    }
+
+    public void paivitaNappi(JButton pino, String kortti) {
+        pino.setIcon(new ImageIcon(new ImageIcon("Images/" + kortti + ".png").getImage().getScaledInstance(164, 232, Image.SCALE_DEFAULT)));
+    }
+
+    public void paivitaTeksti(JLabel pino, String kortti) {
+        pino.setIcon(new ImageIcon(new ImageIcon("Images/" + kortti + ".png").getImage().getScaledInstance(164, 232, Image.SCALE_DEFAULT)));
     }
 
 }

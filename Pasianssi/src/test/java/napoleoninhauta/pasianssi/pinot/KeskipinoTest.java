@@ -54,7 +54,7 @@ public class KeskipinoTest {
     public void asetaKorttiLaittaaKortinPinonPaalimmaiseksi() {
         keskipino.asetaKortti(testikortti);
         keskipino.asetaKortti(new Kortti(5, Maa.RUUTU));
-        assertEquals("RUUTU 5", keskipino.palautaYlin());
+        assertEquals("RUUTU_5", keskipino.palautaYlin());
     }
 
     @Test
