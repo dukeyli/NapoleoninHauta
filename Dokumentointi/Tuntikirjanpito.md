@@ -14,3 +14,4 @@ Päivä | Tunnit | Kuvaus
 09.01.2017 | 4h | Käyttöliittymän kehittämistä ja toiminnallisuutta
 10.01.2017 | 6h | Kuvien lisäämistä, toiminnallisuutta ja käyttöliittymää
 11.01.2017 | 6h | Toiminnallisuutta, hiomista ja javadocia, DL6-tehtäviä
+11.01.2017 | 1h | Dl 6:n tehtäviä
