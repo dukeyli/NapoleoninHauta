@@ -1,6 +1,6 @@
-#### Käyttöohjeet
+## Käyttöohjeet
 
-##Säännöt
+###Säännöt
 
 Pelin alussa nostetaan kortteja pelipinoon kunnes nostetaan kuutonen. 
 Tämän jälkeen peli voi alkaa. Kortit kuutosesta ässään menevät keskipinoon
@@ -16,7 +16,7 @@ Peli etenee nostamalla korttia pelipinoon, josta kortit etenevät keski- tai
 kulmapinoihin tai jemmoihin. Pelin voittaa, jos saa laitettua kaikki kortit
 viiteen mainittuun pinoon.
 
-##Toiminnot
+###Toiminnot
 
 - Pelipakasta nostetaan kortti klikkaamalla pelipakkaa.
 - Klikkaamalla pelipinon korttia, se menee peliä edistävään pinoon.

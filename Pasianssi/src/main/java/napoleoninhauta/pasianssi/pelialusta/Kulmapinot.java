@@ -47,7 +47,7 @@ public class Kulmapinot {
      * mene mihinkään pinoista, metodi palauttaa false.
      *
      * @param kortti pelipinosta tai jemmoista otettu kortti
-     * @return
+     * @return true tai false
      */
     public boolean laitaKorttiSopivaanPinoon(Kortti kortti) {
         if (luode.palautaArvo() == kortti.getArvo()) {
