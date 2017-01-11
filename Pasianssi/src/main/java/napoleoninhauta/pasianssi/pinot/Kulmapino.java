@@ -11,6 +11,9 @@ public class Kulmapino extends Pino {
 
     private int arvo;
 
+    /**
+     * Konstruktori antaa attribuutille arvon seitsemän (7).
+     */
     public Kulmapino() {
         this.arvo = 7;
     }
@@ -35,9 +38,15 @@ public class Kulmapino extends Pino {
      */
     @Override
     public void asetaKortti(Kortti kortti) {
-        if (kortti.palautaArvo() == arvo && !super.palautaKortit().contains(kortti)) {
+        if (kortti.getArvo() == arvo && !super.palautaKortit().contains(kortti)) {
             super.palautaKortit().add(0, kortti);
             arvo++;
         }
+    }
+
+    @Override
+    public void tyhjenna() {
+        super.palautaKortit().clear();
+        arvo = 7;
     }
 }

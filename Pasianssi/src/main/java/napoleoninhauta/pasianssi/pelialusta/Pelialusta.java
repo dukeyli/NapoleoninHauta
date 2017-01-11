@@ -1,3 +1,6 @@
+/**
+ * Luokka tarjoaa monia metodeja pinojen ja pakkojen väliseen toiminnallisuuteen.
+ */
 package napoleoninhauta.pasianssi.pelialusta;
 
 import napoleoninhauta.pasianssi.pakka.Kortti;
@@ -8,39 +11,62 @@ public class Pelialusta {
     private Kulmapinot kulmapinot;
     private PelialustanMuutPinot muut;
 
+    /**
+     * Konstruktori alustaa jemmat, kulmapinot ja muut pinot ja pakat.
+     */
     public Pelialusta() {
         this.jemmat = new Jemmat();
         this.kulmapinot = new Kulmapinot();
         this.muut = new PelialustanMuutPinot();
     }
 
-    public Jemmat palautaJemmat() {
+    public Jemmat getJemmat() {
         return this.jemmat;
     }
 
-    public Kulmapinot palautaKulmapinot() {
+    public Kulmapinot getKulmapinot() {
         return this.kulmapinot;
     }
 
-    public PelialustanMuutPinot palautaMuut() {
+    public PelialustanMuutPinot getMuut() {
         return this.muut;
     }
 
+    /**
+     * Metodi nostaa kortin pelipakasta ja asettaa sen pelipinoon.
+     */
     public void nostaKorttiPakasta() {
-        Kortti kortti = muut.palautaPelipakka().nostaKortti();
-        muut.palautaPelipino().asetaKortti(kortti);
+        Kortti kortti = muut.getPelipakka().nostaKortti();
+        muut.getPelipino().asetaKortti(kortti);
     }
 
-    public boolean suoritaPelipino(Kortti kortti) {
-        if (muut.palautaKeskipino().onkoPeliAvattu() == false) {
-            if (kortti.palautaArvo() == 6) {
-                muut.palautaKeskipino().asetaKortti(kortti);
-                return true;
-            }
-        } else if (suoritaPelipinonMuutTapaukset(kortti) == false) {
-            return true;
+    /**
+     * Metodi suorittaa toiminnallisuuden pelipinosta otettavaan korttiin.
+     *
+     * @param kortti
+     * @return
+     */
+    public void suoritaPelipino() {
+        Kortti kortti = muut.getPelipino().otaKortti();
+        if (muut.getKeskipino().onkoPeliAvattu() == false) {
+            avaaPeli(kortti);
+        } else {
+            suoritaPelipinonTapaukset(kortti);
         }
-        return false;
+    }
+
+    private void avaaPeli(Kortti kortti) {
+        if (kortti.getArvo() == 6) {
+            muut.getKeskipino().asetaKortti(kortti);
+        } else {
+            muut.getPelipino().asetaKortti(kortti);
+        }
+    }
+
+    private void suoritaPelipinonTapaukset(Kortti kortti) {
+        if (suoritaPelipinonMuutTapaukset(kortti) == true) {
+            muut.getPelipino().asetaKortti(kortti);
+        }
     }
 
     private boolean suoritaPelipinonMuutTapaukset(Kortti kortti) {
@@ -57,12 +83,12 @@ public class Pelialusta {
     }
 
     private boolean laitaKeskipinoonTaiKuutosjemmaanPelipinosta(Kortti kortti) {
-        if (kortti.palautaArvo() == muut.palautaKeskipino().palautaArvo()) {
-            muut.palautaKeskipino().asetaKortti(kortti);
+        if (kortti.getArvo() == muut.getKeskipino().palautaArvo()) {
+            muut.getKeskipino().asetaKortti(kortti);
             return false;
         }
-        if (kortti.palautaArvo() == 6) {
-            muut.palautaKuutosJemma().asetaKortti(kortti);
+        if (kortti.getArvo() == 6) {
+            muut.getKuutosJemma().asetaKortti(kortti);
             return false;
         }
         return true;
@@ -83,7 +109,11 @@ public class Pelialusta {
     }
 
     public boolean meneekoMikaan() {
-        if (meneekoMinnekkaan(muut.palautaPelipino().palautaYlimmanArvo()) == false) {
+        int arvo = muut.getPelipino().palautaYlimmanArvo();
+        if (arvo == 6) {
+            return true;
+        }
+        if (meneekoMinnekkaan(arvo) == false) {
             return meneekoJemmat();
         }
         return true;
@@ -93,38 +123,38 @@ public class Pelialusta {
         if (arvo == 0) {
             return false;
         }
-        if (!kulmapinot.palautaArvot().contains(arvo) && muut.palautaKeskipino().palautaArvo() != arvo) {
+        if (!kulmapinot.palautaArvot().contains(arvo) && muut.getKeskipino().palautaArvo() != arvo) {
             return false;
         }
         return true;
     }
 
     private boolean meneekoJemmat() {
-        if (meneekoMinnekkaan(jemmat.palautaEtela().palautaKortinArvo()) == false
-                && meneekoMinnekkaan(jemmat.palautaIta().palautaKortinArvo()) == false
-                && meneekoMinnekkaan(jemmat.palautaPohjoinen().palautaKortinArvo()) == false
-                && meneekoMinnekkaan(jemmat.palautaLansi().palautaKortinArvo()) == false) {
+        if (meneekoMinnekkaan(jemmat.getEtela().palautaKortinArvo()) == false
+                && meneekoMinnekkaan(jemmat.getIta().palautaKortinArvo()) == false
+                && meneekoMinnekkaan(jemmat.getPohjoinen().palautaKortinArvo()) == false
+                && meneekoMinnekkaan(jemmat.getLansi().palautaKortinArvo()) == false) {
             return false;
         }
         return true;
     }
 
     public void aloitaUusiPeli() {
-        muut.palautaPelipakka().alustaUusiPakka();
-        muut.palautaKeskipino().tyhjenna();
-        muut.palautaPelipino().tyhjenna();
-        muut.palautaKuutosJemma().tyhjenna();
+        muut.getPelipakka().alustaUusiPakka();
+        muut.getKeskipino().tyhjenna();
+        muut.getPelipino().tyhjenna();
+        muut.getKuutosJemma().tyhjenna();
         tyhjennaMuut();
     }
 
     private void tyhjennaMuut() {
-        jemmat.palautaEtela().tyhjenna();
-        jemmat.palautaIta().tyhjenna();
-        jemmat.palautaLansi().tyhjenna();
-        jemmat.palautaPohjoinen().tyhjenna();
-        kulmapinot.palautaKaakko().tyhjenna();
-        kulmapinot.palautaKoillinen().tyhjenna();
-        kulmapinot.palautaLounas().tyhjenna();
-        kulmapinot.palautaLuode().tyhjenna();
+        jemmat.getEtela().tyhjenna();
+        jemmat.getIta().tyhjenna();
+        jemmat.getLansi().tyhjenna();
+        jemmat.getPohjoinen().tyhjenna();
+        kulmapinot.getKaakko().tyhjenna();
+        kulmapinot.getKoillinen().tyhjenna();
+        kulmapinot.getLounas().tyhjenna();
+        kulmapinot.getLuode().tyhjenna();
     }
 }

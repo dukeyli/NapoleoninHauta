@@ -1,3 +1,6 @@
+/**
+ * Luokka luo pelialustaa varten pelipakan, pelipinon, kuutosjemman ja keskipinon.
+ */
 package napoleoninhauta.pasianssi.pelialusta;
 
 import napoleoninhauta.pasianssi.pakka.PakanLuoja;
@@ -14,6 +17,9 @@ public class PelialustanMuutPinot {
     private KuutosJemma kuutosjemma;
     private Keskipino keskipino;
 
+    /**
+     * Konstruktori alustaa uudet pinot ja pakan.
+     */
     public PelialustanMuutPinot() {
         luoja = new PakanLuoja();
         luoja.alustaPakka();
@@ -23,20 +29,19 @@ public class PelialustanMuutPinot {
         keskipino = new Keskipino();
     }
 
-    public Pelipakka palautaPelipakka() {
+    public Pelipakka getPelipakka() {
         return this.pelipakka;
     }
 
-    public Pelipino palautaPelipino() {
+    public Pelipino getPelipino() {
         return pelipino;
     }
 
-    public KuutosJemma palautaKuutosJemma() {
+    public KuutosJemma getKuutosJemma() {
         return kuutosjemma;
     }
 
-    public Keskipino palautaKeskipino() {
+    public Keskipino getKeskipino() {
         return keskipino;
     }
-
 }

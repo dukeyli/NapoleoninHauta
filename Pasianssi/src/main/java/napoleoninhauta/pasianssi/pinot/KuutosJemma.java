@@ -8,9 +8,6 @@ import napoleoninhauta.pasianssi.pakka.Kortti;
 
 public class KuutosJemma extends Pino {
 
-    public KuutosJemma() {
-    }
-
     /**
      * Metodi laittaa parametrina annetun kortin pinoon päälimmäiseksi, jos
      * kortti on kuutonen ja pinossa ei ole jo kyseistä korttia.
@@ -20,7 +17,7 @@ public class KuutosJemma extends Pino {
      */
     @Override
     public void asetaKortti(Kortti kortti) {
-        if (kortti.palautaArvo() == 6 && !super.palautaKortit().contains(kortti)) {
+        if (kortti.getArvo() == 6 && !super.palautaKortit().contains(kortti)) {
             super.palautaKortit().add(0, kortti);
         }
     }
@@ -38,5 +35,10 @@ public class KuutosJemma extends Pino {
             return lappu;
         }
         return null;
+    }
+
+    @Override
+    public void tyhjenna() {
+        super.palautaKortit().clear();
     }
 }

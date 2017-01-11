@@ -20,19 +20,19 @@ public class LansijemmanKuuntelija implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        if (!alusta.palautaJemmat().palautaLansi().palautaKortti().equals("tyhja")) {
+        if (!alusta.getJemmat().getLansi().palautaKortti().equals("tyhja")) {
             suorita();
             paivittaja.paivita();
         }
     }
 
     public void suorita() {
-        int kortinArvo = alusta.palautaJemmat().palautaLansi().palautaKortinArvo();
-        if (kortinArvo == alusta.palautaMuut().palautaKeskipino().palautaArvo()) {
-            alusta.palautaMuut().palautaKeskipino().asetaKortti(alusta.palautaJemmat().palautaLansi().otaKortti());
+        int kortinArvo = alusta.getJemmat().getLansi().palautaKortinArvo();
+        if (kortinArvo == alusta.getMuut().getKeskipino().palautaArvo()) {
+            alusta.getMuut().getKeskipino().asetaKortti(alusta.getJemmat().getLansi().otaKortti());
         }
-        if (alusta.palautaKulmapinot().palautaArvot().contains(kortinArvo)) {
-            alusta.palautaKulmapinot().laitaKorttiSopivaanPinoon(alusta.palautaJemmat().palautaLansi().otaKortti());
+        if (alusta.getKulmapinot().palautaArvot().contains(kortinArvo)) {
+            alusta.getKulmapinot().laitaKorttiSopivaanPinoon(alusta.getJemmat().getLansi().otaKortti());
         }
     }
 }

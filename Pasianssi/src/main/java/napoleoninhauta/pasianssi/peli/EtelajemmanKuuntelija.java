@@ -20,19 +20,19 @@ public class EtelajemmanKuuntelija implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        if (!alusta.palautaJemmat().palautaEtela().palautaKortti().equals("tyhja")) {
+        if (!alusta.getJemmat().getEtela().palautaKortti().equals("tyhja")) {
             suorita();
             paivittaja.paivita();
         }
     }
 
     public void suorita() {
-        int kortinArvo = alusta.palautaJemmat().palautaEtela().palautaKortinArvo();
-        if (kortinArvo == alusta.palautaMuut().palautaKeskipino().palautaArvo()) {
-            alusta.palautaMuut().palautaKeskipino().asetaKortti(alusta.palautaJemmat().palautaEtela().otaKortti());
+        int kortinArvo = alusta.getJemmat().getEtela().palautaKortinArvo();
+        if (kortinArvo == alusta.getMuut().getKeskipino().palautaArvo()) {
+            alusta.getMuut().getKeskipino().asetaKortti(alusta.getJemmat().getEtela().otaKortti());
         }
-        if (alusta.palautaKulmapinot().palautaArvot().contains(kortinArvo)) {
-            alusta.palautaKulmapinot().laitaKorttiSopivaanPinoon(alusta.palautaJemmat().palautaEtela().otaKortti());
+        if (alusta.getKulmapinot().palautaArvot().contains(kortinArvo)) {
+            alusta.getKulmapinot().laitaKorttiSopivaanPinoon(alusta.getJemmat().getEtela().otaKortti());
         }
     }
 }

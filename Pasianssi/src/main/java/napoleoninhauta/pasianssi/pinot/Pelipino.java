@@ -8,9 +8,6 @@ import napoleoninhauta.pasianssi.pakka.Kortti;
 
 public class Pelipino extends Pino {
 
-    public Pelipino() {
-    }
-
     /**
      * Metodi laittaa parametrina annetun kortin pinoon päällimmäiseksi, jos
      * pinossa ei ole jo kyseistä korttia.
@@ -39,5 +36,10 @@ public class Pelipino extends Pino {
         }
         return null;
     }
-    
+
+    @Override
+    public void tyhjenna() {
+        super.palautaKortit().clear();
+    }
+
 }

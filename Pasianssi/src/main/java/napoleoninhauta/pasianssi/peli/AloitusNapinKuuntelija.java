@@ -23,6 +23,7 @@ public class AloitusNapinKuuntelija implements ActionListener {
         alusta.aloitaUusiPeli();
         paivittaja.paivita();
         tulos.setText("");
+        paivittaja.asetaPakanKuva();
     }
 
 }

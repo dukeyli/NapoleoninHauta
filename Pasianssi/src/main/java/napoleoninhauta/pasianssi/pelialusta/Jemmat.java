@@ -1,3 +1,7 @@
+/**
+ * Luokka luo neljä yhden kortin jemmaa pelialustaa varten. Luokka tarjoaa
+ * metodeja, jotka koskevat kaikkia jemmoja.
+ */
 package napoleoninhauta.pasianssi.pelialusta;
 
 import napoleoninhauta.pasianssi.pakka.Kortti;
@@ -10,6 +14,9 @@ public class Jemmat {
     private YhdenKortinJemma ita;
     private YhdenKortinJemma etela;
 
+    /**
+     * Konstruktori alustaa uudet jemmat.
+     */
     public Jemmat() {
         lansi = new YhdenKortinJemma();
         pohjoinen = new YhdenKortinJemma();
@@ -17,22 +24,27 @@ public class Jemmat {
         etela = new YhdenKortinJemma();
     }
 
-    public YhdenKortinJemma palautaLansi() {
+    public YhdenKortinJemma getLansi() {
         return lansi;
     }
 
-    public YhdenKortinJemma palautaPohjoinen() {
+    public YhdenKortinJemma getPohjoinen() {
         return pohjoinen;
     }
 
-    public YhdenKortinJemma palautaIta() {
+    public YhdenKortinJemma getIta() {
         return ita;
     }
 
-    public YhdenKortinJemma palautaEtela() {
+    public YhdenKortinJemma getEtela() {
         return etela;
     }
 
+    /**
+     * Metodi palauttaa true, jos kaikkissa jemmoissa on kortti, muulloin false.
+     *
+     * @return true tai false
+     */
     public boolean onkoKaikkiJemmatTaynna() {
         if (lansi.palautaKortti().equals("tyhja")
                 || ita.palautaKortti().equals("tyhja")
@@ -43,6 +55,15 @@ public class Jemmat {
         return true;
     }
 
+    /**
+     * Metodi laittaa parametrina annetun kortin tyhjään jemmaan ja palauttaa
+     * true, jos kaikki jemmat eivät ole täynnä. Metodi palauttaa false, jos
+     * kaikki jemmat on täynnä.
+     *
+     * @param kortti pelipinosta otettava kortti
+     *
+     * @return true tai false
+     */
     public boolean laitaTyhjaanJemmaan(Kortti kortti) {
         if (lansi.palautaKortti().equals("tyhja")) {
             lansi.asetaKortti(kortti);
@@ -62,5 +83,4 @@ public class Jemmat {
         }
         return false;
     }
-
 }

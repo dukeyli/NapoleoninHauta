@@ -18,10 +18,10 @@ public class PeruNapinKuuntelija implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        if (pelialusta.palautaMuut().palautaPelipakka().palautaMaara() != 52
-                && pelialusta.palautaMuut().palautaKeskipino().onkoPeliAvattu() == false) {
-            Kortti kortti = pelialusta.palautaMuut().palautaPelipino().otaKortti();
-            pelialusta.palautaMuut().palautaPelipakka().asetaKortti(kortti);
+        if (pelialusta.getMuut().getPelipakka().palautaMaara() != 52
+                && pelialusta.getMuut().getKeskipino().onkoPeliAvattu() == false) {
+            Kortti kortti = pelialusta.getMuut().getPelipino().otaKortti();
+            pelialusta.getMuut().getPelipakka().asetaKortti(kortti);
             paivittaja.paivita();
         }
     }

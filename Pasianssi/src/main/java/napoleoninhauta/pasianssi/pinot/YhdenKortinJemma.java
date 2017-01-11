@@ -62,11 +62,14 @@ public class YhdenKortinJemma {
         if (paikka == null) {
             return 0;
         }
-        return paikka.palautaArvo();
+        return paikka.getArvo();
     }
-    
+
+    /**
+     * Metodi asettaa paikalle alkuperäisen arvon, eli null.
+     */
     public void tyhjenna() {
-        this.paikka=null;
+        this.paikka = null;
     }
 
 }

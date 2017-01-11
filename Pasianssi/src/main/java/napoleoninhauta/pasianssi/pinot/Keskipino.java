@@ -11,6 +11,9 @@ public class Keskipino extends Pino {
 
     private int arvo;
 
+    /**
+     * Konstruktori antaa attribuutille arvon kuusi (6).
+     */
     public Keskipino() {
         this.arvo = 6;
     }
@@ -48,12 +51,18 @@ public class Keskipino extends Pino {
      */
     @Override
     public void asetaKortti(Kortti kortti) {
-        if (kortti.palautaArvo() == arvo && !super.palautaKortit().contains(kortti)) {
+        if (kortti.getArvo() == arvo && !super.palautaKortit().contains(kortti)) {
             super.palautaKortit().add(0, kortti);
             arvo--;
         }
         if (this.arvo == 0) {
             this.arvo = 6;
         }
+    }
+
+    @Override
+    public void tyhjenna() {
+        super.palautaKortit().clear();
+        arvo = 6;
     }
 }

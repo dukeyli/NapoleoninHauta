@@ -58,30 +58,30 @@ public class Paivittaja {
         paivitaJemmat();
         paivitaKulmapinot();
         paivitaMuut();
-        if (alusta.palautaMuut().palautaPelipakka().palautaMaara() == 0) {
+        if (alusta.getMuut().getPelipakka().palautaMaara() == 0) {
             pakka.setIcon(new ImageIcon());
             paivitaTulos();
         }
     }
 
     private void paivitaJemmat() {
-        paivitaNappi(lansi, alusta.palautaJemmat().palautaLansi().palautaKortti());
-        paivitaNappi(pohjoinen, alusta.palautaJemmat().palautaPohjoinen().palautaKortti());
-        paivitaNappi(ita, alusta.palautaJemmat().palautaIta().palautaKortti());
-        paivitaNappi(etela, alusta.palautaJemmat().palautaEtela().palautaKortti());
+        paivitaNappi(lansi, alusta.getJemmat().getLansi().palautaKortti());
+        paivitaNappi(pohjoinen, alusta.getJemmat().getPohjoinen().palautaKortti());
+        paivitaNappi(ita, alusta.getJemmat().getIta().palautaKortti());
+        paivitaNappi(etela, alusta.getJemmat().getEtela().palautaKortti());
     }
 
     private void paivitaKulmapinot() {
-        paivitaTeksti(luode, alusta.palautaKulmapinot().palautaLuode().palautaYlin());
-        paivitaTeksti(koillinen, alusta.palautaKulmapinot().palautaKoillinen().palautaYlin());
-        paivitaTeksti(kaakko, alusta.palautaKulmapinot().palautaKaakko().palautaYlin());
-        paivitaTeksti(lounas, alusta.palautaKulmapinot().palautaLounas().palautaYlin());
+        paivitaTeksti(luode, alusta.getKulmapinot().getLuode().palautaYlin());
+        paivitaTeksti(koillinen, alusta.getKulmapinot().getKoillinen().palautaYlin());
+        paivitaTeksti(kaakko, alusta.getKulmapinot().getKaakko().palautaYlin());
+        paivitaTeksti(lounas, alusta.getKulmapinot().getLounas().palautaYlin());
     }
 
     private void paivitaMuut() {
-        paivitaNappi(pelipino, alusta.palautaMuut().palautaPelipino().palautaYlin());
-        paivitaTeksti(keskipino, alusta.palautaMuut().palautaKeskipino().palautaYlin());
-        paivitaNappi(kuutosjemma, alusta.palautaMuut().palautaKuutosJemma().palautaYlin());
+        paivitaNappi(pelipino, alusta.getMuut().getPelipino().palautaYlin());
+        paivitaTeksti(keskipino, alusta.getMuut().getKeskipino().palautaYlin());
+        paivitaNappi(kuutosjemma, alusta.getMuut().getKuutosJemma().palautaYlin());
     }
 
     private void paivitaNappi(JButton pino, String kortti) {
@@ -93,10 +93,14 @@ public class Paivittaja {
     }
 
     private void paivitaTulos() {
-        if (alusta.palautaKulmapinot().kaikkiLapi() == true && alusta.palautaMuut().palautaKeskipino().palautaMaara() == 24) {
+        if (alusta.getKulmapinot().kaikkiLapi() == true && alusta.getMuut().getKeskipino().palautaMaara() == 24) {
             tulos.setText("Voitit pelin!");
         } else if (alusta.meneekoMikaan() == false) {
             tulos.setText("Hävisit!");
         }
+    }
+
+    public void asetaPakanKuva() {
+        pakka.setIcon(new ImageIcon(new ImageIcon("Images/pakka.jpg").getImage().getScaledInstance(164, 232, Image.SCALE_DEFAULT)));
     }
 }

@@ -10,11 +10,18 @@ public class Kortti {
     private int arvo;
     private Maa maa;
 
+    /**
+     * Konstruktori asettaa parametrina annetut arvot attribuuttien arvoiksi.
+     *
+     * @param arvo kokonaisluku, joka kertoo kortin arvon
+     * @param maa kortin maa
+     */
     public Kortti(int arvo, Maa maa) {
         this.arvo = arvo;
         this.maa = maa;
     }
 
+    @Override
     public String toString() {
         return maa + "_" + arvo;
     }
@@ -29,9 +36,13 @@ public class Kortti {
 
     @Override
     public boolean equals(Object o) {
-        Kortti kortti = (Kortti) o;
-        if (kortti.getArvo() == this.arvo && kortti.getMaa().equals(this.maa)) {
-            return true;
+        try {
+            Kortti kortti = (Kortti) o;
+            if (kortti.getArvo() == this.arvo && kortti.getMaa().equals(this.maa)) {
+                return true;
+            }
+        } catch (Exception e) {
+            return false;
         }
         return false;
     }

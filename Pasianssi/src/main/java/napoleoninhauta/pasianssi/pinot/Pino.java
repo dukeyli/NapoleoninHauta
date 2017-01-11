@@ -12,6 +12,9 @@ public abstract class Pino {
 
     private ArrayList<Kortti> kortit;
 
+    /**
+     * Konstruktori alustaa kortit-attribuutin uudeksi ArrayListiksi.
+     */
     public Pino() {
         this.kortit = new ArrayList();
     }
@@ -53,16 +56,24 @@ public abstract class Pino {
     public int palautaMaara() {
         return this.kortit.size();
     }
-    
+
+    /**
+     * Metodi palauttaa pinon ylimmän kortin arvon tai luvun 0, jos pinossa ei
+     * ole korttia.
+     *
+     * @return pinon ylimmän kortin arvo tai 0
+     */
     public int palautaYlimmanArvo() {
         if (!kortit.isEmpty()) {
-            return this.kortit.get(0).palautaArvo();
+            return this.kortit.get(0).getArvo();
         }
         return 0;
     }
-    
-    public void tyhjenna() {
-        this.kortit.clear();
-    }
+
+    /**
+     * Metodin toteutukset tyhjentävät pinon ja asettavat arvot alkuperäisiin
+     * arvoihin.
+     */
+    public abstract void tyhjenna();
 
 }

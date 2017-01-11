@@ -37,11 +37,11 @@ public class PakanluojaTest {
     @Test
     public void pakkaEiOleJarjestyksessa() {
         ArrayList<Kortti> kortit = luoja.alustaPakka();
-        assertFalse(1 == kortit.get(0).palautaArvo()
-                && 2 == kortit.get(1).palautaArvo()
-                && 3 == kortit.get(2).palautaArvo()
-                && 4 == kortit.get(3).palautaArvo()
-                && 5 == kortit.get(4).palautaArvo());
+        assertFalse(1 == kortit.get(0).getArvo()
+                && 2 == kortit.get(1).getArvo()
+                && 3 == kortit.get(2).getArvo()
+                && 4 == kortit.get(3).getArvo()
+                && 5 == kortit.get(4).getArvo());
     }
 
     @Test

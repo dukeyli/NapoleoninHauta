@@ -12,6 +12,11 @@ public class Pelipakka {
 
     private ArrayList<Kortti> kortit;
 
+    /**
+     * Konstruktori määrittää attribuutin pelipakaksi annetun parametrin avulla.
+     *
+     * @param kortit Pakanluojan tekemä pakka
+     */
     public Pelipakka(ArrayList<Kortti> kortit) {
         this.kortit = kortit;
     }
@@ -39,11 +44,21 @@ public class Pelipakka {
         }
         return null;
     }
-    
+
+    /**
+     * Metodi laittaa parametrina annetun kortin pinoon päällimmäiseksi. Metodi
+     * on noston olemassa noston perumista varten.
+     *
+     * @param kortti kortti pelipakasta.
+     *
+     */
     public void asetaKortti(Kortti kortti) {
         kortit.add(0, kortti);
     }
-    
+
+    /**
+     * Metodi alustaa pakan uudestaan Pakanluojan avulla.
+     */
     public void alustaUusiPakka() {
         PakanLuoja luoja = new PakanLuoja();
         this.kortit = luoja.alustaPakka();

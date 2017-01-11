@@ -18,11 +18,8 @@ public class PelipinonKuuntelija implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        if (!alusta.palautaMuut().palautaPelipino().palautaYlin().equals("tyhja")) {
-            Kortti kortti = alusta.palautaMuut().palautaPelipino().otaKortti();
-            if (alusta.suoritaPelipino(kortti) == false) {
-                alusta.palautaMuut().palautaPelipino().asetaKortti(kortti);
-            }
+        if (!alusta.getMuut().getPelipino().palautaYlin().equals("tyhja")) {
+            alusta.suoritaPelipino();
             paivittaja.paivita();
         }
     }

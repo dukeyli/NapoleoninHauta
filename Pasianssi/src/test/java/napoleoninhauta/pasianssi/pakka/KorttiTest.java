@@ -20,14 +20,14 @@ public class KorttiTest {
 
     @Test
     public void palautaMaaToimii() {
-        assertEquals(Maa.PATA, kortti2.palautaMaa());
-        assertEquals(Maa.RISTI, kortti1.palautaMaa());
+        assertEquals(Maa.PATA, kortti2.getMaa());
+        assertEquals(Maa.RISTI, kortti1.getMaa());
     }
 
     @Test
     public void palautaArvoToimii() {
-        assertEquals(3, kortti2.palautaArvo());
-        assertEquals(2, kortti1.palautaArvo());
+        assertEquals(3, kortti2.getArvo());
+        assertEquals(2, kortti1.getArvo());
     }
 
     @Test

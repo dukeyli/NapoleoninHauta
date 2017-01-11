@@ -20,19 +20,19 @@ public class ItajemmanKuuntelija implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        if (!alusta.palautaJemmat().palautaIta().palautaKortti().equals("tyhja")) {
+        if (!alusta.getJemmat().getIta().palautaKortti().equals("tyhja")) {
             suorita();
             paivittaja.paivita();
         }
     }
 
     private void suorita() {
-        int kortinArvo = alusta.palautaJemmat().palautaIta().palautaKortinArvo();
-        if (kortinArvo == alusta.palautaMuut().palautaKeskipino().palautaArvo()) {
-            alusta.palautaMuut().palautaKeskipino().asetaKortti(alusta.palautaJemmat().palautaIta().otaKortti());
+        int kortinArvo = alusta.getJemmat().getIta().palautaKortinArvo();
+        if (kortinArvo == alusta.getMuut().getKeskipino().palautaArvo()) {
+            alusta.getMuut().getKeskipino().asetaKortti(alusta.getJemmat().getIta().otaKortti());
         }
-        if (alusta.palautaKulmapinot().palautaArvot().contains(kortinArvo)) {
-            alusta.palautaKulmapinot().laitaKorttiSopivaanPinoon(alusta.palautaJemmat().palautaIta().otaKortti());
+        if (alusta.getKulmapinot().palautaArvot().contains(kortinArvo)) {
+            alusta.getKulmapinot().laitaKorttiSopivaanPinoon(alusta.getJemmat().getIta().otaKortti());
         }
     }
 }

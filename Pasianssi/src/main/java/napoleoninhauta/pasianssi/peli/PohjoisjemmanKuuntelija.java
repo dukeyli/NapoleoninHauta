@@ -20,19 +20,19 @@ public class PohjoisjemmanKuuntelija implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        if (!alusta.palautaJemmat().palautaPohjoinen().palautaKortti().equals("tyhja")) {
+        if (!alusta.getJemmat().getPohjoinen().palautaKortti().equals("tyhja")) {
             suorita();
             paivittaja.paivita();
         }
     }
 
     public void suorita() {
-        int kortinArvo = alusta.palautaJemmat().palautaPohjoinen().palautaKortinArvo();
-        if (kortinArvo == alusta.palautaMuut().palautaKeskipino().palautaArvo()) {
-            alusta.palautaMuut().palautaKeskipino().asetaKortti(alusta.palautaJemmat().palautaPohjoinen().otaKortti());
+        int kortinArvo = alusta.getJemmat().getPohjoinen().palautaKortinArvo();
+        if (kortinArvo == alusta.getMuut().getKeskipino().palautaArvo()) {
+            alusta.getMuut().getKeskipino().asetaKortti(alusta.getJemmat().getPohjoinen().otaKortti());
         }
-        if (alusta.palautaKulmapinot().palautaArvot().contains(kortinArvo)) {
-            alusta.palautaKulmapinot().laitaKorttiSopivaanPinoon(alusta.palautaJemmat().palautaPohjoinen().otaKortti());
+        if (alusta.getKulmapinot().palautaArvot().contains(kortinArvo)) {
+            alusta.getKulmapinot().laitaKorttiSopivaanPinoon(alusta.getJemmat().getPohjoinen().otaKortti());
         }
     }
 }

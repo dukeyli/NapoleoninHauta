@@ -10,6 +10,9 @@ public class PakanLuoja {
 
     private ArrayList<Kortti> kortit;
 
+    /**
+     * Kontruktori määrittää attribuutin uudeksi ArrayListiksi.
+     */
     public PakanLuoja() {
         this.kortit = new ArrayList();
     }
