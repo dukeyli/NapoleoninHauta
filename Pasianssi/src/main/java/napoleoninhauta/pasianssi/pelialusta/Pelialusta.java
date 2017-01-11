@@ -82,4 +82,49 @@ public class Pelialusta {
         return false;
     }
 
+    public boolean meneekoMikaan() {
+        if (meneekoMinnekkaan(muut.palautaPelipino().palautaYlimmanArvo()) == false) {
+            return meneekoJemmat();
+        }
+        return true;
+    }
+
+    private boolean meneekoMinnekkaan(int arvo) {
+        if (arvo == 0) {
+            return false;
+        }
+        if (!kulmapinot.palautaArvot().contains(arvo) && muut.palautaKeskipino().palautaArvo() != arvo) {
+            return false;
+        }
+        return true;
+    }
+
+    private boolean meneekoJemmat() {
+        if (meneekoMinnekkaan(jemmat.palautaEtela().palautaKortinArvo()) == false
+                && meneekoMinnekkaan(jemmat.palautaIta().palautaKortinArvo()) == false
+                && meneekoMinnekkaan(jemmat.palautaPohjoinen().palautaKortinArvo()) == false
+                && meneekoMinnekkaan(jemmat.palautaLansi().palautaKortinArvo()) == false) {
+            return false;
+        }
+        return true;
+    }
+
+    public void aloitaUusiPeli() {
+        muut.palautaPelipakka().alustaUusiPakka();
+        muut.palautaKeskipino().tyhjenna();
+        muut.palautaPelipino().tyhjenna();
+        muut.palautaKuutosJemma().tyhjenna();
+        tyhjennaMuut();
+    }
+
+    private void tyhjennaMuut() {
+        jemmat.palautaEtela().tyhjenna();
+        jemmat.palautaIta().tyhjenna();
+        jemmat.palautaLansi().tyhjenna();
+        jemmat.palautaPohjoinen().tyhjenna();
+        kulmapinot.palautaKaakko().tyhjenna();
+        kulmapinot.palautaKoillinen().tyhjenna();
+        kulmapinot.palautaLounas().tyhjenna();
+        kulmapinot.palautaLuode().tyhjenna();
+    }
 }

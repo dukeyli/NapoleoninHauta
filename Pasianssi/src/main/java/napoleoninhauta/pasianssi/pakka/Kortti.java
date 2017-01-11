@@ -19,18 +19,18 @@ public class Kortti {
         return maa + "_" + arvo;
     }
 
-    public Maa palautaMaa() {
+    public Maa getMaa() {
         return maa;
     }
 
-    public int palautaArvo() {
+    public int getArvo() {
         return arvo;
     }
 
     @Override
     public boolean equals(Object o) {
         Kortti kortti = (Kortti) o;
-        if (kortti.palautaArvo() == this.arvo && kortti.palautaMaa().equals(this.maa)) {
+        if (kortti.getArvo() == this.arvo && kortti.getMaa().equals(this.maa)) {
             return true;
         }
         return false;

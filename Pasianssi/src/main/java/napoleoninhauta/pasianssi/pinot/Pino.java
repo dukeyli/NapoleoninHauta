@@ -53,5 +53,16 @@ public abstract class Pino {
     public int palautaMaara() {
         return this.kortit.size();
     }
+    
+    public int palautaYlimmanArvo() {
+        if (!kortit.isEmpty()) {
+            return this.kortit.get(0).palautaArvo();
+        }
+        return 0;
+    }
+    
+    public void tyhjenna() {
+        this.kortit.clear();
+    }
 
 }

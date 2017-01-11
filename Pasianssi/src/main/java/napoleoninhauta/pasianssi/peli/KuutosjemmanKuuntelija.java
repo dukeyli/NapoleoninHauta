@@ -1,5 +1,6 @@
 package napoleoninhauta.pasianssi.peli;
 
+import napoleoninhauta.pasianssi.pelialusta.Paivittaja;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import napoleoninhauta.pasianssi.pelialusta.Pelialusta;

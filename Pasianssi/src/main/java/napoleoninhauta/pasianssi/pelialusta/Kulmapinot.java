@@ -63,4 +63,12 @@ public class Kulmapinot {
         return lista;
     }
 
+    public boolean kaikkiLapi() {
+        if (luode.palautaArvo() == 14 && koillinen.palautaArvo() == 14
+                && kaakko.palautaArvo() == 14 && lounas.palautaArvo() == 14) {
+            return true;
+        }
+        return false;
+    }
+
 }

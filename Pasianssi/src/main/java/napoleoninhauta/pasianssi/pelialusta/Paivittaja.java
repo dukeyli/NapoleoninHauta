@@ -1,13 +1,13 @@
-package napoleoninhauta.pasianssi.peli;
+package napoleoninhauta.pasianssi.pelialusta;
 
 import java.awt.Image;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JLabel;
-import napoleoninhauta.pasianssi.pelialusta.Pelialusta;
 
 public class Paivittaja {
 
+    private JButton pakka;
     private Pelialusta alusta;
     private JButton pelipino;
     private JButton kuutosjemma;
@@ -20,8 +20,11 @@ public class Paivittaja {
     private JLabel kaakko;
     private JLabel lounas;
     private JLabel keskipino;
+    private JLabel tulos;
 
-    public Paivittaja(Pelialusta alusta,
+    public Paivittaja(
+            JButton pelipakka,
+            Pelialusta alusta,
             JButton pelipino,
             JButton kuutosjemma,
             JButton lansi,
@@ -32,8 +35,10 @@ public class Paivittaja {
             JLabel koillinen,
             JLabel kaakko,
             JLabel lounas,
-            JLabel keskipino) {
+            JLabel keskipino,
+            JLabel tulos) {
 
+        this.pakka = pelipakka;
         this.alusta = alusta;
         this.pelipino = pelipino;
         this.kuutosjemma = kuutosjemma;
@@ -46,12 +51,17 @@ public class Paivittaja {
         this.kaakko = kaakko;
         this.lounas = lounas;
         this.keskipino = keskipino;
+        this.tulos = tulos;
     }
 
     public void paivita() {
         paivitaJemmat();
         paivitaKulmapinot();
         paivitaMuut();
+        if (alusta.palautaMuut().palautaPelipakka().palautaMaara() == 0) {
+            pakka.setIcon(new ImageIcon());
+            paivitaTulos();
+        }
     }
 
     private void paivitaJemmat() {
@@ -74,12 +84,19 @@ public class Paivittaja {
         paivitaNappi(kuutosjemma, alusta.palautaMuut().palautaKuutosJemma().palautaYlin());
     }
 
-    public void paivitaNappi(JButton pino, String kortti) {
+    private void paivitaNappi(JButton pino, String kortti) {
         pino.setIcon(new ImageIcon(new ImageIcon("Images/" + kortti + ".png").getImage().getScaledInstance(164, 232, Image.SCALE_DEFAULT)));
     }
 
-    public void paivitaTeksti(JLabel pino, String kortti) {
+    private void paivitaTeksti(JLabel pino, String kortti) {
         pino.setIcon(new ImageIcon(new ImageIcon("Images/" + kortti + ".png").getImage().getScaledInstance(164, 232, Image.SCALE_DEFAULT)));
     }
 
+    private void paivitaTulos() {
+        if (alusta.palautaKulmapinot().kaikkiLapi() == true && alusta.palautaMuut().palautaKeskipino().palautaMaara() == 24) {
+            tulos.setText("Voitit pelin!");
+        } else if (alusta.meneekoMikaan() == false) {
+            tulos.setText("Hävisit!");
+        }
+    }
 }

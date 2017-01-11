@@ -3,6 +3,7 @@
  */
 package napoleoninhauta.pasianssi.peli;
 
+import napoleoninhauta.pasianssi.pelialusta.Paivittaja;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import napoleoninhauta.pasianssi.pelialusta.Pelialusta;
@@ -25,7 +26,7 @@ public class ItajemmanKuuntelija implements ActionListener {
         }
     }
 
-    public void suorita() {
+    private void suorita() {
         int kortinArvo = alusta.palautaJemmat().palautaIta().palautaKortinArvo();
         if (kortinArvo == alusta.palautaMuut().palautaKeskipino().palautaArvo()) {
             alusta.palautaMuut().palautaKeskipino().asetaKortti(alusta.palautaJemmat().palautaIta().otaKortti());

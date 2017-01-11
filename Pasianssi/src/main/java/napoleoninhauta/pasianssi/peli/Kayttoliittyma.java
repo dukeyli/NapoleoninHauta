@@ -1,15 +1,10 @@
 package napoleoninhauta.pasianssi.peli;
 
+import napoleoninhauta.pasianssi.pelialusta.Paivittaja;
 import java.awt.Container;
 import java.awt.Dimension;
 import java.awt.GridLayout;
 import java.awt.Image;
-import java.awt.image.BufferedImage;
-import java.io.File;
-import java.io.IOException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -55,11 +50,13 @@ public class Kayttoliittyma implements Runnable {
         JLabel kaakko = new JLabel("Kaakkoispino");
         JLabel lounas = new JLabel("Lounaispino");
         JLabel luode = new JLabel("Luoteispino");
+        JLabel tulos = new JLabel();
+        JButton aloitusNappi = new JButton("Aloita uusi peli");
+        JButton peru = new JButton("Peru nosto");
 
-        JButton aloitusnappi = new JButton();
-
-        Paivittaja paivittaja = new Paivittaja(pelialusta, ppino, kjemma, ljemma,
-                pjemma, ijemma, ejemma, luode, koillinen, kaakko, lounas, kpino);
+        Paivittaja paivittaja = new Paivittaja(ppakka, pelialusta, ppino, kjemma, ljemma,
+                pjemma, ijemma, ejemma, luode, koillinen, kaakko, lounas, kpino,
+                tulos);
 
         PelipakanKuuntelija peliPaK = new PelipakanKuuntelija(pelialusta, paivittaja);
         ppakka.addActionListener(peliPaK);
@@ -82,17 +79,23 @@ public class Kayttoliittyma implements Runnable {
         KuutosjemmanKuuntelija kjemmaK = new KuutosjemmanKuuntelija(pelialusta, paivittaja);
         kjemma.addActionListener(kjemmaK);
 
-        container.add(aloitusnappi);
+        AloitusNapinKuuntelija aloitus = new AloitusNapinKuuntelija(pelialusta, paivittaja, tulos);
+        aloitusNappi.addActionListener(aloitus);
+
+        PeruNapinKuuntelija perunK = new PeruNapinKuuntelija(pelialusta, paivittaja);
+        peru.addActionListener(perunK);
+
+        container.add(aloitusNappi);
         container.add(luode);
         container.add(pjemma);
         container.add(koillinen);
         container.add(ppakka);
-        container.add(new JButton("Säännöt"));
+        container.add(peru);
         container.add(ljemma);
         container.add(kpino);
         container.add(ijemma);
         container.add(ppino);
-        container.add(new JButton("Ei ole"));
+        container.add(tulos);
         container.add(lounas);
         container.add(ejemma);
         container.add(kaakko);

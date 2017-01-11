@@ -11,9 +11,6 @@ public class YhdenKortinJemma {
 
     private Kortti paikka;
 
-    public YhdenKortinJemma() {
-    }
-
     /**
      * Metodi laittaa parametrina annetun kortin jemmaan, jos jemmassa ei ole
      * ennestään korttia.
@@ -66,6 +63,10 @@ public class YhdenKortinJemma {
             return 0;
         }
         return paikka.palautaArvo();
+    }
+    
+    public void tyhjenna() {
+        this.paikka=null;
     }
 
 }

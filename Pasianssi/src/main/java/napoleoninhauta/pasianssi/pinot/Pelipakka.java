@@ -6,6 +6,7 @@ package napoleoninhauta.pasianssi.pinot;
 
 import java.util.ArrayList;
 import napoleoninhauta.pasianssi.pakka.Kortti;
+import napoleoninhauta.pasianssi.pakka.PakanLuoja;
 
 public class Pelipakka {
 
@@ -37,6 +38,15 @@ public class Pelipakka {
             return eka;
         }
         return null;
+    }
+    
+    public void asetaKortti(Kortti kortti) {
+        kortit.add(0, kortti);
+    }
+    
+    public void alustaUusiPakka() {
+        PakanLuoja luoja = new PakanLuoja();
+        this.kortit = luoja.alustaPakka();
     }
 
 }
