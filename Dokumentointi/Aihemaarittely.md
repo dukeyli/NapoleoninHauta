@@ -23,3 +23,12 @@ ja muihin voi laittaa mitä tahansa kortteja.
 - Aseta kortti pinoon
 
 ![luokkakaavio](Luokkakaavio.png)
+
+
+#### Rakennekuvaus
+
+Ohjelma rakentuu neljällä tasolla. Alimmalla tasolla määritellään kortit ja
+pakka. Seuraavalla tasolla määritellään korteista koostuvat pelipinot ja
+pelipakka. Kolmas taso kokoaa pelissä käytettävät pinot ja pakan yhteen
+sekä määrittelee niiden välisen toiminnallisuuden. Neljäs taso luo ulkoasun,
+eli määrittelee käyttöliittymän.

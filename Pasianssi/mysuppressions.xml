@@ -5,8 +5,17 @@
     "http://www.puppycrawl.com/dtds/suppressions_1_1.dtd">
 
 <suppressions>
-    <suppress files="Main.java" checks="[a-zA-Z0-9]*"/>
+    
+    <suppress files="AloitusNapinKuuntelija.java" checks="[a-zA-Z0-9]*"/>
+    <suppress files="EtelajemmanKuuntelija.java" checks="[a-zA-Z0-9]*"/>
+    <suppress files="ItajemmanKuuntelija.java" checks="[a-zA-Z0-9]*"/>
     <suppress files="Kayttoliittyma.java" checks="[a-zA-Z0-9]*"/>
+    <suppress files="KuutosjemmanKuuntelija.java" checks="[a-zA-Z0-9]*"/>
+    <suppress files="LansijemmanKuuntelija" checks="[a-zA-Z0-9]*"/>
+    <suppress files="Main.java" checks="[a-zA-Z0-9]*"/>
     <suppress files="PelipakanKuuntelija.java" checks="[a-zA-Z0-9]*"/>
     <suppress files="PelipinonKuuntelija.java" checks="[a-zA-Z0-9]*"/>
+    <suppress files="PohjoisjemmanKuuntelija.java" checks="[a-zA-Z0-9]*"/>
+    <suppress files="PeruNapinKuuntelija.java" checks="[a-zA-Z0-9]*"/>
+
 </suppressions>
