@@ -41,10 +41,11 @@ public class Pelialusta {
     }
 
     /**
-     * Metodi suorittaa toiminnallisuuden pelipinosta otettavaan korttiin.
+     * Metodi suorittaa toiminnallisuuden pelipinon kortille, jos kyseinen
+     * kortti sopii keskelle, kulmiin tai kuutosjemmaan. Kortin arvon ollessa
+     * kuusi, ensisijainen pino on keskipino. Metodi käyttää privaatteja
+     * apumetodeja kortin laittamiseen.
      *
-     * @param kortti
-     * @return
      */
     public void suoritaPelipino() {
         Kortti kortti = muut.getPelipino().otaKortti();
@@ -108,6 +109,13 @@ public class Pelialusta {
         return false;
     }
 
+    /**
+     * Metodi kertoo meneeko minkään pinon päällimmäinen kortti mihinkään peliä
+     * edistävään pinoon. Metodi käyttää apunaan yksityisiä apumetodeja. Metodi
+     * palauttaa true, jos jäljellä on mahdollisia siirtoja ja false jos ei.
+     *
+     * @return true tai false
+     */
     public boolean meneekoMikaan() {
         int arvo = muut.getPelipino().palautaYlimmanArvo();
         if (arvo == 6) {
@@ -139,6 +147,10 @@ public class Pelialusta {
         return true;
     }
 
+    /**
+     * Metodi alustaa uuden pelin, eli tyhjentaa pinot ja tekee uuden pakan
+     * yksityisten apumetodien avulla.
+     */
     public void aloitaUusiPeli() {
         muut.getPelipakka().alustaUusiPakka();
         muut.getKeskipino().tyhjenna();

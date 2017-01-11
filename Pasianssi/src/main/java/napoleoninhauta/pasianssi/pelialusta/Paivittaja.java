@@ -1,3 +1,6 @@
+/**
+ * Luokan tehtävä on päivittää näppäinten ja tekstikenttien kuvat ja tekstit.
+ */
 package napoleoninhauta.pasianssi.pelialusta;
 
 import java.awt.Image;
@@ -22,6 +25,24 @@ public class Paivittaja {
     private JLabel keskipino;
     private JLabel tulos;
 
+    /**
+     * Konstruktori alustaa pelialustan. näppäimet ja tekstit.
+     *
+     * @param pelipakka näppäin, jossa on pelipakka
+     * @param alusta pelialusta, jossa on toiminnallisuus
+     * @param pelipino näppäin, jossa on pelipino
+     * @param kuutosjemma näppäin, jossa on kuutosjemma
+     * @param lansi näppäin, jossa on yhden kortin jemma
+     * @param pohjoinen näppäin, jossa on yhden kortin jemma
+     * @param ita näppäin, jossa on yhden kortin jemma
+     * @param etela näppäin, jossa on yhden kortin jemma
+     * @param luode tekstikenttä, jossa on kulmapino
+     * @param koillinen tekstikenttä, jossa on kulmapino
+     * @param kaakko tekstikenttä, jossa on kulmapino
+     * @param lounas tekstikenttä, jossa on kulmapino
+     * @param keskipino tekstikenttä, jossa on keskipino
+     * @param tulos tekstikenttä, jossa on pelin tulos
+     */
     public Paivittaja(
             JButton pelipakka,
             Pelialusta alusta,
@@ -54,6 +75,10 @@ public class Paivittaja {
         this.tulos = tulos;
     }
 
+    /**
+     * Metodi päivittää näppäinten ja tekstikenttien kuvat oikeiksi. Metodi
+     * käyttää yksityisiä apumetodeja päivittämään näppäimet ja tekstikentät.
+     */
     public void paivita() {
         paivitaJemmat();
         paivitaKulmapinot();
@@ -100,6 +125,9 @@ public class Paivittaja {
         }
     }
 
+    /**
+     * Metodi asettaa pakan kuvakkeen. Metodia käytetään aloittaessa uusi peli.
+     */
     public void asetaPakanKuva() {
         pakka.setIcon(new ImageIcon(new ImageIcon("Images/pakka.jpg").getImage().getScaledInstance(164, 232, Image.SCALE_DEFAULT)));
     }
