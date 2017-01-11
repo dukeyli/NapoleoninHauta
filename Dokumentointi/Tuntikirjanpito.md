@@ -11,3 +11,6 @@ Päivä | Tunnit | Kuvaus
 07.01.2017 | 2h | Käyttöliittymän tekoa
 08.01.2017 | 8h | Ohjelman yleistä suunnittelua, tekoa, ongelmien ratkaisua
 08.01.2017 | 2h | Dl 5:n tehtävien yrittämistä
+09.01.2017 | 4h | Käyttöliittymän kehittämistä ja toiminnallisuutta
+10.01.2017 | 6h | Kuvien lisäämistä, toiminnallisuutta ja käyttöliittymää
+11.01.2017 | 6h | Toiminnallisuutta, hiomista ja javadocia, DL6-tehtäviä
