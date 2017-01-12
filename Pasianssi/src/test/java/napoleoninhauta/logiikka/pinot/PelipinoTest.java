@@ -1,0 +1,81 @@
+package napoleoninhauta.logiikka.pinot;
+
+import napoleoninhauta.logiikka.pinot.Pelipino;
+import napoleoninhauta.pakka.Kortti;
+import napoleoninhauta.pakka.Maa;
+import org.junit.After;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
+import org.junit.Before;
+import org.junit.Test;
+
+public class PelipinoTest {
+
+    private Pelipino pelipino;
+    private Kortti testikortti;
+
+    @Before
+    public void setUp() {
+        this.pelipino = new Pelipino();
+        this.testikortti = new Kortti(2, Maa.RUUTU);
+    }
+
+    @Test
+    public void pelipinoonVoiAsettaaKortin() {
+        pelipino.asetaKortti(testikortti);
+        assertEquals(1, pelipino.palautaMaara());
+    }
+
+    @Test
+    public void pelipinoonVoiAsettaaKortteja() {
+        pelipino.asetaKortti(testikortti);
+        pelipino.asetaKortti(new Kortti(12, Maa.HERTTA));
+        assertEquals(2, pelipino.palautaMaara());
+    }
+    
+    @Test
+    public void asetaKorttiLaittaaKortinPinonPaalimmaiseksi() {
+        pelipino.asetaKortti(testikortti);
+        pelipino.asetaKortti(new Kortti(8, Maa.RUUTU));
+        assertEquals("RUUTU_8", pelipino.palautaYlin());
+    }
+
+    @Test
+    public void otaKorttiPalauttaaNullJosPelipinoOnTyhja() {
+        assertEquals(null, pelipino.otaKortti());
+    }
+
+    @Test
+    public void otaKorttiPalauttaaViimeiseksiLaitetunKortin() {
+        pelipino.asetaKortti(new Kortti(6, Maa.HERTTA));
+        pelipino.asetaKortti(testikortti);
+        assertEquals(testikortti, pelipino.otaKortti());
+    }
+
+    @Test
+    public void otaKorttiVahentaaPelipinonKorttienMaaraa() {
+        pelipino.asetaKortti(new Kortti(6, Maa.HERTTA));
+        pelipino.asetaKortti(testikortti);
+        pelipino.otaKortti();
+        assertEquals(1, pelipino.palautaMaara());
+    }
+
+    @Test
+    public void otaKorttiPoistaaPelipinonPaallimmaisenKortin() {
+        pelipino.asetaKortti(new Kortti(6, Maa.HERTTA));
+        pelipino.asetaKortti(testikortti);
+        pelipino.otaKortti();
+        assertEquals("HERTTA_6", pelipino.palautaYlin());
+    }
+
+    @Test
+    public void otaKorttiTyhjentaaYhdenKortinPelipinon() {
+        pelipino.asetaKortti(testikortti);
+        pelipino.otaKortti();
+        assertTrue(pelipino.palautaMaara() == 0);
+    }
+
+    @After
+    public void tearDown() {
+    }
+}

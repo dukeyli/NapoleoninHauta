@@ -22,6 +22,7 @@
 
     <build>
         <plugins>
+            
             <plugin>
                 <artifactId>maven-compiler-plugin</artifactId>
                 <configuration>
@@ -29,6 +30,29 @@
                     <target>1.8</target>
                 </configuration>
                 <version>3.3</version>
+            </plugin>
+            
+            <plugin>
+                <artifactId>maven-resources-plugin</artifactId>
+                <version>2.7</version>
+                <executions>
+                    <execution>
+                        <id>copy-Images</id>
+                        <phase>validate</phase>
+                        <goals>
+                            <goal>copy-resources</goal>
+                        </goals>
+                        <configuration>
+                            <outputDirectory>${basedir}/Images</outputDirectory>
+                            <resources>          
+                                <resource>
+                                    <directory>Images</directory>
+                                    <filtering>true</filtering>
+                                </resource>
+                            </resources>              
+                        </configuration>            
+                    </execution>
+                </executions>
             </plugin>
             
             <plugin>
@@ -44,7 +68,7 @@
                         <configuration>
                             <transformers>
                                 <transformer implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
-                                    <mainClass>napoleoninhauta.pasianssi.peli.Main</mainClass>
+                                    <mainClass>napoleoninhauta.gui.Main</mainClass>
                                 </transformer>
                             </transformers>
                         </configuration>
@@ -56,14 +80,16 @@
                 <groupId>org.pitest</groupId>
                 <artifactId>pitest-maven</artifactId>
                 <version>1.1.8</version>
-                <!--                <configuration>
+                <configuration>
                     <targetClasses>
                         <param>napoleoninhauta.pakka*</param>
+                        <param>napoleoninhauta.logiikka.pinot*</param>  
                     </targetClasses>
                     <targetTests>
                         <param>napoleoninhauta.pakka*</param>
+                        <param>napoleoninhauta.logiikka.pinot*</param>
                     </targetTests>
-                </configuration>-->
+                </configuration>
             </plugin>
             
             <plugin>

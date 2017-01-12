@@ -15,3 +15,4 @@ Päivä | Tunnit | Kuvaus
 10.01.2017 | 6h | Kuvien lisäämistä, toiminnallisuutta ja käyttöliittymää
 11.01.2017 | 6h | Toiminnallisuutta, hiomista ja javadocia, DL6-tehtäviä
 11.01.2017 | 1h | Dl 6:n tehtäviä
+12.01.2017 | 2h | jar.-tiedoston toimivuutta
