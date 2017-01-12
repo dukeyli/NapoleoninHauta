@@ -1,6 +1,5 @@
 package napoleoninhauta.logiikka.pinot;
 
-import napoleoninhauta.logiikka.pinot.KuutosJemma;
 import napoleoninhauta.pakka.Kortti;
 import napoleoninhauta.pakka.Maa;
 import org.junit.After;
@@ -22,21 +21,21 @@ public class KuutosJemmaTest {
     @Test
     public void jemmaanVoiLaittaaKuutosen() {
         jemma.asetaKortti(testikortti);
-        assertEquals(1, jemma.palautaMaara());
+        assertEquals(1, jemma.getMaara());
     }
 
     @Test
     public void jemmaanVoiLaittaaLisaaKuutosia() {
         jemma.asetaKortti(testikortti);
         jemma.asetaKortti(new Kortti(6, Maa.RUUTU));
-        assertEquals(2, jemma.palautaMaara());
+        assertEquals(2, jemma.getMaara());
     }
 
     @Test
     public void jemmaanEiVoiLaittaaMuitaKuinKuutosia() {
         jemma.asetaKortti(new Kortti(1, Maa.PATA));
         jemma.asetaKortti(new Kortti(8, Maa.HERTTA));
-        assertEquals(0, jemma.palautaMaara());
+        assertEquals(0, jemma.getMaara());
     }
 
     @Test
@@ -56,22 +55,30 @@ public class KuutosJemmaTest {
         jemma.asetaKortti(new Kortti(6, Maa.HERTTA));
         jemma.asetaKortti(testikortti);
         jemma.otaKortti();
-        assertEquals(1, jemma.palautaMaara());
+        assertEquals(1, jemma.getMaara());
     }
-    
+
     @Test
     public void otaKorttiPoistaaPaalimmaisenKortinJemmasta() {
         jemma.asetaKortti(new Kortti(6, Maa.HERTTA));
         jemma.asetaKortti(testikortti);
         jemma.otaKortti();
-        assertEquals("HERTTA_6", jemma.palautaYlin());
+        assertEquals("HERTTA_6", jemma.getYlin());
     }
 
     @Test
     public void otaKorttiTyhjentaaYhdenKortinJemman() {
         jemma.asetaKortti(testikortti);
         jemma.otaKortti();
-        assertTrue(jemma.palautaMaara() == 0);
+        assertTrue(jemma.getMaara() == 0);
+    }
+
+    @Test
+    public void tyhjennaTyhjentaaJemman() {
+        jemma.asetaKortti(testikortti);
+        jemma.asetaKortti(new Kortti(6, Maa.HERTTA));
+        jemma.tyhjenna();
+        assertEquals(0, jemma.getMaara());
     }
 
     @After

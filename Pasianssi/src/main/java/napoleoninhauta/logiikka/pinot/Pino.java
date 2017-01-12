@@ -24,7 +24,7 @@ public abstract class Pino {
      *
      * @return yksityinen attribuutti, joka on lista kortteja
      */
-    public ArrayList<Kortti> palautaKortit() {
+    public ArrayList<Kortti> getKortit() {
         return this.kortit;
     }
 
@@ -41,7 +41,7 @@ public abstract class Pino {
      *
      * @return pinon päällimmäisen kortin String-esitys tai "tyhja"
      */
-    public String palautaYlin() {
+    public String getYlin() {
         if (!kortit.isEmpty()) {
             return this.kortit.get(0).toString();
         }
@@ -53,7 +53,7 @@ public abstract class Pino {
      *
      * @return pinon koko
      */
-    public int palautaMaara() {
+    public int getMaara() {
         return this.kortit.size();
     }
 
@@ -63,7 +63,7 @@ public abstract class Pino {
      *
      * @return pinon ylimmän kortin arvo tai 0
      */
-    public int palautaYlimmanArvo() {
+    public int getYlimmanArvo() {
         if (!kortit.isEmpty()) {
             return this.kortit.get(0).getArvo();
         }

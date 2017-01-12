@@ -37,7 +37,7 @@ public class KeskipinoTest {
     @Test
     public void keskelleVoiLaittaaAluksiKuutosen() {
         keskipino.asetaKortti(testikortti);
-        assertEquals(1, keskipino.palautaMaara());
+        assertEquals(1, keskipino.getMaara());
     }
 
     @Test
@@ -50,7 +50,7 @@ public class KeskipinoTest {
     public void keskelleVoiLaittaaOikeitaKortteja() {
         keskipino.asetaKortti(testikortti);
         keskipino.asetaKortti(new Kortti(5, Maa.RUUTU));
-        assertEquals(2, keskipino.palautaMaara());
+        assertEquals(2, keskipino.getMaara());
     }
 
     @Test
@@ -64,21 +64,21 @@ public class KeskipinoTest {
     public void asetaKorttiLaittaaKortinPinonPaalimmaiseksi() {
         keskipino.asetaKortti(testikortti);
         keskipino.asetaKortti(new Kortti(5, Maa.RUUTU));
-        assertEquals("RUUTU_5", keskipino.palautaYlin());
+        assertEquals("RUUTU_5", keskipino.getYlin());
     }
 
     @Test
     public void keskelleEiVoiLaittaaKorttiaJonkaArvoOnEriKuinKeskipinonArvo() {
         keskipino.asetaKortti(new Kortti(5, Maa.PATA));
         keskipino.asetaKortti(new Kortti(7, Maa.HERTTA));
-        assertEquals(0, keskipino.palautaMaara());
+        assertEquals(0, keskipino.getMaara());
     }
 
     @Test
     public void keskelleEiVoiLaittaaKuutostaKunArvoEiOleKuusi() {
         keskipino.asetaKortti(testikortti);
         keskipino.asetaKortti(new Kortti(6, Maa.HERTTA));
-        assertEquals("RISTI_6", keskipino.palautaYlin());
+        assertEquals("RISTI_6", keskipino.getYlin());
     }
 
     @Test
@@ -104,7 +104,7 @@ public class KeskipinoTest {
         keskipino.asetaKortti(testikortti);
         keskipino.asetaKortti(new Kortti(5, Maa.PATA));
         keskipino.tyhjenna();
-        assertEquals(0, keskipino.palautaMaara());
+        assertEquals(0, keskipino.getMaara());
     }
 
     @After

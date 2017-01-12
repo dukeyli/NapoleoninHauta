@@ -17,7 +17,7 @@ public class KuutosjemmanKuuntelija implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        if (alusta.getMuut().getKuutosJemma().palautaMaara() != 0
+        if (alusta.getMuut().getKuutosJemma().getMaara() != 0
                 && alusta.getMuut().getKeskipino().getArvo() == 6) {
             alusta.getMuut().getKeskipino().asetaKortti(alusta.getMuut().getKuutosJemma().otaKortti());
             paivittaja.paivita();

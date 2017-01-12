@@ -20,14 +20,14 @@ public class PohjoisjemmanKuuntelija implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        if (!alusta.getJemmat().getPohjoinen().palautaKortti().equals("tyhja")) {
+        if (!alusta.getJemmat().getPohjoinen().getKortti().equals("tyhja")) {
             suorita();
             paivittaja.paivita();
         }
     }
 
     public void suorita() {
-        int kortinArvo = alusta.getJemmat().getPohjoinen().palautaKortinArvo();
+        int kortinArvo = alusta.getJemmat().getPohjoinen().getKortinArvo();
         if (kortinArvo == alusta.getMuut().getKeskipino().getArvo()) {
             alusta.getMuut().getKeskipino().asetaKortti(alusta.getJemmat().getPohjoinen().otaKortti());
         }

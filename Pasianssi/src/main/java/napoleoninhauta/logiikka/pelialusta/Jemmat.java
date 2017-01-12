@@ -46,10 +46,10 @@ public class Jemmat {
      * @return true tai false
      */
     public boolean onkoKaikkiJemmatTaynna() {
-        if (lansi.palautaKortti().equals("tyhja")
-                || ita.palautaKortti().equals("tyhja")
-                || etela.palautaKortti().equals("tyhja")
-                || pohjoinen.palautaKortti().equals("tyhja")) {
+        if (lansi.getKortti().equals("tyhja")
+                || ita.getKortti().equals("tyhja")
+                || etela.getKortti().equals("tyhja")
+                || pohjoinen.getKortti().equals("tyhja")) {
             return false;
         }
         return true;
@@ -65,19 +65,19 @@ public class Jemmat {
      * @return true tai false
      */
     public boolean laitaTyhjaanJemmaan(Kortti kortti) {
-        if (lansi.palautaKortti().equals("tyhja")) {
+        if (lansi.getKortti().equals("tyhja")) {
             lansi.asetaKortti(kortti);
             return true;
         }
-        if (pohjoinen.palautaKortti().equals("tyhja")) {
+        if (pohjoinen.getKortti().equals("tyhja")) {
             pohjoinen.asetaKortti(kortti);
             return true;
         }
-        if (ita.palautaKortti().equals("tyhja")) {
+        if (ita.getKortti().equals("tyhja")) {
             ita.asetaKortti(kortti);
             return true;
         }
-        if (etela.palautaKortti().equals("tyhja")) {
+        if (etela.getKortti().equals("tyhja")) {
             etela.asetaKortti(kortti);
             return true;
         }

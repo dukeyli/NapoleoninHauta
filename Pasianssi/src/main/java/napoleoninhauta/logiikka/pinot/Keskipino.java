@@ -33,7 +33,7 @@ public class Keskipino extends Pino {
      * @return boolean true/false
      */
     public boolean onkoPeliAvattu() {
-        if (super.palautaMaara() == 0) {
+        if (super.getMaara() == 0) {
             return false;
         }
         return true;
@@ -41,10 +41,9 @@ public class Keskipino extends Pino {
 
     /**
      * Metodi laittaa parametrina annetun kortin pinoon päälimmäiseksi ja
-     * pienentää arvo-attribuuttia yhdellä, jos kortin arvo oikea ja pinossa ei
-     * ole jo kyseistä korttia. Kortin arvo on oikea, jos se on sama kuin
-     * arvo-attribuutin arvo. Jos attribuutti arvo pienenee nollaan, se
-     * asetetaan takaisin arvoon kuusi.
+     * pienentää arvo-attribuuttia yhdellä, jos kortin arvo oikea. Kortin arvo
+     * on oikea, jos se on sama kuin arvo-attribuutin arvo. Jos attribuutti arvo
+     * pienenee nollaan, se asetetaan takaisin arvoon kuusi.
      *
      * @param kortti pinosta, pakasta tai jemmasta otettava kortti.
      *
@@ -52,7 +51,7 @@ public class Keskipino extends Pino {
     @Override
     public void asetaKortti(Kortti kortti) {
         if (kortti.getArvo() == arvo) {
-            super.palautaKortit().add(0, kortti);
+            super.getKortit().add(0, kortti);
             arvo--;
         }
         if (this.arvo == 0) {
@@ -62,7 +61,7 @@ public class Keskipino extends Pino {
 
     @Override
     public void tyhjenna() {
-        super.palautaKortit().clear();
+        super.getKortit().clear();
         arvo = 6;
     }
 }

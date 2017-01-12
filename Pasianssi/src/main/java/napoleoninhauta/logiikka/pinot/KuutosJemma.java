@@ -10,15 +10,15 @@ public class KuutosJemma extends Pino {
 
     /**
      * Metodi laittaa parametrina annetun kortin pinoon päälimmäiseksi, jos
-     * kortti on kuutonen ja pinossa ei ole jo kyseistä korttia.
+     * kortti on kuutonen.
      *
      * @param kortti pinosta, pakasta tai jemmasta otettava kortti.
      *
      */
     @Override
     public void asetaKortti(Kortti kortti) {
-        if (kortti.getArvo() == 6 && !super.palautaKortit().contains(kortti)) {
-            super.palautaKortit().add(0, kortti);
+        if (kortti.getArvo() == 6) {
+            super.getKortit().add(0, kortti);
         }
     }
 
@@ -29,9 +29,9 @@ public class KuutosJemma extends Pino {
      * @return päällimmäinen kortti tai null
      */
     public Kortti otaKortti() {
-        if (!super.palautaKortit().isEmpty()) {
-            Kortti lappu = super.palautaKortit().get(0);
-            super.palautaKortit().remove(0);
+        if (!super.getKortit().isEmpty()) {
+            Kortti lappu = super.getKortit().get(0);
+            super.getKortit().remove(0);
             return lappu;
         }
         return null;
@@ -39,6 +39,6 @@ public class KuutosJemma extends Pino {
 
     @Override
     public void tyhjenna() {
-        super.palautaKortit().clear();
+        super.getKortit().clear();
     }
 }

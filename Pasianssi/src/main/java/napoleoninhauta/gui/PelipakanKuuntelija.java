@@ -17,7 +17,7 @@ public class PelipakanKuuntelija implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        if (pelialusta.getMuut().getPelipakka().palautaMaara() > 0) {
+        if (pelialusta.getMuut().getPelipakka().getMaara() > 0) {
             pelialusta.nostaKorttiPakasta();
             paivittaja.paivita();
         }

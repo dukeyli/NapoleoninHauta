@@ -9,17 +9,14 @@ import napoleoninhauta.pakka.Kortti;
 public class Pelipino extends Pino {
 
     /**
-     * Metodi laittaa parametrina annetun kortin pinoon päällimmäiseksi, jos
-     * pinossa ei ole jo kyseistä korttia.
+     * Metodi laittaa parametrina annetun kortin pinoon päällimmäiseksi.
      *
      * @param kortti pinosta, pakasta tai jemmasta otettava kortti.
      *
      */
     @Override
     public void asetaKortti(Kortti kortti) {
-        if (!super.palautaKortit().contains(kortti)) {
-            super.palautaKortit().add(0, kortti);
-        }
+        super.getKortit().add(0, kortti);
     }
 
     /**
@@ -29,9 +26,9 @@ public class Pelipino extends Pino {
      * @return päällimmäinen kortti tai null
      */
     public Kortti otaKortti() {
-        if (!super.palautaKortit().isEmpty()) {
-            Kortti lappu = super.palautaKortit().get(0);
-            super.palautaKortit().remove(0);
+        if (!super.getKortit().isEmpty()) {
+            Kortti lappu = super.getKortit().get(0);
+            super.getKortit().remove(0);
             return lappu;
         }
         return null;
@@ -39,7 +36,7 @@ public class Pelipino extends Pino {
 
     @Override
     public void tyhjenna() {
-        super.palautaKortit().clear();
+        super.getKortit().clear();
     }
 
 }

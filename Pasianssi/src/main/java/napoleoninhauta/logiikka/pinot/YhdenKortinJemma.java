@@ -46,7 +46,7 @@ public class YhdenKortinJemma {
      *
      * @return jemman kortin String-esitys tai "tyhja"
      */
-    public String palautaKortti() {
+    public String getKortti() {
         if (paikka == null) {
             return "tyhja";
         }
@@ -58,7 +58,7 @@ public class YhdenKortinJemma {
      *
      * @return kortin arvo kokonaislukuna tai nolla
      */
-    public int palautaKortinArvo() {
+    public int getKortinArvo() {
         if (paikka == null) {
             return 0;
         }

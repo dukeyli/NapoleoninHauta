@@ -26,7 +26,7 @@ public class KulmapinoTest {
     @Test
     public void kulmaanVoiAsettaaSeiskan() {
         kulmapino.asetaKortti(testikortti);
-        assertEquals(1, kulmapino.palautaMaara());
+        assertEquals(1, kulmapino.getMaara());
     }
 
     @Test
@@ -39,7 +39,7 @@ public class KulmapinoTest {
     public void kulmaanVoiLaittaaOikeitaKortteja() {
         kulmapino.asetaKortti(testikortti);
         kulmapino.asetaKortti(new Kortti(8, Maa.RUUTU));
-        assertEquals(2, kulmapino.palautaMaara());
+        assertEquals(2, kulmapino.getMaara());
     }
 
     @Test
@@ -53,14 +53,14 @@ public class KulmapinoTest {
     public void asetaKorttiLaittaaKortinPinonPaalimmaiseksi() {
         kulmapino.asetaKortti(testikortti);
         kulmapino.asetaKortti(new Kortti(8, Maa.RUUTU));
-        assertEquals("RUUTU_8", kulmapino.palautaYlin());
+        assertEquals("RUUTU_8", kulmapino.getYlin());
     }
 
     @Test
     public void kulmaanEiVoiLaittaaKorttiaJonkaArvoOnEriKuinKulmanArvo() {
         kulmapino.asetaKortti(new Kortti(6, Maa.PATA));
         kulmapino.asetaKortti(new Kortti(8, Maa.HERTTA));
-        assertEquals(0, kulmapino.palautaMaara());
+        assertEquals(0, kulmapino.getMaara());
     }
     
     @Test
@@ -74,7 +74,7 @@ public class KulmapinoTest {
     public void tyhjennaTyhjentaaPinon() {
         kulmapino.asetaKortti(testikortti);
         kulmapino.tyhjenna();
-        assertEquals(0, kulmapino.palautaMaara());
+        assertEquals(0, kulmapino.getMaara());
     }
 
     @After

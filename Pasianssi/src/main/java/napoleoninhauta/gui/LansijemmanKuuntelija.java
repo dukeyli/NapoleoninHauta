@@ -20,14 +20,14 @@ public class LansijemmanKuuntelija implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        if (!alusta.getJemmat().getLansi().palautaKortti().equals("tyhja")) {
+        if (!alusta.getJemmat().getLansi().getKortti().equals("tyhja")) {
             suorita();
             paivittaja.paivita();
         }
     }
 
     public void suorita() {
-        int kortinArvo = alusta.getJemmat().getLansi().palautaKortinArvo();
+        int kortinArvo = alusta.getJemmat().getLansi().getKortinArvo();
         if (kortinArvo == alusta.getMuut().getKeskipino().getArvo()) {
             alusta.getMuut().getKeskipino().asetaKortti(alusta.getJemmat().getLansi().otaKortti());
         }

@@ -1,6 +1,5 @@
 package napoleoninhauta.logiikka.pinot;
 
-import napoleoninhauta.logiikka.pinot.YhdenKortinJemma;
 import napoleoninhauta.pakka.Kortti;
 import napoleoninhauta.pakka.Maa;
 import org.junit.After;
@@ -22,26 +21,26 @@ public class YhdenKortinJemmaTest {
 
     @Test
     public void jemmaLuodaanJaPaikkaOnTyhja() {
-        assertEquals("tyhja", jemma.palautaKortti());
+        assertEquals("tyhja", jemma.getKortti());
     }
 
     @Test
     public void tyhjaanjemmaanVoiLaittaaKortin() {
         jemma.asetaKortti(testikortti);
-        assertTrue(jemma.palautaKortti() != null);
+        assertTrue(jemma.getKortti() != null);
     }
 
     @Test
     public void palautaKorttiPalauttaaJemmanKortinStringEsityksen() {
         jemma.asetaKortti(testikortti);
-        assertEquals(testikortti.toString(), jemma.palautaKortti());
+        assertEquals(testikortti.toString(), jemma.getKortti());
     }
 
     @Test
     public void jemmaanEiVoiLaittaaKorttiaJosJemmassaOnKortti() {
         jemma.asetaKortti(testikortti);
         jemma.asetaKortti(new Kortti(6, Maa.RUUTU));
-        assertEquals(testikortti.toString(), jemma.palautaKortti());
+        assertEquals(testikortti.toString(), jemma.getKortti());
     }
 
     @Test
@@ -59,7 +58,25 @@ public class YhdenKortinJemmaTest {
     public void otaKorttiTyhjentaaJemman() {
         jemma.asetaKortti(testikortti);
         jemma.otaKortti();
-        assertEquals("tyhja", jemma.palautaKortti());
+        assertEquals("tyhja", jemma.getKortti());
+    }
+
+    @Test
+    public void palautaKortinArvoPalauttaaNollaJosJemmaOnTyhja() {
+        assertEquals(0, jemma.getKortinArvo());
+    }
+
+    @Test
+    public void palautaKortinArvoPalauttaaJemmassaOlevanKortinArvon() {
+        jemma.asetaKortti(testikortti);
+        assertEquals(1, jemma.getKortinArvo());
+    }
+
+    @Test
+    public void tyhjennaTyhjentaaJemman() {
+        jemma.asetaKortti(testikortti);
+        jemma.tyhjenna();
+        assertTrue(jemma.getKortti().equals("tyhja"));
     }
 
     @After

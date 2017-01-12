@@ -26,7 +26,7 @@ public class Pelipakka {
      *
      * @return pakan koko
      */
-    public int palautaMaara() {
+    public int getMaara() {
         return this.kortit.size();
     }
 

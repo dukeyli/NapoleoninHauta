@@ -1,6 +1,5 @@
 package napoleoninhauta.logiikka.pinot;
 
-import napoleoninhauta.logiikka.pinot.Pelipino;
 import napoleoninhauta.pakka.Kortti;
 import napoleoninhauta.pakka.Maa;
 import org.junit.After;
@@ -23,21 +22,21 @@ public class PelipinoTest {
     @Test
     public void pelipinoonVoiAsettaaKortin() {
         pelipino.asetaKortti(testikortti);
-        assertEquals(1, pelipino.palautaMaara());
+        assertEquals(1, pelipino.getMaara());
     }
 
     @Test
     public void pelipinoonVoiAsettaaKortteja() {
         pelipino.asetaKortti(testikortti);
         pelipino.asetaKortti(new Kortti(12, Maa.HERTTA));
-        assertEquals(2, pelipino.palautaMaara());
+        assertEquals(2, pelipino.getMaara());
     }
-    
+
     @Test
     public void asetaKorttiLaittaaKortinPinonPaalimmaiseksi() {
         pelipino.asetaKortti(testikortti);
         pelipino.asetaKortti(new Kortti(8, Maa.RUUTU));
-        assertEquals("RUUTU_8", pelipino.palautaYlin());
+        assertEquals("RUUTU_8", pelipino.getYlin());
     }
 
     @Test
@@ -57,7 +56,7 @@ public class PelipinoTest {
         pelipino.asetaKortti(new Kortti(6, Maa.HERTTA));
         pelipino.asetaKortti(testikortti);
         pelipino.otaKortti();
-        assertEquals(1, pelipino.palautaMaara());
+        assertEquals(1, pelipino.getMaara());
     }
 
     @Test
@@ -65,14 +64,27 @@ public class PelipinoTest {
         pelipino.asetaKortti(new Kortti(6, Maa.HERTTA));
         pelipino.asetaKortti(testikortti);
         pelipino.otaKortti();
-        assertEquals("HERTTA_6", pelipino.palautaYlin());
+        assertEquals("HERTTA_6", pelipino.getYlin());
     }
 
     @Test
     public void otaKorttiTyhjentaaYhdenKortinPelipinon() {
         pelipino.asetaKortti(testikortti);
         pelipino.otaKortti();
-        assertTrue(pelipino.palautaMaara() == 0);
+        assertTrue(pelipino.getMaara() == 0);
+    }
+
+    @Test
+    public void nostaKorttiPalauttaaNullJosPakkaOnTyhja() {
+        assertTrue(pelipino.otaKortti() == null);
+    }
+
+    @Test
+    public void tyhjennaTyhjentaaPinon() {
+        pelipino.asetaKortti(testikortti);
+        pelipino.asetaKortti(new Kortti(2, Maa.RUUTU));
+        pelipino.tyhjenna();
+        assertEquals(0, pelipino.getMaara());
     }
 
     @After

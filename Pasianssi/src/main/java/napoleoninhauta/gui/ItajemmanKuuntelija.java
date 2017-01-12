@@ -20,14 +20,14 @@ public class ItajemmanKuuntelija implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        if (!alusta.getJemmat().getIta().palautaKortti().equals("tyhja")) {
+        if (!alusta.getJemmat().getIta().getKortti().equals("tyhja")) {
             suorita();
             paivittaja.paivita();
         }
     }
 
     private void suorita() {
-        int kortinArvo = alusta.getJemmat().getIta().palautaKortinArvo();
+        int kortinArvo = alusta.getJemmat().getIta().getKortinArvo();
         if (kortinArvo == alusta.getMuut().getKeskipino().getArvo()) {
             alusta.getMuut().getKeskipino().asetaKortti(alusta.getJemmat().getIta().otaKortti());
         }

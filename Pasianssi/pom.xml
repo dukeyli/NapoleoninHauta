@@ -82,12 +82,15 @@
                 <version>1.1.8</version>
                 <configuration>
                     <targetClasses>
-                        <param>napoleoninhauta.pakka*</param>
-                        <param>napoleoninhauta.logiikka.pinot*</param>  
+<!--                        <param>napoleoninhauta.pakka*</param>
+                        <param>napoleoninhauta.logiikka.pinot*</param>  -->
+                        <param>napoleoninhauta.logiikka.pelialusta*</param>
                     </targetClasses>
                     <targetTests>
-                        <param>napoleoninhauta.pakka*</param>
-                        <param>napoleoninhauta.logiikka.pinot*</param>
+<!--                        <param>napoleoninhauta.pakka*</param>
+                        <param>napoleoninhauta.logiikka.pinot*</param>-->
+                        <param>napoleoninhauta.logiikka.pelialusta*</param>
+
                     </targetTests>
                 </configuration>
             </plugin>
