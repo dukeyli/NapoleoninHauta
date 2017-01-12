@@ -84,7 +84,7 @@ public class Pelialusta {
     }
 
     private boolean laitaKeskipinoonTaiKuutosjemmaanPelipinosta(Kortti kortti) {
-        if (kortti.getArvo() == muut.getKeskipino().palautaArvo()) {
+        if (kortti.getArvo() == muut.getKeskipino().getArvo()) {
             muut.getKeskipino().asetaKortti(kortti);
             return false;
         }
@@ -131,7 +131,7 @@ public class Pelialusta {
         if (arvo == 0) {
             return true;
         }
-        if (!kulmapinot.palautaArvot().contains(arvo) && muut.getKeskipino().palautaArvo() != arvo) {
+        if (!kulmapinot.palautaArvot().contains(arvo) && muut.getKeskipino().getArvo() != arvo) {
             return false;
         }
         return true;

@@ -1,6 +1,5 @@
 package napoleoninhauta.logiikka.pinot;
 
-import napoleoninhauta.logiikka.pinot.Keskipino;
 import napoleoninhauta.pakka.Kortti;
 import napoleoninhauta.pakka.Maa;
 import org.junit.After;
@@ -20,8 +19,19 @@ public class KeskipinoTest {
     }
 
     @Test
-    public void arvoOnAluksiSeitsemanJaPalautaArvoToimii() {
-        assertEquals(6, keskipino.palautaArvo());
+    public void arvoOnAluksiKuusiJaPalautaArvoToimii() {
+        assertEquals(6, keskipino.getArvo());
+    }
+
+    @Test
+    public void onkoPeliAvattuPalauttaaFalseJosPinoOnTyhja() {
+        assertFalse(keskipino.onkoPeliAvattu());
+    }
+
+    @Test
+    public void onkoPeliAvattuPalauttaaTrueJosPinossaOnKortti() {
+        keskipino.asetaKortti(testikortti);
+        assertTrue(keskipino.onkoPeliAvattu());
     }
 
     @Test
@@ -33,7 +43,7 @@ public class KeskipinoTest {
     @Test
     public void keskipinonArvoLaskeeKunSiihenLaitetaanKortti() {
         keskipino.asetaKortti(testikortti);
-        assertEquals(5, keskipino.palautaArvo());
+        assertEquals(5, keskipino.getArvo());
     }
 
     @Test
@@ -47,7 +57,7 @@ public class KeskipinoTest {
     public void keskipinonArvoLaskeeKorttejaLisatessa() {
         keskipino.asetaKortti(testikortti);
         keskipino.asetaKortti(new Kortti(5, Maa.RUUTU));
-        assertEquals(4, keskipino.palautaArvo());
+        assertEquals(4, keskipino.getArvo());
     }
 
     @Test
@@ -65,6 +75,13 @@ public class KeskipinoTest {
     }
 
     @Test
+    public void keskelleEiVoiLaittaaKuutostaKunArvoEiOleKuusi() {
+        keskipino.asetaKortti(testikortti);
+        keskipino.asetaKortti(new Kortti(6, Maa.HERTTA));
+        assertEquals("RISTI_6", keskipino.palautaYlin());
+    }
+
+    @Test
     public void kunKeskelleLaittaaAssanArvoNouseeKuutoseen() {
         keskipino.asetaKortti(testikortti);
         keskipino.asetaKortti(new Kortti(5, Maa.PATA));
@@ -72,7 +89,22 @@ public class KeskipinoTest {
         keskipino.asetaKortti(new Kortti(3, Maa.PATA));
         keskipino.asetaKortti(new Kortti(2, Maa.PATA));
         keskipino.asetaKortti(new Kortti(1, Maa.PATA));
-        assertEquals(6, keskipino.palautaArvo());
+        assertEquals(6, keskipino.getArvo());
+    }
+
+    @Test
+    public void tyhjennaAsettaaArvonKuutoseen() {
+        keskipino.asetaKortti(testikortti);
+        keskipino.tyhjenna();
+        assertEquals(6, keskipino.getArvo());
+    }
+
+    @Test
+    public void tyhjennaTyhjentaaKeskipinon() {
+        keskipino.asetaKortti(testikortti);
+        keskipino.asetaKortti(new Kortti(5, Maa.PATA));
+        keskipino.tyhjenna();
+        assertEquals(0, keskipino.palautaMaara());
     }
 
     @After

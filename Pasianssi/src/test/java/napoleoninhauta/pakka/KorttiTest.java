@@ -35,19 +35,25 @@ public class KorttiTest {
         assertEquals("PATA_3", kortti2.toString());
         assertEquals("RISTI_2", kortti1.toString());
     }
-    
+
     @Test
     public void equalsEiToimiPelkanMaanPerusteella() {
         Kortti kortti = new Kortti(1, Maa.PATA);
         assertFalse(kortti.equals(kortti2));
     }
-    
+
     @Test
     public void equalsEiToimiPelkanArvonPerusteella() {
         Kortti kortti = new Kortti(2, Maa.PATA);
         assertFalse(kortti.equals(kortti1));
     }
-    
+
+    @Test
+    public void equalsPalauttaaFalseJosVerrattavaEiOleKortti() {
+        String sana = "";
+        assertFalse(kortti1.equals(sana));
+    }
+
     @Test
     public void equalsToimiiMaanJaArvonPerusteella() {
         Kortti kortti = new Kortti(2, Maa.RISTI);

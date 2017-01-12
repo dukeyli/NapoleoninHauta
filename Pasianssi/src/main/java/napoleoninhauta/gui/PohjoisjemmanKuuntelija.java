@@ -28,7 +28,7 @@ public class PohjoisjemmanKuuntelija implements ActionListener {
 
     public void suorita() {
         int kortinArvo = alusta.getJemmat().getPohjoinen().palautaKortinArvo();
-        if (kortinArvo == alusta.getMuut().getKeskipino().palautaArvo()) {
+        if (kortinArvo == alusta.getMuut().getKeskipino().getArvo()) {
             alusta.getMuut().getKeskipino().asetaKortti(alusta.getJemmat().getPohjoinen().otaKortti());
         }
         if (alusta.getKulmapinot().palautaArvot().contains(kortinArvo)) {

@@ -28,7 +28,7 @@ public class EtelajemmanKuuntelija implements ActionListener {
 
     public void suorita() {
         int kortinArvo = alusta.getJemmat().getEtela().palautaKortinArvo();
-        if (kortinArvo == alusta.getMuut().getKeskipino().palautaArvo()) {
+        if (kortinArvo == alusta.getMuut().getKeskipino().getArvo()) {
             alusta.getMuut().getKeskipino().asetaKortti(alusta.getJemmat().getEtela().otaKortti());
         }
         if (alusta.getKulmapinot().palautaArvot().contains(kortinArvo)) {

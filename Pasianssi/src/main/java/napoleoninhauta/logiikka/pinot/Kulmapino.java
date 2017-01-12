@@ -23,7 +23,7 @@ public class Kulmapino extends Pino {
      *
      * @return kokonaislukuarvoinen attribuutti
      */
-    public int palautaArvo() {
+    public int getArvo() {
         return this.arvo;
     }
 

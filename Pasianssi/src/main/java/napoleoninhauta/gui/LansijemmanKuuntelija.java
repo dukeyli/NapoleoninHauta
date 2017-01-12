@@ -28,7 +28,7 @@ public class LansijemmanKuuntelija implements ActionListener {
 
     public void suorita() {
         int kortinArvo = alusta.getJemmat().getLansi().palautaKortinArvo();
-        if (kortinArvo == alusta.getMuut().getKeskipino().palautaArvo()) {
+        if (kortinArvo == alusta.getMuut().getKeskipino().getArvo()) {
             alusta.getMuut().getKeskipino().asetaKortti(alusta.getJemmat().getLansi().otaKortti());
         }
         if (alusta.getKulmapinot().palautaArvot().contains(kortinArvo)) {

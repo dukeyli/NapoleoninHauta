@@ -1,6 +1,5 @@
 package napoleoninhauta.logiikka.pinot;
 
-import napoleoninhauta.logiikka.pinot.Kulmapino;
 import napoleoninhauta.pakka.Kortti;
 import napoleoninhauta.pakka.Maa;
 import org.junit.After;
@@ -21,7 +20,7 @@ public class KulmapinoTest {
 
     @Test
     public void arvoOnAluksiSeitsemanJaPalautaArvoToimii() {
-        assertEquals(7, kulmapino.palautaArvo());
+        assertEquals(7, kulmapino.getArvo());
     }
 
     @Test
@@ -33,7 +32,7 @@ public class KulmapinoTest {
     @Test
     public void kulmanArvoNouseeKortinAsettamisenJalkeen() {
         kulmapino.asetaKortti(testikortti);
-        assertEquals(8, kulmapino.palautaArvo());
+        assertEquals(8, kulmapino.getArvo());
     }
 
     @Test
@@ -47,7 +46,7 @@ public class KulmapinoTest {
     public void kulmanArvoNouseeKorttejaLisatessa() {
         kulmapino.asetaKortti(testikortti);
         kulmapino.asetaKortti(new Kortti(8, Maa.RUUTU));
-        assertEquals(9, kulmapino.palautaArvo());
+        assertEquals(9, kulmapino.getArvo());
     }
 
     @Test
@@ -61,6 +60,20 @@ public class KulmapinoTest {
     public void kulmaanEiVoiLaittaaKorttiaJonkaArvoOnEriKuinKulmanArvo() {
         kulmapino.asetaKortti(new Kortti(6, Maa.PATA));
         kulmapino.asetaKortti(new Kortti(8, Maa.HERTTA));
+        assertEquals(0, kulmapino.palautaMaara());
+    }
+    
+    @Test
+    public void tyhjennaAsettaaArvonSeitsemaan() {
+        kulmapino.asetaKortti(testikortti);
+        kulmapino.tyhjenna();
+        assertEquals(7, kulmapino.getArvo());
+    }
+    
+    @Test
+    public void tyhjennaTyhjentaaPinon() {
+        kulmapino.asetaKortti(testikortti);
+        kulmapino.tyhjenna();
         assertEquals(0, kulmapino.palautaMaara());
     }
 

@@ -50,19 +50,19 @@ public class Kulmapinot {
      * @return true tai false
      */
     public boolean laitaKorttiSopivaanPinoon(Kortti kortti) {
-        if (luode.palautaArvo() == kortti.getArvo()) {
+        if (luode.getArvo() == kortti.getArvo()) {
             luode.asetaKortti(kortti);
             return true;
         }
-        if (koillinen.palautaArvo() == kortti.getArvo()) {
+        if (koillinen.getArvo() == kortti.getArvo()) {
             koillinen.asetaKortti(kortti);
             return true;
         }
-        if (kaakko.palautaArvo() == kortti.getArvo()) {
+        if (kaakko.getArvo() == kortti.getArvo()) {
             kaakko.asetaKortti(kortti);
             return true;
         }
-        if (lounas.palautaArvo() == kortti.getArvo()) {
+        if (lounas.getArvo() == kortti.getArvo()) {
             lounas.asetaKortti(kortti);
             return true;
         }
@@ -76,10 +76,10 @@ public class Kulmapinot {
      */
     public ArrayList<Integer> palautaArvot() {
         ArrayList<Integer> lista = new ArrayList();
-        lista.add(luode.palautaArvo());
-        lista.add(koillinen.palautaArvo());
-        lista.add(kaakko.palautaArvo());
-        lista.add(lounas.palautaArvo());
+        lista.add(luode.getArvo());
+        lista.add(koillinen.getArvo());
+        lista.add(kaakko.getArvo());
+        lista.add(lounas.getArvo());
         return lista;
     }
 
@@ -89,8 +89,8 @@ public class Kulmapinot {
      * @return true tai false
      */
     public boolean kaikkiLapi() {
-        if (luode.palautaArvo() == 14 && koillinen.palautaArvo() == 14
-                && kaakko.palautaArvo() == 14 && lounas.palautaArvo() == 14) {
+        if (luode.getArvo() == 14 && koillinen.getArvo() == 14
+                && kaakko.getArvo() == 14 && lounas.getArvo() == 14) {
             return true;
         }
         return false;

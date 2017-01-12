@@ -47,12 +47,4 @@ public class Kortti {
         return false;
     }
 
-    @Override
-    public int hashCode() {
-        int hash = 5;
-        hash = 89 * hash + this.arvo;
-        hash = 89 * hash + Objects.hashCode(this.maa);
-        return hash;
-    }
-
 }

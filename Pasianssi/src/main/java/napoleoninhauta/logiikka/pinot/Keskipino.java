@@ -23,7 +23,7 @@ public class Keskipino extends Pino {
      *
      * @return kokonaislukuarvoinen attribuutti
      */
-    public int palautaArvo() {
+    public int getArvo() {
         return this.arvo;
     }
 
@@ -51,7 +51,7 @@ public class Keskipino extends Pino {
      */
     @Override
     public void asetaKortti(Kortti kortti) {
-        if (kortti.getArvo() == arvo && !super.palautaKortit().contains(kortti)) {
+        if (kortti.getArvo() == arvo) {
             super.palautaKortit().add(0, kortti);
             arvo--;
         }
