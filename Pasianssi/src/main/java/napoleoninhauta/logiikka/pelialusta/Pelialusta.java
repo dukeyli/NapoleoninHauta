@@ -131,7 +131,7 @@ public class Pelialusta {
         if (arvo == 0) {
             return true;
         }
-        if (!kulmapinot.palautaArvot().contains(arvo) && muut.getKeskipino().getArvo() != arvo) {
+        if (!kulmapinot.getArvot().contains(arvo) && muut.getKeskipino().getArvo() != arvo) {
             return false;
         }
         return true;

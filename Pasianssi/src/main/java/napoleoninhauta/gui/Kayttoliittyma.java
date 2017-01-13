@@ -4,11 +4,8 @@ import napoleoninhauta.logiikka.pelialusta.Paivittaja;
 import java.awt.Container;
 import java.awt.Dimension;
 import java.awt.GridLayout;
-import java.awt.Image;
-import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
-import javax.swing.JLabel;
 import javax.swing.WindowConstants;
 import napoleoninhauta.logiikka.pelialusta.Pelialusta;
 
@@ -37,20 +34,20 @@ public class Kayttoliittyma implements Runnable {
     private void luoKomponentit(Container container) {
         GridLayout layout = new GridLayout(3, 5);
         container.setLayout(layout);
-
-        JButton ppakka = new JButton(new ImageIcon(new ImageIcon("Images/pakka.jpg").getImage().getScaledInstance(164, 232, Image.SCALE_DEFAULT)));
+        
+        JButton ppakka = new JButton();
         JButton ppino = new JButton();
         JButton kjemma = new JButton();
-        JLabel kpino = new JLabel("keskipino");
+        JButton kpino = new JButton();
         JButton pjemma = new JButton();
         JButton ljemma = new JButton();
         JButton ijemma = new JButton();
         JButton ejemma = new JButton();
-        JLabel koillinen = new JLabel("Koillispino");
-        JLabel kaakko = new JLabel("Kaakkoispino");
-        JLabel lounas = new JLabel("Lounaispino");
-        JLabel luode = new JLabel("Luoteispino");
-        JButton tulos = new JButton();
+        JButton koillinen = new JButton();
+        JButton kaakko = new JButton();
+        JButton lounas = new JButton();
+        JButton luode = new JButton();
+        JButton tulos = new JButton("Lopeta");
         JButton aloitusNappi = new JButton("Aloita uusi peli");
         JButton peru = new JButton("Peru nosto");
 

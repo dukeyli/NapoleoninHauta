@@ -74,7 +74,7 @@ public class Kulmapinot {
      *
      * @return ArrayList kulmapinojen arvoista
      */
-    public ArrayList<Integer> palautaArvot() {
+    public ArrayList<Integer> getArvot() {
         ArrayList<Integer> lista = new ArrayList();
         lista.add(luode.getArvo());
         lista.add(koillinen.getArvo());

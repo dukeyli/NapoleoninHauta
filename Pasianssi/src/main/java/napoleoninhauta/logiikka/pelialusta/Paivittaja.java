@@ -4,13 +4,8 @@
 package napoleoninhauta.logiikka.pelialusta;
 
 import java.awt.Image;
-import java.io.IOException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
-import javax.swing.JLabel;
 
 public class Paivittaja {
 
@@ -22,11 +17,11 @@ public class Paivittaja {
     private JButton pohjoinen;
     private JButton ita;
     private JButton etela;
-    private JLabel luode;
-    private JLabel koillinen;
-    private JLabel kaakko;
-    private JLabel lounas;
-    private JLabel keskipino;
+    private JButton luode;
+    private JButton koillinen;
+    private JButton kaakko;
+    private JButton lounas;
+    private JButton keskipino;
     private JButton tulos;
 
     /**
@@ -40,12 +35,12 @@ public class Paivittaja {
      * @param pohjoinen näppäin, jossa on yhden kortin jemma
      * @param ita näppäin, jossa on yhden kortin jemma
      * @param etela näppäin, jossa on yhden kortin jemma
-     * @param luode tekstikenttä, jossa on kulmapino
-     * @param koillinen tekstikenttä, jossa on kulmapino
-     * @param kaakko tekstikenttä, jossa on kulmapino
-     * @param lounas tekstikenttä, jossa on kulmapino
-     * @param keskipino tekstikenttä, jossa on keskipino
-     * @param tulos tekstikenttä, jossa on pelin tulos
+     * @param luode näppäin, jossa on kulmapino
+     * @param koillinen näppäin, jossa on kulmapino
+     * @param kaakko näppäin, jossa on kulmapino
+     * @param lounas näppäin, jossa on kulmapino
+     * @param keskipino näppäin, jossa on keskipino
+     * @param tulos näppäin, jossa on pelin tulos
      */
     public Paivittaja(
             JButton pelipakka,
@@ -56,11 +51,11 @@ public class Paivittaja {
             JButton pohjoinen,
             JButton ita,
             JButton etela,
-            JLabel luode,
-            JLabel koillinen,
-            JLabel kaakko,
-            JLabel lounas,
-            JLabel keskipino,
+            JButton luode,
+            JButton koillinen,
+            JButton kaakko,
+            JButton lounas,
+            JButton keskipino,
             JButton tulos) {
 
         this.pakka = pelipakka;
@@ -101,26 +96,26 @@ public class Paivittaja {
     }
 
     private void paivitaKulmapinot() {
-        paivitaTeksti(luode, alusta.getKulmapinot().getLuode().getYlin());
-        paivitaTeksti(koillinen, alusta.getKulmapinot().getKoillinen().getYlin());
-        paivitaTeksti(kaakko, alusta.getKulmapinot().getKaakko().getYlin());
-        paivitaTeksti(lounas, alusta.getKulmapinot().getLounas().getYlin());
+        paivitaNappi(luode, alusta.getKulmapinot().getLuode().getYlin());
+        paivitaNappi(koillinen, alusta.getKulmapinot().getKoillinen().getYlin());
+        paivitaNappi(kaakko, alusta.getKulmapinot().getKaakko().getYlin());
+        paivitaNappi(lounas, alusta.getKulmapinot().getLounas().getYlin());
     }
 
     private void paivitaMuut() {
         paivitaNappi(pelipino, alusta.getMuut().getPelipino().getYlin());
-        paivitaTeksti(keskipino, alusta.getMuut().getKeskipino().getYlin());
+        paivitaNappi(keskipino, alusta.getMuut().getKeskipino().getYlin());
         paivitaNappi(kuutosjemma, alusta.getMuut().getKuutosJemma().getYlin());
     }
 
     private void paivitaNappi(JButton pino, String kortti) {
-        Image kuva = new ImageIcon("Images/" + kortti + ".png").getImage().getScaledInstance(161, 228, Image.SCALE_DEFAULT);
-        pino.setIcon(new ImageIcon(kuva));
-    }
-
-    private void paivitaTeksti(JLabel pino, String kortti) {
-        Image kuva = new ImageIcon("Images/" + kortti + ".png").getImage().getScaledInstance(161, 228, Image.SCALE_DEFAULT);
-        pino.setIcon(new ImageIcon(kuva));
+        if (!kortti.equals("tyhja")) {
+            ImageIcon icon = new ImageIcon(Paivittaja.class.getResource("Images/" + kortti + ".png"));
+            Image img = icon.getImage().getScaledInstance(158, 224, Image.SCALE_DEFAULT);
+            pino.setIcon(new ImageIcon(img));
+        } else {
+            pino.setIcon(new ImageIcon());
+        }
     }
 
     private void paivitaTulos() {
@@ -135,6 +130,8 @@ public class Paivittaja {
      * Metodi asettaa pakan kuvakkeen. Metodia käytetään aloittaessa uusi peli.
      */
     public void asetaPakanKuva() {
-        pakka.setIcon(new ImageIcon(new ImageIcon("Images/pakka.jpg").getImage().getScaledInstance(161, 228, Image.SCALE_DEFAULT)));
+        ImageIcon icon = new ImageIcon(Paivittaja.class.getResource("Images/pakka.jpg"));
+        Image img = icon.getImage().getScaledInstance(158, 224, Image.SCALE_DEFAULT);
+        pakka.setIcon(new ImageIcon(img));
     }
 }
