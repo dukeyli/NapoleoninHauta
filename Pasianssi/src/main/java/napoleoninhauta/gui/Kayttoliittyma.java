@@ -36,6 +36,7 @@ public class Kayttoliittyma implements Runnable {
         container.setLayout(layout);
         
         JButton ppakka = new JButton();
+        ppakka.setEnabled(false);
         JButton ppino = new JButton();
         JButton kjemma = new JButton();
         JButton kpino = new JButton();
@@ -47,13 +48,13 @@ public class Kayttoliittyma implements Runnable {
         JButton kaakko = new JButton();
         JButton lounas = new JButton();
         JButton luode = new JButton();
-        JButton tulos = new JButton("Lopeta");
+        JButton lopeta = new JButton("Lopeta");
         JButton aloitusNappi = new JButton("Aloita uusi peli");
-        JButton peru = new JButton("Peru nosto");
+        JButton peru = new JButton();
 
-        Paivittaja paivittaja = new Paivittaja(ppakka, pelialusta, ppino, kjemma, ljemma,
+        Paivittaja paivittaja = new Paivittaja(pelialusta, ppakka, ppino, kjemma, ljemma,
                 pjemma, ijemma, ejemma, luode, koillinen, kaakko, lounas, kpino,
-                tulos);
+                lopeta, peru);
 
         PelipakanKuuntelija peliPaK = new PelipakanKuuntelija(pelialusta, paivittaja);
         ppakka.addActionListener(peliPaK);
@@ -76,11 +77,14 @@ public class Kayttoliittyma implements Runnable {
         KuutosjemmanKuuntelija kjemmaK = new KuutosjemmanKuuntelija(pelialusta, paivittaja);
         kjemma.addActionListener(kjemmaK);
 
-        AloitusNapinKuuntelija aloitus = new AloitusNapinKuuntelija(pelialusta, paivittaja, tulos);
+        AloitusNapinKuuntelija aloitus = new AloitusNapinKuuntelija(pelialusta, paivittaja);
         aloitusNappi.addActionListener(aloitus);
 
         PeruNapinKuuntelija perunK = new PeruNapinKuuntelija(pelialusta, paivittaja);
         peru.addActionListener(perunK);
+        
+        LopetaNapinKuuntelija lopetanK = new LopetaNapinKuuntelija();
+        lopeta.addActionListener(lopetanK);
 
         container.add(aloitusNappi);
         container.add(luode);
@@ -92,7 +96,7 @@ public class Kayttoliittyma implements Runnable {
         container.add(kpino);
         container.add(ijemma);
         container.add(ppino);
-        container.add(tulos);
+        container.add(lopeta);
         container.add(lounas);
         container.add(ejemma);
         container.add(kaakko);

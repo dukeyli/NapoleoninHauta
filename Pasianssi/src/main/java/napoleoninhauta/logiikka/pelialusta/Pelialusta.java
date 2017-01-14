@@ -117,10 +117,10 @@ public class Pelialusta {
      * @return true tai false
      */
     public boolean meneekoMikaan() {
-        int arvo = muut.getPelipino().getYlimmanArvo();
-        if (arvo == 6) {
-            return true;
+        if (muut.getKeskipino().onkoPeliAvattu() == false && muut.getPelipino().getYlimmanArvo() != 6) {
+            return false;
         }
+        int arvo = muut.getPelipino().getYlimmanArvo();
         if (meneekoMinnekkaan(arvo) == false) {
             return meneekoJemmat();
         }
@@ -128,7 +128,7 @@ public class Pelialusta {
     }
 
     private boolean meneekoMinnekkaan(int arvo) {
-        if (arvo == 0) {
+        if (arvo == 6 || arvo == 0) {
             return true;
         }
         if (!kulmapinot.getArvot().contains(arvo) && muut.getKeskipino().getArvo() != arvo) {

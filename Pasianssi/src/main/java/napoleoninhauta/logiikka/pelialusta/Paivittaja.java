@@ -23,6 +23,7 @@ public class Paivittaja {
     private JButton lounas;
     private JButton keskipino;
     private JButton tulos;
+    private JButton peru;
 
     /**
      * Konstruktori alustaa pelialustan. näppäimet ja tekstit.
@@ -41,10 +42,11 @@ public class Paivittaja {
      * @param lounas näppäin, jossa on kulmapino
      * @param keskipino näppäin, jossa on keskipino
      * @param tulos näppäin, jossa on pelin tulos
+     * @param peru näppäin, jossa on pelin peruNosto
      */
     public Paivittaja(
-            JButton pelipakka,
             Pelialusta alusta,
+            JButton pelipakka,
             JButton pelipino,
             JButton kuutosjemma,
             JButton lansi,
@@ -56,7 +58,8 @@ public class Paivittaja {
             JButton kaakko,
             JButton lounas,
             JButton keskipino,
-            JButton tulos) {
+            JButton tulos,
+            JButton peru) {
 
         this.pakka = pelipakka;
         this.alusta = alusta;
@@ -72,6 +75,7 @@ public class Paivittaja {
         this.lounas = lounas;
         this.keskipino = keskipino;
         this.tulos = tulos;
+        this.peru = peru;
     }
 
     /**
@@ -106,6 +110,9 @@ public class Paivittaja {
         paivitaNappi(pelipino, alusta.getMuut().getPelipino().getYlin());
         paivitaNappi(keskipino, alusta.getMuut().getKeskipino().getYlin());
         paivitaNappi(kuutosjemma, alusta.getMuut().getKuutosJemma().getYlin());
+        if (alusta.getMuut().getKeskipino().onkoPeliAvattu() == true) {
+            peru.setEnabled(false);
+        }
     }
 
     private void paivitaNappi(JButton pino, String kortti) {
@@ -120,18 +127,50 @@ public class Paivittaja {
 
     private void paivitaTulos() {
         if (alusta.getKulmapinot().kaikkiLapi() == true && alusta.getMuut().getKeskipino().getMaara() == 24) {
-            tulos.setText("Voitit pelin!");
+            paivitaVoitto();
         } else if (alusta.meneekoMikaan() == false) {
-            tulos.setText("Hävisit!");
+            paivitaTappio();
         }
+    }
+
+    private void paivitaVoitto() {
+        pakka.setText("Voitit pelin!");
+    }
+
+    private void paivitaTappio() {
+        pakka.setText("Hävisit pelin");
+        pelipino.setEnabled(false);
+        peru.setEnabled(false);
+        asetaJemmat(false);
+    }
+
+    private void asetaJemmat(boolean tottako) {
+        ita.setEnabled(tottako);
+        lansi.setEnabled(tottako);
+        pohjoinen.setEnabled(tottako);
+        etela.setEnabled(tottako);
     }
 
     /**
      * Metodi asettaa pakan kuvakkeen. Metodia käytetään aloittaessa uusi peli.
      */
     public void asetaPakanKuva() {
+        pakka.setText("");
         ImageIcon icon = new ImageIcon(Paivittaja.class.getResource("Images/pakka.jpg"));
         Image img = icon.getImage().getScaledInstance(158, 224, Image.SCALE_DEFAULT);
         pakka.setIcon(new ImageIcon(img));
+    }
+
+    /**
+     * Metodi päivittää kuvat oikein uuden pelin aloituksen yhteydessä.
+     */
+    public void paivitaAloitus() {
+        pelipino.setEnabled(true);
+        pakka.setEnabled(true);
+        peru.setEnabled(true);
+        peru.setText("Peru nosto");
+        asetaJemmat(true);
+        asetaPakanKuva();
+        paivita();
     }
 }
