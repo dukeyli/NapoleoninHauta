@@ -34,7 +34,7 @@ public class Kayttoliittyma implements Runnable {
     private void luoKomponentit(Container container) {
         GridLayout layout = new GridLayout(3, 5);
         container.setLayout(layout);
-        
+
         JButton ppakka = new JButton();
         ppakka.setEnabled(false);
         JButton ppino = new JButton();
@@ -56,35 +56,21 @@ public class Kayttoliittyma implements Runnable {
                 pjemma, ijemma, ejemma, luode, koillinen, kaakko, lounas, kpino,
                 lopeta, peru);
 
-        PelipakanKuuntelija peliPaK = new PelipakanKuuntelija(pelialusta, paivittaja);
-        ppakka.addActionListener(peliPaK);
+        PakanPinonJaKuutosJemmanKuuntelija muidenK = new PakanPinonJaKuutosJemmanKuuntelija(pelialusta, paivittaja, ppakka, ppino, kjemma, peru);
+        ppakka.addActionListener(muidenK);
+        ppino.addActionListener(muidenK);
+        kjemma.addActionListener(muidenK);
+        peru.addActionListener(muidenK);
 
-        PelipinonKuuntelija peliPiK = new PelipinonKuuntelija(pelialusta, paivittaja);
-        ppino.addActionListener(peliPiK);
+        JemmojenKuuntelija jemmK = new JemmojenKuuntelija(pelialusta, paivittaja, ijemma, ejemma, pjemma, ljemma);
+        ijemma.addActionListener(jemmK);
+        ljemma.addActionListener(jemmK);
+        pjemma.addActionListener(jemmK);
+        ejemma.addActionListener(jemmK);
 
-        LansijemmanKuuntelija ljemmanK = new LansijemmanKuuntelija(pelialusta, paivittaja);
-        ljemma.addActionListener(ljemmanK);
-
-        PohjoisjemmanKuuntelija pjemmanK = new PohjoisjemmanKuuntelija(pelialusta, paivittaja);
-        pjemma.addActionListener(pjemmanK);
-
-        ItajemmanKuuntelija ijemmanK = new ItajemmanKuuntelija(pelialusta, paivittaja);
-        ijemma.addActionListener(ijemmanK);
-
-        EtelajemmanKuuntelija ejemmanK = new EtelajemmanKuuntelija(pelialusta, paivittaja);
-        ejemma.addActionListener(ejemmanK);
-
-        KuutosjemmanKuuntelija kjemmaK = new KuutosjemmanKuuntelija(pelialusta, paivittaja);
-        kjemma.addActionListener(kjemmaK);
-
-        AloitusNapinKuuntelija aloitus = new AloitusNapinKuuntelija(pelialusta, paivittaja);
-        aloitusNappi.addActionListener(aloitus);
-
-        PeruNapinKuuntelija perunK = new PeruNapinKuuntelija(pelialusta, paivittaja);
-        peru.addActionListener(perunK);
-        
-        LopetaNapinKuuntelija lopetanK = new LopetaNapinKuuntelija();
-        lopeta.addActionListener(lopetanK);
+        AloitusJaLopetusNappienKuuntelija aljalop = new AloitusJaLopetusNappienKuuntelija(pelialusta, paivittaja, aloitusNappi, lopeta);
+        aloitusNappi.addActionListener(aljalop);
+        lopeta.addActionListener(aljalop);
 
         container.add(aloitusNappi);
         container.add(luode);

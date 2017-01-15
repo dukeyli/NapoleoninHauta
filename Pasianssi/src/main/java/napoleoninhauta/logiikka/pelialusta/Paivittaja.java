@@ -13,14 +13,8 @@ public class Paivittaja {
     private Pelialusta alusta;
     private JButton pelipino;
     private JButton kuutosjemma;
-    private JButton lansi;
-    private JButton pohjoinen;
-    private JButton ita;
-    private JButton etela;
-    private JButton luode;
-    private JButton koillinen;
-    private JButton kaakko;
-    private JButton lounas;
+    private JButton lansi, pohjoinen, ita, etela;
+    private JButton luode, koillinen, kaakko, lounas;
     private JButton keskipino;
     private JButton tulos;
     private JButton peru;

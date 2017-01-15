@@ -36,8 +36,10 @@ public class Pelialusta {
      * Metodi nostaa kortin pelipakasta ja asettaa sen pelipinoon.
      */
     public void nostaKorttiPakasta() {
-        Kortti kortti = muut.getPelipakka().nostaKortti();
-        muut.getPelipino().asetaKortti(kortti);
+        if (muut.getPelipakka().getMaara() > 0) {
+            Kortti kortti = muut.getPelipakka().nostaKortti();
+            muut.getPelipino().asetaKortti(kortti);
+        }
     }
 
     /**
@@ -48,11 +50,13 @@ public class Pelialusta {
      *
      */
     public void suoritaPelipino() {
-        Kortti kortti = muut.getPelipino().otaKortti();
-        if (muut.getKeskipino().onkoPeliAvattu() == false) {
-            avaaPeli(kortti);
-        } else {
-            suoritaPelipinonTapaukset(kortti);
+        if (muut.getPelipino().getMaara() > 0) {
+            Kortti kortti = muut.getPelipino().otaKortti();
+            if (muut.getKeskipino().onkoPeliAvattu() == false) {
+                avaaPeli(kortti);
+            } else {
+                suoritaPelipinonTapaukset(kortti);
+            }
         }
     }
 
@@ -111,37 +115,56 @@ public class Pelialusta {
 
     /**
      * Metodi kertoo meneeko minkään pinon päällimmäinen kortti mihinkään peliä
-     * edistävään pinoon. Metodi käyttää apunaan yksityisiä apumetodeja. Metodi
-     * palauttaa true, jos jäljellä on mahdollisia siirtoja ja false jos ei.
+     * edistävään pinoon tai jemmaan. Metodi käyttää apunaan yksityisiä
+     * apumetodeja. Metodi palauttaa true, jos jäljellä on mahdollisia siirtoja
+     * ja false jos ei.
      *
      * @return true tai false
      */
     public boolean meneekoMikaan() {
-        if (muut.getKeskipino().onkoPeliAvattu() == false && muut.getPelipino().getYlimmanArvo() != 6) {
+        if (muut.getKeskipino().onkoPeliAvattu() == true) {
+            return meneekoJemmoistaTaiPelipinosta();
+        } else if (muut.getPelipino().getYlimmanArvo() != 6) {
             return false;
         }
-        int arvo = muut.getPelipino().getYlimmanArvo();
-        if (meneekoMinnekkaan(arvo) == false) {
-            return meneekoJemmat();
+        return true;
+    }
+
+    private boolean meneekoJemmoistaTaiPelipinosta() {
+        if (jemmat.onkoKaikkiJemmatTaynna() == true) {
+            return meneekoMistaan();
+        }
+        return true;
+    }
+
+    private boolean meneekoMistaan() {
+        if (meneekoJemmoista() == false) {
+            return meneekoPelipinostaTaiKuutosjemmasta();
+        }
+        return true;
+    }
+
+    private boolean meneekoJemmoista() {
+        if (meneekoMinnekkaan(jemmat.getEtela().getKortinArvo()) == false
+                && meneekoMinnekkaan(jemmat.getIta().getKortinArvo()) == false
+                && meneekoMinnekkaan(jemmat.getPohjoinen().getKortinArvo()) == false
+                && meneekoMinnekkaan(jemmat.getLansi().getKortinArvo()) == false) {
+            return false;
+        }
+        return true;
+    }
+
+    private boolean meneekoPelipinostaTaiKuutosjemmasta() {
+        if (muut.getKuutosJemma().getYlimmanArvo() != muut.getKeskipino().getArvo()
+                && meneekoMinnekkaan(muut.getPelipino().getYlimmanArvo()) == false
+                && muut.getPelipino().getYlimmanArvo() != 6) {
+            return false;
         }
         return true;
     }
 
     private boolean meneekoMinnekkaan(int arvo) {
-        if (arvo == 6 || arvo == 0) {
-            return true;
-        }
         if (!kulmapinot.getArvot().contains(arvo) && muut.getKeskipino().getArvo() != arvo) {
-            return false;
-        }
-        return true;
-    }
-
-    private boolean meneekoJemmat() {
-        if (meneekoMinnekkaan(jemmat.getEtela().getKortinArvo()) == false
-                && meneekoMinnekkaan(jemmat.getIta().getKortinArvo()) == false
-                && meneekoMinnekkaan(jemmat.getPohjoinen().getKortinArvo()) == false
-                && meneekoMinnekkaan(jemmat.getLansi().getKortinArvo()) == false) {
             return false;
         }
         return true;
@@ -168,5 +191,26 @@ public class Pelialusta {
         kulmapinot.getKoillinen().tyhjenna();
         kulmapinot.getLounas().tyhjenna();
         kulmapinot.getLuode().tyhjenna();
+    }
+
+    /**
+     * Metodi peruu noston pelipakasta, eli asettaa kortin pelipinosta takaisin
+     * pelipakkaan. Metodia voi käyttää vain siihen asti, kun ensimmäinen
+     * kuutonen on laitettu keskelle, eli peli on avattu.
+     */
+    public void peruNosto() {
+        if (getMuut().getPelipakka().getMaara() != 52 && getMuut().getKeskipino().onkoPeliAvattu() == false) {
+            Kortti kortti = getMuut().getPelipino().otaKortti();
+            getMuut().getPelipakka().asetaKortti(kortti);
+        }
+    }
+
+    /**
+     * Metodi laittaa kuutosjemmasta kuutosen keskipinoon, jos mahdollista.
+     */
+    public void laitaKuutosjemmasta() {
+        if (getMuut().getKuutosJemma().getMaara() != 0 && getMuut().getKeskipino().getArvo() == 6) {
+            getMuut().getKeskipino().asetaKortti(getMuut().getKuutosJemma().otaKortti());
+        }
     }
 }
