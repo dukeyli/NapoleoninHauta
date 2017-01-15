@@ -26,8 +26,8 @@ ja muihin voi laittaa mitä tahansa kortteja.
 - Lopeta peli
 
 ![luokkakaavio](luokkakaavio.png)
-![sekvenssikaavio: kuutosjemman toiminto](sekvenssikaavio (kuutosjemman toiminto).png)
-![sekvenssikaavio: nosto pelipakasta](sekvenssikaavio (nosto pelipakasta).png)
+![sekvenssikaavio: kuutosjemman toiminto](sekvenssikaavio(kuutosjemman toiminto).png)
+![sekvenssikaavio: nosto pelipakasta](sekvenssikaavio(nosto pelipakasta).png)
 
 #### Rakennekuvaus
 
