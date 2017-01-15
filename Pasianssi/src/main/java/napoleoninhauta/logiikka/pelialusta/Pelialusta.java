@@ -200,9 +200,9 @@ public class Pelialusta {
      * kuutonen on laitettu keskelle, eli peli on avattu.
      */
     public void peruNosto() {
-        if (getMuut().getPelipakka().getMaara() != 52 && getMuut().getKeskipino().onkoPeliAvattu() == false) {
-            Kortti kortti = getMuut().getPelipino().otaKortti();
-            getMuut().getPelipakka().asetaKortti(kortti);
+        if (muut.getPelipakka().getMaara() != 52 && muut.getKeskipino().onkoPeliAvattu() == false) {
+            Kortti kortti = muut.getPelipino().otaKortti();
+            muut.getPelipakka().asetaKortti(kortti);
         }
     }
 
@@ -210,8 +210,8 @@ public class Pelialusta {
      * Metodi laittaa kuutosjemmasta kuutosen keskipinoon, jos mahdollista.
      */
     public void laitaKuutosjemmasta() {
-        if (getMuut().getKuutosJemma().getMaara() != 0 && getMuut().getKeskipino().getArvo() == 6) {
-            getMuut().getKeskipino().asetaKortti(getMuut().getKuutosJemma().otaKortti());
+        if (muut.getKuutosJemma().getMaara() != 0 && muut.getKeskipino().getArvo() == 6) {
+            muut.getKeskipino().asetaKortti(muut.getKuutosJemma().otaKortti());
         }
     }
 
@@ -223,11 +223,11 @@ public class Pelialusta {
      */
     public void suoritaYhdenKortinJemma(YhdenKortinJemma mikaJemma) {
         int kortinArvo = mikaJemma.getKortinArvo();
-        if (kortinArvo == getMuut().getKeskipino().getArvo()) {
-            getMuut().getKeskipino().asetaKortti(mikaJemma.otaKortti());
+        if (kortinArvo == muut.getKeskipino().getArvo()) {
+            muut.getKeskipino().asetaKortti(mikaJemma.otaKortti());
         }
-        if (getKulmapinot().getArvot().contains(kortinArvo)) {
-            getKulmapinot().laitaKorttiSopivaanPinoon(mikaJemma.otaKortti());
+        if (kulmapinot.getArvot().contains(kortinArvo)) {
+            kulmapinot.laitaKorttiSopivaanPinoon(mikaJemma.otaKortti());
         }
     }
 }
