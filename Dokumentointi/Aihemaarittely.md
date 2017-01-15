@@ -25,7 +25,7 @@ ja muihin voi laittaa mitä tahansa kortteja.
 - Aloita uusi peli
 - Lopeta peli
 
-![luokkakaavio](Luokkakaavio.png)
+![luokkakaavio](luokkakaavio.png)
 
 
 #### Rakennekuvaus

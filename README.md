@@ -13,4 +13,4 @@ kortit 6, 5, 4, 3, 2 ja ässä ja neljässä muussa pinossa on kortit 7-13.
 - [käyttöohjeet](Dokumentointi/Kayttoohjeet.md)
 - [pit-raportti](https://htmlpreview.github.io/?https://github.com/dukeyli/NapoleoninHauta/blob/master/Dokumentointi/pit/201701152027/index.html)
 - [checkstyle-raportti](https://htmlpreview.github.io/?https://github.com/dukeyli/NapoleoninHauta/blob/master/Dokumentointi/checkstyle/site6/checkstyle.html)
-
+- [api-kuvaus](https://htmlpreview.github.io/?https://github.com/dukeyli/NapoleoninHauta/blob/master/Dokumentointi/checkstyle/site6/apidocs/index.html)
