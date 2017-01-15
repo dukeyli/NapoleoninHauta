@@ -25,14 +25,20 @@ ja muihin voi laittaa mitä tahansa kortteja.
 - Aloita uusi peli
 - Lopeta peli
 
-![luokkakaavio](luokkakaavio.png)
-![sekvenssikaavio: kuutosjemman toiminto](sekvenssikaavio(kuutosjemman toiminto).png)
-![sekvenssikaavio: nosto pelipakasta](sekvenssikaavio(nosto pelipakasta).png)
 
 #### Rakennekuvaus
 
-Ohjelma rakentuu neljällä tasolla. Alimmalla tasolla määritellään kortit ja
-pakka. Seuraavalla tasolla määritellään korteista koostuvat pelipinot ja
-pelipakka. Kolmas taso kokoaa pelissä käytettävät pinot ja pakan yhteen
-sekä määrittelee niiden välisen toiminnallisuuden. Neljäs taso luo ulkoasun,
-eli määrittelee käyttöliittymän.
+Ohjelma rakentuu neljällä tasolla. Alimmalla tasolla määritellään kortit ja pakka.
+Kortteihin liittyy luetteloluokka maa, ja jokin arvo. Seuraavalla tasolla määritellään
+korteista koostuvat pelipinot, korttijemmat ja pelipakka. Pelipakka luodaan erillisen
+pelipakan luoja -luokan avulla. Kolmas taso kokoaa pelissä käytettävät pinot, jemmat ja
+pakan yhteen sekä määrittelee niiden välisen toiminnallisuuden. Neljäs taso luo ulkoasun,
+eli määrittelee käyttöliittymän. Ulkoasuun liittyy päivittäjä-luokka, käyttöliittymä sekä
+näppäinten kuuntelija -luokat.
+
+
+![luokkakaavio](luokkakaavio.png)
+
+![sekvenssikaavio: kuutosjemman toiminto](sekvenssikaavio(kuutosjemman toiminto).png)
+
+![sekvenssikaavio: nosto pelipakasta](sekvenssikaavio(nosto pelipakasta).png)
