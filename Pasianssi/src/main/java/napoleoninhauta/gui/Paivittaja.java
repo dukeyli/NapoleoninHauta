@@ -1,11 +1,12 @@
 /**
  * Luokan tehtävä on päivittää näppäinten ja tekstikenttien kuvat ja tekstit.
  */
-package napoleoninhauta.logiikka.pelialusta;
+package napoleoninhauta.gui;
 
 import java.awt.Image;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
+import napoleoninhauta.logiikka.pelialusta.Pelialusta;
 
 public class Paivittaja {
 
@@ -101,7 +102,12 @@ public class Paivittaja {
     }
 
     private void paivitaMuut() {
-        paivitaNappi(pelipino, alusta.getMuut().getPelipino().getYlin());
+        if (pelipino.isEnabled()) {
+            paivitaNappi(pelipino, alusta.getMuut().getPelipino().getYlin());
+        } else {
+            pelipino.setEnabled(true);
+            paivitaNappi(pelipino, alusta.getMuut().getPelipino().getYlin());
+        }
         paivitaNappi(keskipino, alusta.getMuut().getKeskipino().getYlin());
         paivitaNappi(kuutosjemma, alusta.getMuut().getKuutosJemma().getYlin());
         if (alusta.getMuut().getKeskipino().onkoPeliAvattu() == true) {
@@ -128,27 +134,18 @@ public class Paivittaja {
     }
 
     private void paivitaVoitto() {
+        peru.setText("");
         pakka.setText("Voitit pelin!");
+        paivitaNappi(pelipino, "red_joker");
     }
 
     private void paivitaTappio() {
         pakka.setText("Hävisit pelin");
         pelipino.setEnabled(false);
         peru.setEnabled(false);
-        asetaJemmat(false);
     }
 
-    private void asetaJemmat(boolean tottako) {
-        ita.setEnabled(tottako);
-        lansi.setEnabled(tottako);
-        pohjoinen.setEnabled(tottako);
-        etela.setEnabled(tottako);
-    }
-
-    /**
-     * Metodi asettaa pakan kuvakkeen. Metodia käytetään aloittaessa uusi peli.
-     */
-    public void asetaPakanKuva() {
+    private void asetaPakanKuva() {
         pakka.setText("");
         ImageIcon icon = new ImageIcon(Paivittaja.class.getResource("Images/pakka.jpg"));
         Image img = icon.getImage().getScaledInstance(158, 224, Image.SCALE_DEFAULT);
@@ -159,11 +156,35 @@ public class Paivittaja {
      * Metodi päivittää kuvat oikein uuden pelin aloituksen yhteydessä.
      */
     public void paivitaAloitus() {
-        pelipino.setEnabled(true);
+        if (alusta.getMuut().getPelipakka().getMaara() != 0) {
+            aloitaAlusta();
+        } else if (alusta.getKulmapinot().kaikkiLapi() == true
+                && alusta.getMuut().getKeskipino().getMaara() == 24) {
+            aloitaVoitonJalkeenAlusta();
+        } else if (alusta.getKulmapinot().kaikkiLapi() == false
+                || alusta.getMuut().getKeskipino().getMaara() != 24) {
+            aloitaTappionJalkeenAlusta();
+        }
+    }
+
+    private void aloitaAlusta() {
         pakka.setEnabled(true);
-        peru.setEnabled(true);
         peru.setText("Peru nosto");
-        asetaJemmat(true);
+        peru.setEnabled(true);
+        asetaPakanKuva();
+        paivita();
+    }
+
+    private void aloitaVoitonJalkeenAlusta() {
+        pakka.setEnabled(true);
+        asetaPakanKuva();
+        paivita();
+    }
+
+    private void aloitaTappionJalkeenAlusta() {
+        pakka.setEnabled(true);
+        peru.setText("Peru nosto");
+        peru.setEnabled(true);
         asetaPakanKuva();
         paivita();
     }

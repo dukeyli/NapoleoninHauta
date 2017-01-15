@@ -1,6 +1,5 @@
 package napoleoninhauta.gui;
 
-import napoleoninhauta.logiikka.pelialusta.Paivittaja;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.JButton;

@@ -216,7 +216,7 @@ public class PelialustaTest {
         alusta.getKulmapinot().laitaKorttiSopivaanPinoon(new Kortti(7, Maa.HERTTA));
 
         alusta.aloitaUusiPeli();
-        
+
         assertEquals("tyhja", alusta.getMuut().getKeskipino().getYlin());
         assertEquals("tyhja", alusta.getMuut().getKuutosJemma().getYlin());
         assertEquals("tyhja", alusta.getMuut().getPelipino().getYlin());
@@ -228,6 +228,47 @@ public class PelialustaTest {
         assertEquals("tyhja", alusta.getKulmapinot().getKoillinen().getYlin());
         assertEquals("tyhja", alusta.getKulmapinot().getLounas().getYlin());
         assertEquals("tyhja", alusta.getKulmapinot().getLuode().getYlin());
+    }
+
+    @Test
+    public void peruNostoAsettaaKortinPelipinostaPakkaanJosPeliEiAvattu() {
+        alusta.nostaKorttiPakasta();
+        String kortti = alusta.getMuut().getPelipino().getYlin();
+        alusta.peruNosto();
+        assertEquals(kortti, alusta.getMuut().getPelipakka().nostaKortti().toString());
+    }
+
+    @Test
+    public void peruNostoToimiessaanPoistaaKortinPelipinosta() {
+        alusta.nostaKorttiPakasta();
+        alusta.peruNosto();
+        assertEquals(0, alusta.getMuut().getPelipino().getMaara());
+    }
+
+    @Test
+    public void peruNostoEiAsetaKorttiaTakaisinPakkaanJosPeliOnAvattu() {
+        alusta.getMuut().getKeskipino().asetaKortti(testikortti1);
+        alusta.nostaKorttiPakasta();
+        String kortti = alusta.getMuut().getPelipino().getYlin();
+        alusta.peruNosto();
+        assertNotEquals(kortti, alusta.getMuut().getPelipakka().nostaKortti().toString());
+    }
+
+    @Test
+    public void laitaKuutosjemmastaToimiiJosJemmassaKorttiJaSeSopiiKeskelle() {
+        alusta.getMuut().getKuutosJemma().asetaKortti(testikortti1);
+        alusta.laitaKuutosjemmasta();
+        assertEquals(0, alusta.getMuut().getKuutosJemma().getMaara());
+        assertEquals(1, alusta.getMuut().getKeskipino().getMaara());
+    }
+
+    @Test
+    public void laitaKuutosjemmastaEiToimiJosJemmanKorttiEiSoviKeskelle() {
+        alusta.getMuut().getKeskipino().asetaKortti(new Kortti(6, Maa.HERTTA));
+        alusta.getMuut().getKuutosJemma().asetaKortti(testikortti1);
+        alusta.laitaKuutosjemmasta();
+        assertEquals(1, alusta.getMuut().getKuutosJemma().getMaara());
+        assertEquals("HERTTA_6", alusta.getMuut().getKeskipino().getYlin());
     }
 
     @After

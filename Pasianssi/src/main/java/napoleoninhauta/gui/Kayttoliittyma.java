@@ -1,6 +1,5 @@
 package napoleoninhauta.gui;
 
-import napoleoninhauta.logiikka.pelialusta.Paivittaja;
 import java.awt.Container;
 import java.awt.Dimension;
 import java.awt.GridLayout;
