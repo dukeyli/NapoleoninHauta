@@ -16,3 +16,5 @@ Päivä | Tunnit | Kuvaus
 11.01.2017 | 6h | Toiminnallisuutta, hiomista ja javadocia, DL6-tehtäviä
 11.01.2017 | 1h | Dl 6:n tehtäviä
 12.01.2017 | 2h | jar.-tiedoston toimivuutta
+14.01.2017 | 6h | Loppusäätöä
+15.01.2017 | 8h | Paljon lisää loppusäätöä ja kaaviot

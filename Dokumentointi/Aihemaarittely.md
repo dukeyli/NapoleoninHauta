@@ -19,8 +19,11 @@ ja muihin voi laittaa mitä tahansa kortteja.
 **Pelaajan toiminnot:**
 
 - Nosta kortti
+- Peru nosto
 - Aseta kortti jemmaan
 - Aseta kortti pinoon
+- Aloita uusi peli
+- Lopeta peli
 
 ![luokkakaavio](Luokkakaavio.png)
 

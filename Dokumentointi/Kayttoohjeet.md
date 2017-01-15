@@ -23,3 +23,4 @@ viiteen mainittuun pinoon.
 - Klikkaamalla jemman korttia, se menee peliä edistävään pinoon.
 - Nappia 'peru nosto' voi käyttää vain siihen asti kun ensimmäinen kuutonen on laitettu keskelle.
 - Aloita uusi peli -nappula aloittaa kokonaan uuden pelin
+- Lopeta-nappula lopettaa pelin ja poistuu käyttöliittymästä
