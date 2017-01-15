@@ -1,0 +1,800 @@
+<html>
+<head>
+<style type='text/css'>
+html, body, div, span, p, blockquote, pre {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	outline: 0;
+	font-weight: inherit;
+	font-style: inherit;
+	font-size: 100%;
+	font-family: inherit;
+	vertical-align: baseline;
+}
+
+body{
+	line-height: 1;
+	color: black;
+	background: white;
+	margin-left: 20px;
+}
+
+.src { 
+	border: 1px solid #dddddd;
+	padding-top: 10px;
+	padding-right: 5px;
+	padding-left: 5px;
+	font-family: Consolas, Courier, monospace;
+}
+
+
+.covered {background-color: #ddffdd}
+.uncovered {background-color: #ffdddd}
+.killed {background-color: #aaffaa}
+.survived {background-color: #ffaaaa}
+.uncertain {background-color: #dde7ef}
+.run_error {background-color: #dde7ef}
+.na {background-color: #eeeeee}
+.timed_out {background-color: #dde7ef}
+.non_viable {background-color: #aaffaa}
+.memory_error {background-color: #dde7ef}
+.not_started {background-color: #dde7ef; color : red}
+.no_coverage {background-color: #ffaaaa}
+
+
+.pop {outline:none; }
+.pop strong {line-height:30px;}
+.pop {text-decoration:none;}
+.pop span { z-index:10;display:none; padding:14px 20px; margin-top:-30px; margin-left:28px; width:800px; line-height:16px; word-wrap:break-word; }
+.pop:hover span{ display:inline; position:absolute; color:#111; border:1px solid #DCA; background:#fffAF0;}
+
+.pop span { border-radius:4px; -moz-border-radius: 4px; -webkit-border-radius: 4px; -moz-box-shadow: 5px 5px 8px #CCC; -webkit-box-shadow: 5px 5px 8px #CCC; box-shadow: 5px 5px 8px #CCC; }
+</style>
+
+</head>
+<body>
+
+
+<h1>PelialustanMuutPinot.java</h1>
+
+<table class="src">
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@95aeee4_1'/>
+1
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@95aeee4_1'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>/**</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@95aeee4_2'/>
+2
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@95aeee4_2'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''> * Luokka luo pelialustaa varten pelipakan, pelipinon, kuutosjemman ja keskipinon.</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@95aeee4_3'/>
+3
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@95aeee4_3'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''> */</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@95aeee4_4'/>
+4
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@95aeee4_4'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>package napoleoninhauta.logiikka.pelialusta;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@95aeee4_5'/>
+5
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@95aeee4_5'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@95aeee4_6'/>
+6
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@95aeee4_6'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import napoleoninhauta.pakka.PakanLuoja;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@95aeee4_7'/>
+7
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@95aeee4_7'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import napoleoninhauta.logiikka.pinot.Keskipino;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@95aeee4_8'/>
+8
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@95aeee4_8'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import napoleoninhauta.logiikka.pinot.KuutosJemma;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@95aeee4_9'/>
+9
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@95aeee4_9'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import napoleoninhauta.logiikka.pinot.Pelipakka;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@95aeee4_10'/>
+10
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@95aeee4_10'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import napoleoninhauta.logiikka.pinot.Pelipino;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@95aeee4_11'/>
+11
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@95aeee4_11'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@95aeee4_12'/>
+12
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@95aeee4_12'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>public class PelialustanMuutPinot {</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@95aeee4_13'/>
+13
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@95aeee4_13'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@95aeee4_14'/>
+14
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@95aeee4_14'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    private PakanLuoja luoja;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@95aeee4_15'/>
+15
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@95aeee4_15'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    private Pelipakka pelipakka;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@95aeee4_16'/>
+16
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@95aeee4_16'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    private Pelipino pelipino;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@95aeee4_17'/>
+17
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@95aeee4_17'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    private KuutosJemma kuutosjemma;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@95aeee4_18'/>
+18
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@95aeee4_18'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    private Keskipino keskipino;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@95aeee4_19'/>
+19
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@95aeee4_19'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@95aeee4_20'/>
+20
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@95aeee4_20'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    /**</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@95aeee4_21'/>
+21
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@95aeee4_21'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * Konstruktori alustaa uudet pinot ja pakan.</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@95aeee4_22'/>
+22
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@95aeee4_22'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     */</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@95aeee4_23'/>
+23
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@95aeee4_23'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    public PelialustanMuutPinot() {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@95aeee4_24'/>
+24
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@95aeee4_24'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        luoja = new PakanLuoja();</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@95aeee4_25'/>
+25
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@95aeee4_25'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        luoja.alustaPakka();</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@95aeee4_26'/>
+26
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@95aeee4_26'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        pelipakka = new Pelipakka(luoja.alustaPakka());</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@95aeee4_27'/>
+27
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@95aeee4_27'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        pelipino = new Pelipino();</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@95aeee4_28'/>
+28
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@95aeee4_28'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        kuutosjemma = new KuutosJemma();</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@95aeee4_29'/>
+29
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@95aeee4_29'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        keskipino = new Keskipino();</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@95aeee4_30'/>
+30
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@95aeee4_30'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@95aeee4_31'/>
+31
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@95aeee4_31'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@95aeee4_32'/>
+32
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@95aeee4_32'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public Pelipakka getPelipakka() {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@95aeee4_33'/>
+33
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@95aeee4_33'>1</a>
+<span>
+1. getPelipakka : mutated return of Object value for napoleoninhauta/logiikka/pelialusta/PelialustanMuutPinot::getPelipakka to ( if (x != null) null else throw new RuntimeException ) &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        return this.pelipakka;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@95aeee4_34'/>
+34
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@95aeee4_34'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@95aeee4_35'/>
+35
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@95aeee4_35'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@95aeee4_36'/>
+36
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@95aeee4_36'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public Pelipino getPelipino() {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@95aeee4_37'/>
+37
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@95aeee4_37'>1</a>
+<span>
+1. getPelipino : mutated return of Object value for napoleoninhauta/logiikka/pelialusta/PelialustanMuutPinot::getPelipino to ( if (x != null) null else throw new RuntimeException ) &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        return pelipino;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@95aeee4_38'/>
+38
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@95aeee4_38'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@95aeee4_39'/>
+39
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@95aeee4_39'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@95aeee4_40'/>
+40
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@95aeee4_40'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public KuutosJemma getKuutosJemma() {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@95aeee4_41'/>
+41
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@95aeee4_41'>1</a>
+<span>
+1. getKuutosJemma : mutated return of Object value for napoleoninhauta/logiikka/pelialusta/PelialustanMuutPinot::getKuutosJemma to ( if (x != null) null else throw new RuntimeException ) &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        return kuutosjemma;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@95aeee4_42'/>
+42
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@95aeee4_42'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@95aeee4_43'/>
+43
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@95aeee4_43'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@95aeee4_44'/>
+44
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@95aeee4_44'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public Keskipino getKeskipino() {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@95aeee4_45'/>
+45
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@95aeee4_45'>1</a>
+<span>
+1. getKeskipino : mutated return of Object value for napoleoninhauta/logiikka/pelialusta/PelialustanMuutPinot::getKeskipino to ( if (x != null) null else throw new RuntimeException ) &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        return keskipino;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@95aeee4_46'/>
+46
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@95aeee4_46'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@95aeee4_47'/>
+47
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@95aeee4_47'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>}</span></pre></td></tr>
+
+
+
+<tr><td></td><td></td><td><h2>Mutations</h2></td></tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@95aeee4_33'>33</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@95aeee4_33'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getPelipakka<br/><b>Killed by : </b>napoleoninhauta.logiikka.pelialusta.PelialustanMuutPinotTest.konstruktoriLuoMuutPinotJaGetteritToimii(napoleoninhauta.logiikka.pelialusta.PelialustanMuutPinotTest)</span></span> mutated return of Object value for napoleoninhauta/logiikka/pelialusta/PelialustanMuutPinot::getPelipakka to ( if (x != null) null else throw new RuntimeException ) &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@95aeee4_37'>37</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@95aeee4_37'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getPelipino<br/><b>Killed by : </b>napoleoninhauta.logiikka.pelialusta.PelialustanMuutPinotTest.konstruktoriLuoMuutPinotJaGetteritToimii(napoleoninhauta.logiikka.pelialusta.PelialustanMuutPinotTest)</span></span> mutated return of Object value for napoleoninhauta/logiikka/pelialusta/PelialustanMuutPinot::getPelipino to ( if (x != null) null else throw new RuntimeException ) &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@95aeee4_41'>41</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@95aeee4_41'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getKuutosJemma<br/><b>Killed by : </b>napoleoninhauta.logiikka.pelialusta.PelialustanMuutPinotTest.konstruktoriLuoMuutPinotJaGetteritToimii(napoleoninhauta.logiikka.pelialusta.PelialustanMuutPinotTest)</span></span> mutated return of Object value for napoleoninhauta/logiikka/pelialusta/PelialustanMuutPinot::getKuutosJemma to ( if (x != null) null else throw new RuntimeException ) &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@95aeee4_45'>45</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@95aeee4_45'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getKeskipino<br/><b>Killed by : </b>napoleoninhauta.logiikka.pelialusta.PelialustanMuutPinotTest.konstruktoriLuoMuutPinotJaGetteritToimii(napoleoninhauta.logiikka.pelialusta.PelialustanMuutPinotTest)</span></span> mutated return of Object value for napoleoninhauta/logiikka/pelialusta/PelialustanMuutPinot::getKeskipino to ( if (x != null) null else throw new RuntimeException ) &rarr; KILLED</p> 
+</td>
+</tr>
+
+</table>
+
+
+<h2>Active mutators</h2>
+<ul>
+<li class='mutator'>INCREMENTS_MUTATOR</li>
+<li class='mutator'>VOID_METHOD_CALL_MUTATOR</li>
+<li class='mutator'>RETURN_VALS_MUTATOR</li>
+<li class='mutator'>MATH_MUTATOR</li>
+<li class='mutator'>NEGATE_CONDITIONALS_MUTATOR</li>
+<li class='mutator'>INVERT_NEGS_MUTATOR</li>
+<li class='mutator'>CONDITIONALS_BOUNDARY_MUTATOR</li>
+
+</ul>
+
+<h2>Tests examined</h2>
+<ul>
+<li>napoleoninhauta.logiikka.pelialusta.PelialustaTest.suoritaPelipinoEiLaitaMuitaKorttejaEteenpainJosPeliaEiOleAvattu(napoleoninhauta.logiikka.pelialusta.PelialustaTest) (3 ms)</li><li>napoleoninhauta.logiikka.pelialusta.PelialustaTest.suoritaPelipinoEiTeeMitaanJosPelipinoOnTyhja(napoleoninhauta.logiikka.pelialusta.PelialustaTest) (7 ms)</li><li>napoleoninhauta.logiikka.pelialusta.PelialustaTest.meneekoMikaanPalauttaaTrueJosMahdollisiaSiirtojaJemmoihin(napoleoninhauta.logiikka.pelialusta.PelialustaTest) (11 ms)</li><li>napoleoninhauta.logiikka.pelialusta.PelialustaTest.peruNostoToimiessaanPoistaaKortinPelipinosta(napoleoninhauta.logiikka.pelialusta.PelialustaTest) (3 ms)</li><li>napoleoninhauta.logiikka.pelialusta.PelialustaTest.meneekoMikaanPalauttaaTrueJosMahdollisiaSiirtojaKuutosjemmasta(napoleoninhauta.logiikka.pelialusta.PelialustaTest) (3 ms)</li><li>napoleoninhauta.logiikka.pelialusta.PelialustaTest.meneekoMikaanPalauttaaTrueJosMahdollisiaSiirtojaAloittaa(napoleoninhauta.logiikka.pelialusta.PelialustaTest) (9 ms)</li><li>napoleoninhauta.logiikka.pelialusta.PelialustaTest.peruNostoEiAsetaKorttiaTakaisinPakkaanJosPeliOnAvattu(napoleoninhauta.logiikka.pelialusta.PelialustaTest) (11 ms)</li><li>napoleoninhauta.logiikka.pelialusta.PelialustaTest.suoritaYhdenKortinJemmaLaittaaKortinKeskelleJosMahdollista(napoleoninhauta.logiikka.pelialusta.PelialustaTest) (12 ms)</li><li>napoleoninhauta.logiikka.pelialusta.PelialustaTest.aloitaUusiPeliAlustaaUudenPakan(napoleoninhauta.logiikka.pelialusta.PelialustaTest) (19 ms)</li><li>napoleoninhauta.logiikka.pelialusta.PelialustaTest.suoritaPelipinoLaittaaKuutosenEnsisijaisestiKeskipinoon(napoleoninhauta.logiikka.pelialusta.PelialustaTest) (3 ms)</li><li>napoleoninhauta.logiikka.pelialusta.PelialustaTest.nostaKorttiEiTeeMitaanJosPakkaOnTyhja(napoleoninhauta.logiikka.pelialusta.PelialustaTest) (4 ms)</li><li>napoleoninhauta.logiikka.pelialusta.PelialustaTest.laitaKuutosjemmastaToimiiJosJemmassaKorttiJaSeSopiiKeskelle(napoleoninhauta.logiikka.pelialusta.PelialustaTest) (6 ms)</li><li>napoleoninhauta.logiikka.pelialusta.PelialustaTest.suoritaPelipinoLaitaaKeskipinoonJosPeliAvattuJaMahdollista(napoleoninhauta.logiikka.pelialusta.PelialustaTest) (5 ms)</li><li>napoleoninhauta.logiikka.pelialusta.PelialustaTest.suoritaYhdenKortinJemmaEiLaitaKorttiaMihinkaanJosEiMahdollista(napoleoninhauta.logiikka.pelialusta.PelialustaTest) (2 ms)</li><li>napoleoninhauta.logiikka.pelialusta.PelialustaTest.suoirtaYhdenKortinJemmaLaittaaKortinKulmaanJosMahdollista(napoleoninhauta.logiikka.pelialusta.PelialustaTest) (3 ms)</li><li>napoleoninhauta.logiikka.pelialusta.PelialustaTest.nostaKorttiPakastaNostaaKortinPelipakasta(napoleoninhauta.logiikka.pelialusta.PelialustaTest) (17 ms)</li><li>napoleoninhauta.logiikka.pelialusta.PelialustaTest.suoritaPelipinoLaittaaKulmapinoihinMuutenkinJosPeliAvattu(napoleoninhauta.logiikka.pelialusta.PelialustaTest) (3 ms)</li><li>napoleoninhauta.logiikka.pelialusta.PelialustaTest.meneekoMikaanPalauttaaTrueJosMahdollisiaSiirtojaKulmaan(napoleoninhauta.logiikka.pelialusta.PelialustaTest) (6 ms)</li><li>napoleoninhauta.logiikka.pelialusta.PelialustaTest.laitaKuutosjemmastaEiToimiJosJemmanKorttiEiSoviKeskelle(napoleoninhauta.logiikka.pelialusta.PelialustaTest) (3 ms)</li><li>napoleoninhauta.logiikka.pelialusta.PelialustaTest.peruNostoAsettaaKortinPelipinostaPakkaanJosPeliEiAvattu(napoleoninhauta.logiikka.pelialusta.PelialustaTest) (18 ms)</li><li>napoleoninhauta.logiikka.pelialusta.PelialustaTest.alustaLuoJemmatKulmapinotJaMuutPinotJaGetteritToimii(napoleoninhauta.logiikka.pelialusta.PelialustaTest) (3 ms)</li><li>napoleoninhauta.logiikka.pelialusta.PelialustaTest.meneekoMikaanPalauttaaFalseJosEiMahdollisiaSiirtoja2(napoleoninhauta.logiikka.pelialusta.PelialustaTest) (7 ms)</li><li>napoleoninhauta.logiikka.pelialusta.PelialustaTest.meneekoMikaanPalauttaaTrueJosMahdollisiaSiirtojaKeskelle(napoleoninhauta.logiikka.pelialusta.PelialustaTest) (11 ms)</li><li>napoleoninhauta.logiikka.pelialusta.PelialustaTest.meneekoMikaanPalauttaaFalseJosEiMahdollisiaSiirtoja1(napoleoninhauta.logiikka.pelialusta.PelialustaTest) (7 ms)</li><li>napoleoninhauta.logiikka.pelialusta.PelialustaTest.suoritaPelipinoLaittaaJemmaanJosPeliAvattuJaEivatSoviPinoihin(napoleoninhauta.logiikka.pelialusta.PelialustaTest) (5 ms)</li><li>napoleoninhauta.logiikka.pelialusta.PelialustaTest.aloitaUusiPeliTyhjentaaMuutPinotJaJemmat(napoleoninhauta.logiikka.pelialusta.PelialustaTest) (10 ms)</li><li>napoleoninhauta.logiikka.pelialusta.PelialustaTest.suoritaPelipinoLaittaaKuutosenJemmaanJosKeskelleEiMene(napoleoninhauta.logiikka.pelialusta.PelialustaTest) (3 ms)</li><li>napoleoninhauta.logiikka.pelialusta.PelialustaTest.suoritaPelipinoLaittaaSeiskanKulmapinoonJosPeliOnAvattu(napoleoninhauta.logiikka.pelialusta.PelialustaTest) (16 ms)</li><li>napoleoninhauta.logiikka.pelialusta.PelialustanMuutPinotTest.konstruktoriLuoMuutPinotJaGetteritToimii(napoleoninhauta.logiikka.pelialusta.PelialustanMuutPinotTest) (2 ms)</li><li>napoleoninhauta.logiikka.pelialusta.PelialustaTest.nostaKorttiPakastaLaittaaNostetunKortinPelipinoon(napoleoninhauta.logiikka.pelialusta.PelialustaTest) (2 ms)</li><li>napoleoninhauta.logiikka.pelialusta.PelialustaTest.nostaKorttiToimiiPakanViimeisellaKortilla(napoleoninhauta.logiikka.pelialusta.PelialustaTest) (23 ms)</li>
+</ul>
+
+<br/>
+
+Report generated by <a href='http://pitest.org'>PIT</a> 1.1.8
+
+</body>
+</html>

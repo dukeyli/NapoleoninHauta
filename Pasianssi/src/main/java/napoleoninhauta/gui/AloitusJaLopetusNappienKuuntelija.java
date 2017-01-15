@@ -1,3 +1,7 @@
+/**
+ * Luokka kuuntelee aloitus- ja lopetus -nappuloita ja suorittaa
+ * näiden toiminnallisuuden.
+ */
 package napoleoninhauta.gui;
 
 import java.awt.event.ActionEvent;
@@ -11,6 +15,14 @@ public class AloitusJaLopetusNappienKuuntelija implements ActionListener {
     private Paivittaja paivittaja;
     private JButton aloitus, lopetus;
 
+    /**
+     * Konstruktori määrittää attribuutit parametreina annetuiksi olioksi.
+     * 
+     * @param alusta pelialusta, jossa toiminnallisuus tapahtuu
+     * @param paivittaja päivittäjä, joka päivittää kuvat
+     * @param aloitus aloitus-nappula
+     * @param lopetus lopetus-nappula
+     */
     public AloitusJaLopetusNappienKuuntelija(Pelialusta alusta, Paivittaja paivittaja,
             JButton aloitus, JButton lopetus) {
         this.alusta = alusta;

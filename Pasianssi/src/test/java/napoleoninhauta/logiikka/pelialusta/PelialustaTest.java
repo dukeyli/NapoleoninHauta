@@ -51,6 +51,22 @@ public class PelialustaTest {
     }
 
     @Test
+    public void nostaKorttiEiTeeMitaanJosPakkaOnTyhja() {
+        int i = 0;
+        while (i < 53) {
+            alusta.nostaKorttiPakasta();
+            i++;
+        }
+        assertEquals(0, alusta.getMuut().getPelipakka().getMaara());
+    }
+
+    @Test
+    public void suoritaPelipinoEiTeeMitaanJosPelipinoOnTyhja() {
+        alusta.suoritaPelipino();
+        assertEquals("tyhja", alusta.getMuut().getPelipino().getYlin());
+    }
+
+    @Test
     public void suoritaPelipinoLaittaaKuutosenEnsisijaisestiKeskipinoon() {
         alusta.getMuut().getPelipino().asetaKortti(testikortti1);
         alusta.suoritaPelipino();
@@ -269,6 +285,30 @@ public class PelialustaTest {
         alusta.laitaKuutosjemmasta();
         assertEquals(1, alusta.getMuut().getKuutosJemma().getMaara());
         assertEquals("HERTTA_6", alusta.getMuut().getKeskipino().getYlin());
+    }
+
+    @Test
+    public void suoritaYhdenKortinJemmaEiLaitaKorttiaMihinkaanJosEiMahdollista() {
+        alusta.getJemmat().getEtela().asetaKortti(new Kortti(12, Maa.PATA));
+        alusta.suoritaYhdenKortinJemma(alusta.getJemmat().getEtela());
+        assertEquals("PATA_12", alusta.getJemmat().getEtela().getKortti());
+    }
+
+    @Test
+    public void suoritaYhdenKortinJemmaLaittaaKortinKeskelleJosMahdollista() {
+        alusta.getJemmat().getEtela().asetaKortti(testikortti1);
+        alusta.suoritaYhdenKortinJemma(alusta.getJemmat().getEtela());
+        assertEquals("tyhja", alusta.getJemmat().getEtela().getKortti());
+        assertEquals("PATA_6", alusta.getMuut().getKeskipino().getYlin());
+    }
+
+    @Test
+    public void suoirtaYhdenKortinJemmaLaittaaKortinKulmaanJosMahdollista() {
+        alusta.getMuut().getKeskipino().asetaKortti(testikortti1);
+        alusta.getJemmat().getEtela().asetaKortti(testikortti2);
+        alusta.suoritaYhdenKortinJemma(alusta.getJemmat().getEtela());
+        assertEquals("tyhja", alusta.getJemmat().getEtela().getKortti());
+        assertEquals("HERTTA_7", alusta.getKulmapinot().getLuode().getYlin());
     }
 
     @After

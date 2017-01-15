@@ -3,8 +3,6 @@
  */
 package napoleoninhauta.pakka;
 
-import java.util.Objects;
-
 public class Kortti {
 
     private int arvo;

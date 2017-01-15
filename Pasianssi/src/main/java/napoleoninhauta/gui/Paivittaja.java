@@ -1,5 +1,5 @@
 /**
- * Luokan tehtävä on päivittää näppäinten ja tekstikenttien kuvat ja tekstit.
+ * Luokan tehtävä on päivittää näppäinten kuvat ja tekstit.
  */
 package napoleoninhauta.gui;
 
@@ -21,7 +21,7 @@ public class Paivittaja {
     private JButton peru;
 
     /**
-     * Konstruktori alustaa pelialustan. näppäimet ja tekstit.
+     * Konstruktori alustaa pelialustan. näppäimet ja pelialustan.
      *
      * @param pelipakka näppäin, jossa on pelipakka
      * @param alusta pelialusta, jossa on toiminnallisuus
@@ -74,8 +74,8 @@ public class Paivittaja {
     }
 
     /**
-     * Metodi päivittää näppäinten ja tekstikenttien kuvat oikeiksi. Metodi
-     * käyttää yksityisiä apumetodeja päivittämään näppäimet ja tekstikentät.
+     * Metodi päivittää näppäinten kuvat ja tekstit oikeiksi. Metodi käyttää
+     * yksityisiä apumetodeja päivittämään näppäimet ja tekstikentät.
      */
     public void paivita() {
         paivitaJemmat();

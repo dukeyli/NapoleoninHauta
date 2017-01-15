@@ -1,3 +1,6 @@
+/**
+ * Käyttöliittymäluokka, jossa luodaan komponentit ulkoasulle.
+ */
 package napoleoninhauta.gui;
 
 import java.awt.Container;
@@ -13,6 +16,9 @@ public class Kayttoliittyma implements Runnable {
     private JFrame frame;
     private Pelialusta pelialusta;
 
+    /**
+     * Konstruktori alustaa pelialustan.
+     */
     public Kayttoliittyma() {
         this.pelialusta = new Pelialusta();
     }

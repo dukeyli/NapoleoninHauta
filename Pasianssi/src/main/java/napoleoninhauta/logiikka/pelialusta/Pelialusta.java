@@ -3,6 +3,7 @@
  */
 package napoleoninhauta.logiikka.pelialusta;
 
+import napoleoninhauta.logiikka.pinot.YhdenKortinJemma;
 import napoleoninhauta.pakka.Kortti;
 
 public class Pelialusta {
@@ -211,6 +212,22 @@ public class Pelialusta {
     public void laitaKuutosjemmasta() {
         if (getMuut().getKuutosJemma().getMaara() != 0 && getMuut().getKeskipino().getArvo() == 6) {
             getMuut().getKeskipino().asetaKortti(getMuut().getKuutosJemma().otaKortti());
+        }
+    }
+
+    /**
+     * Metodi laittaa kortin parametrina annetusta yhden kortin jemmasta
+     * keskelle tai kulmaan, jos mahdollista.
+     *
+     * @param mikaJemma yhden kortin jemma
+     */
+    public void suoritaYhdenKortinJemma(YhdenKortinJemma mikaJemma) {
+        int kortinArvo = mikaJemma.getKortinArvo();
+        if (kortinArvo == getMuut().getKeskipino().getArvo()) {
+            getMuut().getKeskipino().asetaKortti(mikaJemma.otaKortti());
+        }
+        if (getKulmapinot().getArvot().contains(kortinArvo)) {
+            getKulmapinot().laitaKorttiSopivaanPinoon(mikaJemma.otaKortti());
         }
     }
 }

@@ -1,0 +1,851 @@
+<html>
+<head>
+<style type='text/css'>
+html, body, div, span, p, blockquote, pre {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	outline: 0;
+	font-weight: inherit;
+	font-style: inherit;
+	font-size: 100%;
+	font-family: inherit;
+	vertical-align: baseline;
+}
+
+body{
+	line-height: 1;
+	color: black;
+	background: white;
+	margin-left: 20px;
+}
+
+.src { 
+	border: 1px solid #dddddd;
+	padding-top: 10px;
+	padding-right: 5px;
+	padding-left: 5px;
+	font-family: Consolas, Courier, monospace;
+}
+
+
+.covered {background-color: #ddffdd}
+.uncovered {background-color: #ffdddd}
+.killed {background-color: #aaffaa}
+.survived {background-color: #ffaaaa}
+.uncertain {background-color: #dde7ef}
+.run_error {background-color: #dde7ef}
+.na {background-color: #eeeeee}
+.timed_out {background-color: #dde7ef}
+.non_viable {background-color: #aaffaa}
+.memory_error {background-color: #dde7ef}
+.not_started {background-color: #dde7ef; color : red}
+.no_coverage {background-color: #ffaaaa}
+
+
+.pop {outline:none; }
+.pop strong {line-height:30px;}
+.pop {text-decoration:none;}
+.pop span { z-index:10;display:none; padding:14px 20px; margin-top:-30px; margin-left:28px; width:800px; line-height:16px; word-wrap:break-word; }
+.pop:hover span{ display:inline; position:absolute; color:#111; border:1px solid #DCA; background:#fffAF0;}
+
+.pop span { border-radius:4px; -moz-border-radius: 4px; -webkit-border-radius: 4px; -moz-box-shadow: 5px 5px 8px #CCC; -webkit-box-shadow: 5px 5px 8px #CCC; box-shadow: 5px 5px 8px #CCC; }
+</style>
+
+</head>
+<body>
+
+
+<h1>Kortti.java</h1>
+
+<table class="src">
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6a8ab98f_1'/>
+1
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6a8ab98f_1'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>/**</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6a8ab98f_2'/>
+2
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6a8ab98f_2'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''> * Luokka m&#228;&#228;rittelee pelikortin, johon liittyy lukuarvo ja maa.</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6a8ab98f_3'/>
+3
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6a8ab98f_3'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''> */</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6a8ab98f_4'/>
+4
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6a8ab98f_4'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>package napoleoninhauta.pakka;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6a8ab98f_5'/>
+5
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6a8ab98f_5'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6a8ab98f_6'/>
+6
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6a8ab98f_6'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>public class Kortti {</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6a8ab98f_7'/>
+7
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6a8ab98f_7'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6a8ab98f_8'/>
+8
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6a8ab98f_8'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    private int arvo;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6a8ab98f_9'/>
+9
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6a8ab98f_9'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    private Maa maa;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6a8ab98f_10'/>
+10
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6a8ab98f_10'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6a8ab98f_11'/>
+11
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6a8ab98f_11'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    /**</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6a8ab98f_12'/>
+12
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6a8ab98f_12'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * Konstruktori asettaa parametrina annetut arvot attribuuttien arvoiksi.</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6a8ab98f_13'/>
+13
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6a8ab98f_13'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     *</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6a8ab98f_14'/>
+14
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6a8ab98f_14'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * @param arvo kokonaisluku, joka kertoo kortin arvon</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6a8ab98f_15'/>
+15
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6a8ab98f_15'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * @param maa kortin maa</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6a8ab98f_16'/>
+16
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6a8ab98f_16'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     */</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6a8ab98f_17'/>
+17
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6a8ab98f_17'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    public Kortti(int arvo, Maa maa) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6a8ab98f_18'/>
+18
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6a8ab98f_18'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        this.arvo = arvo;</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6a8ab98f_19'/>
+19
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6a8ab98f_19'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        this.maa = maa;</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6a8ab98f_20'/>
+20
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6a8ab98f_20'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6a8ab98f_21'/>
+21
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6a8ab98f_21'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6a8ab98f_22'/>
+22
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6a8ab98f_22'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    @Override</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6a8ab98f_23'/>
+23
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6a8ab98f_23'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public String toString() {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6a8ab98f_24'/>
+24
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6a8ab98f_24'>1</a>
+<span>
+1. toString : mutated return of Object value for napoleoninhauta/pakka/Kortti::toString to ( if (x != null) null else throw new RuntimeException ) &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        return maa + &#34;_&#34; + arvo;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6a8ab98f_25'/>
+25
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6a8ab98f_25'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6a8ab98f_26'/>
+26
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6a8ab98f_26'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6a8ab98f_27'/>
+27
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6a8ab98f_27'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public Maa getMaa() {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6a8ab98f_28'/>
+28
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6a8ab98f_28'>1</a>
+<span>
+1. getMaa : mutated return of Object value for napoleoninhauta/pakka/Kortti::getMaa to ( if (x != null) null else throw new RuntimeException ) &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        return maa;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6a8ab98f_29'/>
+29
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6a8ab98f_29'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6a8ab98f_30'/>
+30
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6a8ab98f_30'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6a8ab98f_31'/>
+31
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6a8ab98f_31'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public int getArvo() {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6a8ab98f_32'/>
+32
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6a8ab98f_32'>1</a>
+<span>
+1. getArvo : replaced return of integer sized value with (x == 0 ? 1 : 0) &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        return arvo;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6a8ab98f_33'/>
+33
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6a8ab98f_33'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6a8ab98f_34'/>
+34
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6a8ab98f_34'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6a8ab98f_35'/>
+35
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6a8ab98f_35'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    @Override</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6a8ab98f_36'/>
+36
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6a8ab98f_36'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public boolean equals(Object o) {</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6a8ab98f_37'/>
+37
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6a8ab98f_37'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        try {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6a8ab98f_38'/>
+38
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6a8ab98f_38'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>            Kortti kortti = (Kortti) o;</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6a8ab98f_39'/>
+39
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6a8ab98f_39'>2</a>
+<span>
+1. equals : negated conditional &rarr; KILLED<br/>
+2. equals : negated conditional &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>            if (kortti.getArvo() == this.arvo &#38;&#38; kortti.getMaa().equals(this.maa)) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6a8ab98f_40'/>
+40
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6a8ab98f_40'>1</a>
+<span>
+1. equals : replaced return of integer sized value with (x == 0 ? 1 : 0) &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>                return true;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6a8ab98f_41'/>
+41
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6a8ab98f_41'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>            }</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6a8ab98f_42'/>
+42
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6a8ab98f_42'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        } catch (Exception e) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6a8ab98f_43'/>
+43
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6a8ab98f_43'>1</a>
+<span>
+1. equals : replaced return of integer sized value with (x == 0 ? 1 : 0) &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>            return false;</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6a8ab98f_44'/>
+44
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6a8ab98f_44'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        }</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6a8ab98f_45'/>
+45
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6a8ab98f_45'>1</a>
+<span>
+1. equals : replaced return of integer sized value with (x == 0 ? 1 : 0) &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        return false;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6a8ab98f_46'/>
+46
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6a8ab98f_46'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6a8ab98f_47'/>
+47
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6a8ab98f_47'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6a8ab98f_48'/>
+48
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6a8ab98f_48'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>}</span></pre></td></tr>
+
+
+
+<tr><td></td><td></td><td><h2>Mutations</h2></td></tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@6a8ab98f_24'>24</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@6a8ab98f_24'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>toString<br/><b>Killed by : </b>napoleoninhauta.pakka.KorttiTest.toStringToimii(napoleoninhauta.pakka.KorttiTest)</span></span> mutated return of Object value for napoleoninhauta/pakka/Kortti::toString to ( if (x != null) null else throw new RuntimeException ) &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@6a8ab98f_28'>28</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@6a8ab98f_28'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getMaa<br/><b>Killed by : </b>napoleoninhauta.pakka.KorttiTest.palautaMaaToimii(napoleoninhauta.pakka.KorttiTest)</span></span> mutated return of Object value for napoleoninhauta/pakka/Kortti::getMaa to ( if (x != null) null else throw new RuntimeException ) &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@6a8ab98f_32'>32</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@6a8ab98f_32'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getArvo<br/><b>Killed by : </b>napoleoninhauta.pakka.KorttiTest.palautaArvoToimii(napoleoninhauta.pakka.KorttiTest)</span></span> replaced return of integer sized value with (x == 0 ? 1 : 0) &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@6a8ab98f_39'>39</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@6a8ab98f_39'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>equals<br/><b>Killed by : </b>napoleoninhauta.pakka.KorttiTest.equalsEiToimiPelkanMaanPerusteella(napoleoninhauta.pakka.KorttiTest)</span></span> negated conditional &rarr; KILLED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>equals<br/><b>Killed by : </b>napoleoninhauta.pakka.KorttiTest.equalsEiToimiPelkanArvonPerusteella(napoleoninhauta.pakka.KorttiTest)</span></span> negated conditional &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@6a8ab98f_40'>40</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@6a8ab98f_40'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>equals<br/><b>Killed by : </b>napoleoninhauta.pakka.KorttiTest.equalsToimiiMaanJaArvonPerusteella(napoleoninhauta.pakka.KorttiTest)</span></span> replaced return of integer sized value with (x == 0 ? 1 : 0) &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@6a8ab98f_43'>43</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@6a8ab98f_43'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>equals<br/><b>Killed by : </b>napoleoninhauta.pakka.KorttiTest.equalsPalauttaaFalseJosVerrattavaEiOleKortti(napoleoninhauta.pakka.KorttiTest)</span></span> replaced return of integer sized value with (x == 0 ? 1 : 0) &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@6a8ab98f_45'>45</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@6a8ab98f_45'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>equals<br/><b>Killed by : </b>napoleoninhauta.pakka.KorttiTest.equalsEiToimiPelkanArvonPerusteella(napoleoninhauta.pakka.KorttiTest)</span></span> replaced return of integer sized value with (x == 0 ? 1 : 0) &rarr; KILLED</p> 
+</td>
+</tr>
+
+</table>
+
+
+<h2>Active mutators</h2>
+<ul>
+<li class='mutator'>INCREMENTS_MUTATOR</li>
+<li class='mutator'>VOID_METHOD_CALL_MUTATOR</li>
+<li class='mutator'>RETURN_VALS_MUTATOR</li>
+<li class='mutator'>MATH_MUTATOR</li>
+<li class='mutator'>NEGATE_CONDITIONALS_MUTATOR</li>
+<li class='mutator'>INVERT_NEGS_MUTATOR</li>
+<li class='mutator'>CONDITIONALS_BOUNDARY_MUTATOR</li>
+
+</ul>
+
+<h2>Tests examined</h2>
+<ul>
+<li>napoleoninhauta.logiikka.pelialusta.PelialustaTest.suoritaPelipinoEiLaitaMuitaKorttejaEteenpainJosPeliaEiOleAvattu(napoleoninhauta.logiikka.pelialusta.PelialustaTest) (3 ms)</li><li>napoleoninhauta.logiikka.pelialusta.JemmatTest.laitaTyhjaanPalauttaaFalseJosJemmatOnTaynna(napoleoninhauta.logiikka.pelialusta.JemmatTest) (2 ms)</li><li>napoleoninhauta.logiikka.pinot.KeskipinoTest.onkoPeliAvattuPalauttaaTrueJosPinossaOnKortti(napoleoninhauta.logiikka.pinot.KeskipinoTest) (2 ms)</li><li>napoleoninhauta.logiikka.pinot.PinoTest.palautaKortitPalauttaaOikeanYhdenKortinListan(napoleoninhauta.logiikka.pinot.PinoTest) (2 ms)</li><li>napoleoninhauta.logiikka.pelialusta.PelialustaTest.meneekoMikaanPalauttaaTrueJosMahdollisiaSiirtojaKuutosjemmasta(napoleoninhauta.logiikka.pelialusta.PelialustaTest) (3 ms)</li><li>napoleoninhauta.logiikka.pinot.PinoTest.palautaYlimmanArvoPalauttaaPinonPaalimmaisenKortinArvon(napoleoninhauta.logiikka.pinot.PinoTest) (12 ms)</li><li>napoleoninhauta.logiikka.pelialusta.KulmapinotTest.laitaKorttiSopivaanPinoonLaittaaKortinNeljantenaVaihtoehtonaLounaaseen(napoleoninhauta.logiikka.pelialusta.KulmapinotTest) (21 ms)</li><li>napoleoninhauta.logiikka.pelialusta.JemmatTest.laitaTyhjaanJemmaanLaittaaKortinToissijaisestiPohjoisJemmaan(napoleoninhauta.logiikka.pelialusta.JemmatTest) (2 ms)</li><li>napoleoninhauta.logiikka.pinot.YhdenKortinJemmaTest.palautaKortinArvoPalauttaaJemmassaOlevanKortinArvon(napoleoninhauta.logiikka.pinot.YhdenKortinJemmaTest) (2 ms)</li><li>napoleoninhauta.logiikka.pelialusta.JemmatTest.laitaTyhjaanJemmaanPalauttaaTrueJosKorttiLaitetaanEtelaJemmaan(napoleoninhauta.logiikka.pelialusta.JemmatTest) (2 ms)</li><li>napoleoninhauta.logiikka.pelialusta.PelialustaTest.laitaKuutosjemmastaToimiiJosJemmassaKorttiJaSeSopiiKeskelle(napoleoninhauta.logiikka.pelialusta.PelialustaTest) (6 ms)</li><li>napoleoninhauta.logiikka.pelialusta.KulmapinotTest.kaikkiLapiPalauttaaTrueJosKaikkissaPinoissaOnKaikkiVaaditutKortit(napoleoninhauta.logiikka.pelialusta.KulmapinotTest) (2 ms)</li><li>napoleoninhauta.logiikka.pinot.KeskipinoTest.tyhjennaTyhjentaaKeskipinon(napoleoninhauta.logiikka.pinot.KeskipinoTest) (1 ms)</li><li>napoleoninhauta.logiikka.pinot.KeskipinoTest.kunKeskelleLaittaaAssanArvoNouseeKuutoseen(napoleoninhauta.logiikka.pinot.KeskipinoTest) (2 ms)</li><li>napoleoninhauta.logiikka.pinot.PelipakkaTest.nostaKorttiPalauttaaPaalimmaisenKortin(napoleoninhauta.logiikka.pinot.PelipakkaTest) (3 ms)</li><li>napoleoninhauta.logiikka.pinot.KulmapinoTest.kulmanArvoNouseeKortinAsettamisenJalkeen(napoleoninhauta.logiikka.pinot.KulmapinoTest) (10 ms)</li><li>napoleoninhauta.pakka.PakanluojaTest.pakassaEiOleDuplikaatteja(napoleoninhauta.pakka.PakanluojaTest) (3 ms)</li><li>napoleoninhauta.logiikka.pinot.YhdenKortinJemmaTest.jemmaanEiVoiLaittaaKorttiaJosJemmassaOnKortti(napoleoninhauta.logiikka.pinot.YhdenKortinJemmaTest) (1 ms)</li><li>napoleoninhauta.logiikka.pinot.PelipinoTest.asetaKorttiLaittaaKortinPinonPaalimmaiseksi(napoleoninhauta.logiikka.pinot.PelipinoTest) (3 ms)</li><li>napoleoninhauta.logiikka.pinot.KulmapinoTest.tyhjennaTyhjentaaPinon(napoleoninhauta.logiikka.pinot.KulmapinoTest) (1 ms)</li><li>napoleoninhauta.logiikka.pelialusta.PelialustaTest.peruNostoAsettaaKortinPelipinostaPakkaanJosPeliEiAvattu(napoleoninhauta.logiikka.pelialusta.PelialustaTest) (18 ms)</li><li>napoleoninhauta.logiikka.pelialusta.PelialustaTest.meneekoMikaanPalauttaaFalseJosEiMahdollisiaSiirtoja1(napoleoninhauta.logiikka.pelialusta.PelialustaTest) (7 ms)</li><li>napoleoninhauta.logiikka.pinot.KuutosJemmaTest.otaKorttiPalauttaaViimeiseksiLaitetunKortin(napoleoninhauta.logiikka.pinot.KuutosJemmaTest) (14 ms)</li><li>napoleoninhauta.pakka.KorttiTest.palautaArvoToimii(napoleoninhauta.pakka.KorttiTest) (1 ms)</li><li>napoleoninhauta.logiikka.pelialusta.PelialustaTest.peruNostoEiAsetaKorttiaTakaisinPakkaanJosPeliOnAvattu(napoleoninhauta.logiikka.pelialusta.PelialustaTest) (11 ms)</li><li>napoleoninhauta.logiikka.pinot.KulmapinoTest.kulmaanEiVoiLaittaaKorttiaJonkaArvoOnEriKuinKulmanArvo(napoleoninhauta.logiikka.pinot.KulmapinoTest) (1 ms)</li><li>napoleoninhauta.logiikka.pinot.KulmapinoTest.kulmaanVoiAsettaaSeiskan(napoleoninhauta.logiikka.pinot.KulmapinoTest) (1 ms)</li><li>napoleoninhauta.logiikka.pinot.YhdenKortinJemmaTest.otaKorttiPalauttaaKortinJemmasta(napoleoninhauta.logiikka.pinot.YhdenKortinJemmaTest) (1 ms)</li><li>napoleoninhauta.logiikka.pinot.KuutosJemmaTest.otaKorttiVahentaaJemmanKorttienMaaraa(napoleoninhauta.logiikka.pinot.KuutosJemmaTest) (10 ms)</li><li>napoleoninhauta.pakka.KorttiTest.equalsPalauttaaFalseJosVerrattavaEiOleKortti(napoleoninhauta.pakka.KorttiTest) (10 ms)</li><li>napoleoninhauta.pakka.KorttiTest.palautaMaaToimii(napoleoninhauta.pakka.KorttiTest) (1 ms)</li><li>napoleoninhauta.logiikka.pelialusta.PelialustaTest.suoritaYhdenKortinJemmaEiLaitaKorttiaMihinkaanJosEiMahdollista(napoleoninhauta.logiikka.pelialusta.PelialustaTest) (2 ms)</li><li>napoleoninhauta.logiikka.pinot.YhdenKortinJemmaTest.palautaKorttiPalauttaaJemmanKortinStringEsityksen(napoleoninhauta.logiikka.pinot.YhdenKortinJemmaTest) (9 ms)</li><li>napoleoninhauta.logiikka.pinot.PelipinoTest.otaKorttiPalauttaaViimeiseksiLaitetunKortin(napoleoninhauta.logiikka.pinot.PelipinoTest) (4 ms)</li><li>napoleoninhauta.logiikka.pinot.KeskipinoTest.keskelleEiVoiLaittaaKorttiaJonkaArvoOnEriKuinKeskipinonArvo(napoleoninhauta.logiikka.pinot.KeskipinoTest) (2 ms)</li><li>napoleoninhauta.logiikka.pinot.KeskipinoTest.keskipinonArvoLaskeeKorttejaLisatessa(napoleoninhauta.logiikka.pinot.KeskipinoTest) (8 ms)</li><li>napoleoninhauta.logiikka.pinot.KeskipinoTest.keskelleVoiLaittaaOikeitaKortteja(napoleoninhauta.logiikka.pinot.KeskipinoTest) (1 ms)</li><li>napoleoninhauta.logiikka.pinot.KeskipinoTest.asetaKorttiLaittaaKortinPinonPaalimmaiseksi(napoleoninhauta.logiikka.pinot.KeskipinoTest) (2 ms)</li><li>napoleoninhauta.logiikka.pelialusta.PelialustaTest.aloitaUusiPeliTyhjentaaMuutPinotJaJemmat(napoleoninhauta.logiikka.pelialusta.PelialustaTest) (10 ms)</li><li>napoleoninhauta.logiikka.pelialusta.KulmapinotTest.laitaKorttiSopivaanPinoonPalauttaaFalseJosKorttiEiSoviMihinkaanPinoon(napoleoninhauta.logiikka.pelialusta.KulmapinotTest) (2 ms)</li><li>napoleoninhauta.logiikka.pelialusta.PelialustaTest.suoritaPelipinoLaittaaKuutosenJemmaanJosKeskelleEiMene(napoleoninhauta.logiikka.pelialusta.PelialustaTest) (3 ms)</li><li>napoleoninhauta.logiikka.pelialusta.KulmapinotTest.laitaKorttiSopivaanPinoonPalauttaaTrueJosKorttiMeneeKaakkoon(napoleoninhauta.logiikka.pelialusta.KulmapinotTest) (12 ms)</li><li>napoleoninhauta.logiikka.pinot.PinoTest.palautaYlinPalauttaaKortinStringEsityksenJosPinossaOnKortteja(napoleoninhauta.logiikka.pinot.PinoTest) (1 ms)</li><li>napoleoninhauta.logiikka.pelialusta.PelialustaTest.meneekoMikaanPalauttaaTrueJosMahdollisiaSiirtojaJemmoihin(napoleoninhauta.logiikka.pelialusta.PelialustaTest) (11 ms)</li><li>napoleoninhauta.logiikka.pinot.PelipinoTest.otaKorttiPoistaaPelipinonPaallimmaisenKortin(napoleoninhauta.logiikka.pinot.PelipinoTest) (2 ms)</li><li>napoleoninhauta.logiikka.pelialusta.JemmatTest.onkoKaikkiJemmatTaynnaPalauttaaTrueJosKaikkiJemmatTaynna(napoleoninhauta.logiikka.pelialusta.JemmatTest) (2 ms)</li><li>napoleoninhauta.logiikka.pinot.KulmapinoTest.kulmanArvoNouseeKorttejaLisatessa(napoleoninhauta.logiikka.pinot.KulmapinoTest) (1 ms)</li><li>napoleoninhauta.logiikka.pelialusta.KulmapinotTest.palautaArvotPalauttaaKulmapinojenArvot(napoleoninhauta.logiikka.pelialusta.KulmapinotTest) (2 ms)</li><li>napoleoninhauta.logiikka.pinot.PelipakkaTest.asetaKorttiAsettaaKortinPakanPaallimmaiseksi(napoleoninhauta.logiikka.pinot.PelipakkaTest) (2 ms)</li><li>napoleoninhauta.logiikka.pinot.KulmapinoTest.kulmaanVoiLaittaaOikeitaKortteja(napoleoninhauta.logiikka.pinot.KulmapinoTest) (4 ms)</li><li>napoleoninhauta.logiikka.pinot.KeskipinoTest.keskipinonArvoLaskeeKunSiihenLaitetaanKortti(napoleoninhauta.logiikka.pinot.KeskipinoTest) (8 ms)</li><li>napoleoninhauta.logiikka.pinot.KuutosJemmaTest.otaKorttiTyhjentaaYhdenKortinJemman(napoleoninhauta.logiikka.pinot.KuutosJemmaTest) (1 ms)</li><li>napoleoninhauta.logiikka.pelialusta.PelialustaTest.suoritaPelipinoLaittaaKuutosenEnsisijaisestiKeskipinoon(napoleoninhauta.logiikka.pelialusta.PelialustaTest) (3 ms)</li><li>napoleoninhauta.logiikka.pelialusta.JemmatTest.onkoKaikkiJemmatTaynnaPalauttaaFalseJosPohjoinenOnTyhja(napoleoninhauta.logiikka.pelialusta.JemmatTest) (2 ms)</li><li>napoleoninhauta.pakka.KorttiTest.equalsEiToimiPelkanMaanPerusteella(napoleoninhauta.pakka.KorttiTest) (3 ms)</li><li>napoleoninhauta.logiikka.pelialusta.KulmapinotTest.laitaKorttiSopivaanPinoonPalauttaaTrueJosKorttiMeneeLounaaseen(napoleoninhauta.logiikka.pelialusta.KulmapinotTest) (2 ms)</li><li>napoleoninhauta.logiikka.pelialusta.KulmapinotTest.laitaKorttiSopivaanPinoonLaittaaKortinKolmantenaVaihtoehtonaKaakkoon(napoleoninhauta.logiikka.pelialusta.KulmapinotTest) (2 ms)</li><li>napoleoninhauta.logiikka.pelialusta.PelialustaTest.suoirtaYhdenKortinJemmaLaittaaKortinKulmaanJosMahdollista(napoleoninhauta.logiikka.pelialusta.PelialustaTest) (3 ms)</li><li>napoleoninhauta.pakka.KorttiTest.equalsEiToimiPelkanArvonPerusteella(napoleoninhauta.pakka.KorttiTest) (1 ms)</li><li>napoleoninhauta.logiikka.pinot.KuutosJemmaTest.otaKorttiPoistaaPaalimmaisenKortinJemmasta(napoleoninhauta.logiikka.pinot.KuutosJemmaTest) (1 ms)</li><li>napoleoninhauta.logiikka.pelialusta.KulmapinotTest.kaikkiLapiPalauttaaFalseMuuten(napoleoninhauta.logiikka.pelialusta.KulmapinotTest) (3 ms)</li><li>napoleoninhauta.logiikka.pelialusta.PelialustaTest.meneekoMikaanPalauttaaTrueJosMahdollisiaSiirtojaKulmaan(napoleoninhauta.logiikka.pelialusta.PelialustaTest) (6 ms)</li><li>napoleoninhauta.logiikka.pinot.KuutosJemmaTest.jemmaanVoiLaittaaKuutosen(napoleoninhauta.logiikka.pinot.KuutosJemmaTest) (4 ms)</li><li>napoleoninhauta.logiikka.pelialusta.PelialustaTest.laitaKuutosjemmastaEiToimiJosJemmanKorttiEiSoviKeskelle(napoleoninhauta.logiikka.pelialusta.PelialustaTest) (3 ms)</li><li>napoleoninhauta.logiikka.pinot.KeskipinoTest.keskelleEiVoiLaittaaKuutostaKunArvoEiOleKuusi(napoleoninhauta.logiikka.pinot.KeskipinoTest) (13 ms)</li><li>napoleoninhauta.logiikka.pelialusta.PelialustaTest.suoritaPelipinoLaittaaJemmaanJosPeliAvattuJaEivatSoviPinoihin(napoleoninhauta.logiikka.pelialusta.PelialustaTest) (5 ms)</li><li>napoleoninhauta.logiikka.pelialusta.JemmatTest.laitaTyhjaanJemmaanLaittaaKortinEnsisijaisestiLansijemmaan(napoleoninhauta.logiikka.pelialusta.JemmatTest) (4 ms)</li><li>napoleoninhauta.pakka.KorttiTest.toStringToimii(napoleoninhauta.pakka.KorttiTest) (1 ms)</li><li>napoleoninhauta.logiikka.pinot.KuutosJemmaTest.jemmaanVoiLaittaaLisaaKuutosia(napoleoninhauta.logiikka.pinot.KuutosJemmaTest) (4 ms)</li><li>napoleoninhauta.logiikka.pinot.YhdenKortinJemmaTest.tyhjaanjemmaanVoiLaittaaKortin(napoleoninhauta.logiikka.pinot.YhdenKortinJemmaTest) (11 ms)</li><li>napoleoninhauta.logiikka.pelialusta.PelialustaTest.suoritaPelipinoLaittaaSeiskanKulmapinoonJosPeliOnAvattu(napoleoninhauta.logiikka.pelialusta.PelialustaTest) (16 ms)</li><li>napoleoninhauta.pakka.KorttiTest.equalsToimiiMaanJaArvonPerusteella(napoleoninhauta.pakka.KorttiTest) (2 ms)</li><li>napoleoninhauta.logiikka.pelialusta.KulmapinotTest.laitaKorttiSopivaanPinoonLaittaaKortinEnsisijaisestiLuoteeseen(napoleoninhauta.logiikka.pelialusta.KulmapinotTest) (5 ms)</li><li>napoleoninhauta.logiikka.pelialusta.PelialustaTest.meneekoMikaanPalauttaaTrueJosMahdollisiaSiirtojaAloittaa(napoleoninhauta.logiikka.pelialusta.PelialustaTest) (9 ms)</li><li>napoleoninhauta.logiikka.pinot.KeskipinoTest.keskelleVoiLaittaaAluksiKuutosen(napoleoninhauta.logiikka.pinot.KeskipinoTest) (13 ms)</li><li>napoleoninhauta.logiikka.pelialusta.PelialustaTest.suoritaYhdenKortinJemmaLaittaaKortinKeskelleJosMahdollista(napoleoninhauta.logiikka.pelialusta.PelialustaTest) (12 ms)</li><li>napoleoninhauta.logiikka.pinot.PinoTest.palautaKortitPalauttaaOikeanMonenKortinListan(napoleoninhauta.logiikka.pinot.PinoTest) (2 ms)</li><li>napoleoninhauta.logiikka.pelialusta.JemmatTest.onkoKaikkiJemmatTaynnaPalauttaaFalseJosEtelaOnTyhja(napoleoninhauta.logiikka.pelialusta.JemmatTest) (2 ms)</li><li>napoleoninhauta.logiikka.pinot.KeskipinoTest.tyhjennaAsettaaArvonKuutoseen(napoleoninhauta.logiikka.pinot.KeskipinoTest) (1 ms)</li><li>napoleoninhauta.logiikka.pinot.KulmapinoTest.asetaKorttiLaittaaKortinPinonPaalimmaiseksi(napoleoninhauta.logiikka.pinot.KulmapinoTest) (2 ms)</li><li>napoleoninhauta.logiikka.pelialusta.PelialustaTest.suoritaPelipinoLaitaaKeskipinoonJosPeliAvattuJaMahdollista(napoleoninhauta.logiikka.pelialusta.PelialustaTest) (5 ms)</li><li>napoleoninhauta.logiikka.pelialusta.KulmapinotTest.laitaKorttiSopivaanPinoonLaittaaKortinToissijaisestiKoilliseen(napoleoninhauta.logiikka.pelialusta.KulmapinotTest) (20 ms)</li><li>napoleoninhauta.logiikka.pelialusta.KulmapinotTest.laitaKorttiSopivaanPinoonPalauttaaTrueJosKorttiMeneeKoilliseen(napoleoninhauta.logiikka.pelialusta.KulmapinotTest) (2 ms)</li><li>napoleoninhauta.logiikka.pelialusta.PelialustaTest.suoritaPelipinoLaittaaKulmapinoihinMuutenkinJosPeliAvattu(napoleoninhauta.logiikka.pelialusta.PelialustaTest) (3 ms)</li><li>napoleoninhauta.logiikka.pinot.KuutosJemmaTest.jemmaanEiVoiLaittaaMuitaKuinKuutosia(napoleoninhauta.logiikka.pinot.KuutosJemmaTest) (1 ms)</li><li>napoleoninhauta.logiikka.pelialusta.JemmatTest.laitaTyhjaanJemmaanLaittaaNeljantenaVaihtoehtonaEtelaJemmaan(napoleoninhauta.logiikka.pelialusta.JemmatTest) (3 ms)</li><li>napoleoninhauta.logiikka.pinot.KulmapinoTest.tyhjennaAsettaaArvonSeitsemaan(napoleoninhauta.logiikka.pinot.KulmapinoTest) (2 ms)</li><li>napoleoninhauta.logiikka.pelialusta.KulmapinotTest.laitaKorttiSopivaanPinoonPalauttaaTrueJosKorttiMeneeLuoteeseen(napoleoninhauta.logiikka.pelialusta.KulmapinotTest) (14 ms)</li><li>napoleoninhauta.logiikka.pelialusta.JemmatTest.laitaTyhjaanJemmaanLaittaaKolmantenaVaihtoehtonaItaJemmaan(napoleoninhauta.logiikka.pelialusta.JemmatTest) (3 ms)</li><li>napoleoninhauta.logiikka.pinot.KuutosJemmaTest.tyhjennaTyhjentaaJemman(napoleoninhauta.logiikka.pinot.KuutosJemmaTest) (1 ms)</li><li>napoleoninhauta.logiikka.pelialusta.PelialustaTest.meneekoMikaanPalauttaaFalseJosEiMahdollisiaSiirtoja2(napoleoninhauta.logiikka.pelialusta.PelialustaTest) (7 ms)</li><li>napoleoninhauta.logiikka.pelialusta.PelialustaTest.meneekoMikaanPalauttaaTrueJosMahdollisiaSiirtojaKeskelle(napoleoninhauta.logiikka.pelialusta.PelialustaTest) (11 ms)</li><li>napoleoninhauta.pakka.PakanluojaTest.pakkaEiOleJarjestyksessa(napoleoninhauta.pakka.PakanluojaTest) (1 ms)</li><li>napoleoninhauta.logiikka.pelialusta.JemmatTest.laitaTyhjaanJemmaanPalauttaaTrueJosKorttiLaitetaanPohjoinenJemmaan(napoleoninhauta.logiikka.pelialusta.JemmatTest) (2 ms)</li><li>napoleoninhauta.logiikka.pinot.PinoTest.palautaYlinPalauttaaPinonPaalimmaisenKortin(napoleoninhauta.logiikka.pinot.PinoTest) (1 ms)</li><li>napoleoninhauta.logiikka.pelialusta.JemmatTest.onkoKaikkiJemmatTaynnaPalauttaaFalseJosItaOnTyhja(napoleoninhauta.logiikka.pelialusta.JemmatTest) (3 ms)</li><li>napoleoninhauta.logiikka.pelialusta.JemmatTest.laitaTyhjaanJemmaanPalauttaaTrueJosKorttiLaitetaanItaJemmaan(napoleoninhauta.logiikka.pelialusta.JemmatTest) (2 ms)</li>
+</ul>
+
+<br/>
+
+Report generated by <a href='http://pitest.org'>PIT</a> 1.1.8
+
+</body>
+</html>
